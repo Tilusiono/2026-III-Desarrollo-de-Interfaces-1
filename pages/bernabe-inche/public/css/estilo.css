@@ -1,0 +1,23 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #b7cddb;
+}
+
+main {
+  flex: 1;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1050;
+  background: white;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid #212529;
+  outline-offset: 3px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!-- node_modules/bootstrap/dist//css/bootstrap.min.css -->
+        
+    <!--Boostrap ICONS-->
+    <link rel="stylesheet" href="assets/bootstrap-icons/bootstrap-icons.min.css">
+    <!-- node_modules/bootstrap-icons/font//bootstrap-icons.min.css -->
+     
+    <!--Referencia a CSS Propio-->
+    <link rel="stylesheet" href="/css/estilo.css">
+
+    <!--Referencia a JavaScript Propio-->
+    <script src="/js/clase1.js"></script>
+</head>
+
+<body>
+    <a class="visually-hidden-focusable skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="bg-secondary text-white py-3">
+        <div class="container">
+            <p class="h4 mb-1"><i class="bi bi-mortarboard" aria-hidden="true"></i> Portal de aprendizaje</p>
+            <p class="mb-0">Proyecto de interfaz con JavaScript y Bootstrap</p>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-sm bg-body-tertiary border-bottom" aria-label="Navegación principal">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Mostrar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav gap-sm-2">
+                    <li class="nav-item"><a class="nav-link" href="/inicio" data-page="inicio"><i class="bi bi-house"
+                                aria-hidden="true"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tema1" data-page="tema1"><i class="bi bi-book"
+                                aria-hidden="true"></i> Tema 1</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tema2" data-page="tema2"><i class="bi bi-lightbulb"
+                                aria-hidden="true"></i> Tema 2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4" id="contenido" tabindex="-1" aria-busy="false">
+        <h1>Cargando contenido...</h1>
+    </main>
+
+    <footer class="border-top py-3 mt-auto">
+        <div class="container text-body-secondary">Práctica de Desarrollo de Interfaces 1</div>
+    </footer>
+</body>
+
+</html>
