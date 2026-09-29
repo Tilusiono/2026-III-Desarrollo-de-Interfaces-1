@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 
 
-
+/*Java Script*/
 /*app.use('/assets/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));*/
 app.use('/assets/bootstrap-icons', express.static(path.join(__dirname, 'node_modules', 'bootstrap-icons', 'font')));
 
