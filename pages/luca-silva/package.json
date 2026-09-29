@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1/issues"
   },
-  "homepage": "https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1#readme"
+  "homepage": "https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1#readme",
+  "dependencies": {
+    "express": "file:../../npm/express-5.2.1.tgz"
+  }
 }
