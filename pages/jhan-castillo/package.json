@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "Node Server.js",
+=======
+    "start": "node Server.js",
+>>>>>>> 30e222e737b60193b9818a92737e0df40bfb5f3d
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +15,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "file:../../npm/express-5.2.1.tgz"
   }
 }
