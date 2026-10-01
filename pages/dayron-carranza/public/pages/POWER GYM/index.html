@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -152,6 +153,39 @@
         }
 
 
+        .cuenta-opciones {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .btn-cuenta {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-cuenta:hover {
+
+            color: #ffd000;
+
+        }
+
+
         .btn-unete {
 
             border: 2px solid #ffd000;
@@ -180,6 +214,216 @@
         }
 
 
+        .btn-menu {
+
+            width: 45px;
+
+            height: 45px;
+
+            border: 1px solid #333;
+
+            border-radius: 6px;
+
+            background-color: #050505;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            font-size: 25px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-menu:hover {
+
+            color: #ffd000;
+
+            border-color: #ffd000;
+
+        }
+
+
+        .menu-overlay {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background-color: rgba(0, 0, 0, 0.65);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+
+            z-index: 1100;
+
+        }
+
+
+        .menu-lateral {
+
+            position: fixed;
+
+            top: 0;
+
+            right: 0;
+
+            width: 360px;
+
+            max-width: 85%;
+
+            height: 100%;
+
+            background-color: #111;
+
+            border-left: 1px solid #292929;
+
+            padding: 35px 30px;
+
+            transform: translateX(100%);
+
+            transition: transform 0.4s ease;
+
+            z-index: 1200;
+
+            overflow-y: auto;
+
+        }
+
+
+        .menu-lateral.activo {
+
+            transform: translateX(0);
+
+        }
+
+
+        .menu-overlay.activo {
+
+            opacity: 1;
+
+            visibility: visible;
+
+        }
+
+
+        .menu-cabecera {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid #292929;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .menu-cabecera h2 {
+
+            font-size: 25px;
+
+            font-style: italic;
+
+        }
+
+
+        .menu-cabecera span {
+
+            color: #ffd000;
+
+        }
+
+
+        .btn-cerrar-menu {
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-cerrar-menu:hover {
+
+            color: #ffd000;
+
+        }
+
+
+        .menu-lateral a {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            padding: 16px 12px;
+
+            border-bottom: 1px solid #292929;
+
+            transition: 0.3s;
+
+        }
+
+
+        .menu-lateral a i {
+
+            color: #ffd000;
+
+            font-size: 20px;
+
+        }
+
+
+        .menu-lateral a:hover {
+
+            color: #ffd000;
+
+            padding-left: 20px;
+
+        }
+
+
         /* =========================
            INICIO
         ========================= */
@@ -199,7 +443,7 @@
                     rgba(0, 0, 0, 0.70)
                 ),
 
-                url("gym-fondo.png");
+                url("img/imgbanner.jpg");
 
             background-size: cover;
 
@@ -440,6 +684,18 @@
 
         }
 
+        .titulo-plan {
+
+            color: white;
+
+        }
+
+        .titulo-plan span {
+
+            color: #ffd000;
+
+        }
+
 
         /* =========================
            NOSOTROS
@@ -463,11 +719,17 @@
         }
 
 
-        .nosotros-contenido {
+        .nosotros-superior {
 
-            display: flex;
+            display: grid;
 
-            gap: 50px;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            align-items: center;
+
+            margin-bottom: 40px;
 
         }
 
@@ -501,13 +763,28 @@
         }
 
 
-        .nosotros-tarjetas {
+        .nosotros-imagen img {
 
-            flex: 1;
+            width: 100%;
+
+            height: 100%;
+
+            max-height: 380px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+        }
+
+
+        .nosotros-tarjetas {
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
 
             gap: 20px;
 
@@ -565,6 +842,34 @@
         }
 
 
+        @media (max-width: 992px) {
+
+            .nosotros-superior {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .nosotros-tarjetas {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            .nosotros-tarjetas {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
         /* =========================
            SERVICIOS
         ========================= */
@@ -574,6 +879,32 @@
             padding: 120px 8%;
 
             background-color: #050505;
+
+        }
+
+
+        .servicios-imagen {
+
+            max-width: 1200px;
+
+            margin: 0 auto 40px;
+
+        }
+
+
+        .servicios-imagen img {
+
+            width: 100%;
+
+            height: 100%;
+
+            max-height: 380px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 
         }
 
@@ -676,6 +1007,8 @@
 
         .plan {
 
+            position: relative;
+
             background-color: #151515;
 
             border: 1px solid #292929;
@@ -704,12 +1037,226 @@
 
             border: 2px solid #ffd000;
 
+            background-color: #000;
+
+            color: white;
+
+        }
+
+
+        .plan.destacado h3,
+        .plan.destacado h3 span,
+        .plan.destacado .plan-descripcion,
+        .plan.destacado .desde,
+        .plan.destacado .precio,
+        .plan.destacado .plan-condicion,
+        .plan.destacado .fidelidad,
+        .plan.destacado ul,
+        .plan.destacado ul li {
+
+            color: white;
+
+        }
+
+
+        .plan:not(.destacado) {
+
+            background-color: white;
+
+            color: #111;
+
+            border: 2px solid #ffd000;
+
+        }
+
+
+        .plan:not(.destacado) h3,
+        .plan:not(.destacado) h3 span,
+        .plan:not(.destacado) .plan-descripcion,
+        .plan:not(.destacado) .desde,
+        .plan:not(.destacado) .precio,
+        .plan:not(.destacado) .plan-condicion,
+        .plan:not(.destacado) .fidelidad,
+        .plan:not(.destacado) ul,
+        .plan:not(.destacado) ul li {
+
+            color: #111;
+
+        }
+
+
+        .plan:not(.destacado) .plan-descripcion,
+        .plan:not(.destacado) .plan-condicion,
+        .plan:not(.destacado) .fidelidad {
+
+            color: #444;
+
         }
 
 
         .plan h3 {
 
             font-size: 25px;
+
+        }
+
+
+        .plan h3 span {
+
+            color: #ffd000;
+
+        }
+
+
+        .plan-etiqueta {
+
+            position: absolute;
+
+            top: -16px;
+
+            left: -16px;
+
+            background-color: #ffd000;
+
+            color: #555;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            padding: 9px 16px;
+
+            border-radius: 20px;
+
+            z-index: 2;
+
+            margin-bottom: 0;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+
+        }
+
+        .plan-etiqueta span {
+            color: white;
+            font-weight: bold;
+        }
+
+
+        .plan-descripcion {
+
+            color: #ccc;
+
+            line-height: 1.5;
+
+            min-height: 48px;
+
+            margin: 15px 0;
+
+        }
+
+        .plan-descripcion-izquierda {
+
+            text-align: left;
+
+            background-color: transparent;
+
+            color: #cccccc;
+
+            font-weight: bold;
+
+            padding: 10px 0;
+
+            border-radius: 6px;
+
+            display: block;
+
+        }
+
+
+
+        .desde {
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-top: 15px;
+
+        }
+
+
+        .precio-oferta {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: -10px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .precio-oferta strong {
+
+            color: white;
+
+            font-size: 22px;
+
+        }
+
+
+        .precio-oferta span {
+
+            color: #ffd000;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        .plan-condicion,
+        .fidelidad {
+
+            color: #aaa;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin: 8px 0;
+
+        }
+
+
+        .plan ul {
+
+            text-align: left;
+
+        }
+
+
+        .plan ul li {
+
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .plan ul i {
+
+            margin-right: 8px;
 
         }
 
@@ -747,6 +1294,20 @@
         }
 
 
+        .plan ul li.bloqueada i {
+
+            color: red;
+
+        }
+
+
+        .plan ul li.bloqueada strong del {
+
+            color: inherit;
+
+        }
+
+
         .btn-plan {
 
             display: inline-block;
@@ -762,6 +1323,19 @@
             border-radius: 25px;
 
             font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-plan:hover {
+
+            transform: translateY(-6px) scale(1.04);
+
+            background-color: white;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 
         }
 
@@ -807,6 +1381,19 @@
             justify-content: space-between;
 
             border-radius: 8px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .horario:hover {
+
+            transform: translateY(-8px) scale(1.02);
+
+            border-color: #ffd000;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
 
         }
 
@@ -928,6 +1515,19 @@
 
             border-radius: 10px;
 
+            transition: 0.3s;
+
+        }
+
+
+        .testimonio:hover {
+
+            transform: translateY(-8px) scale(1.02);
+
+            border-color: #ffd000;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+
         }
 
 
@@ -958,6 +1558,244 @@
             margin-top: 20px;
 
             color: white;
+
+        }
+
+
+        .valoracion-contenedor {
+
+            max-width: 1000px;
+
+            margin: 60px auto 0;
+
+            background-color: #151515;
+
+            border: 1px solid #292929;
+
+            border-radius: 10px;
+
+            padding: 35px;
+
+        }
+
+
+        .valoracion-contenedor h3 {
+
+            color: #ffd000;
+
+            text-align: center;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .valoracion-contenedor > p {
+
+            color: #aaa;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .estrellas-selector {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .estrella-btn {
+
+            background: none;
+
+            border: none;
+
+            color: #555;
+
+            font-size: 38px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .estrella-btn:hover,
+        .estrella-btn.activa {
+
+            color: #ffd000;
+
+            transform: scale(1.1);
+
+        }
+
+
+        .valoracion-campo {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .valoracion-campo label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+        }
+
+
+        .valoracion-campo input,
+        .valoracion-campo textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            background-color: #080808;
+
+            border: 1px solid #333;
+
+            color: white;
+
+            border-radius: 6px;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        .valoracion-campo textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+
+        .valoracion-campo input:focus,
+        .valoracion-campo textarea:focus {
+
+            outline: none;
+
+            border-color: #ffd000;
+
+        }
+
+
+        .btn-valoracion {
+
+            display: block;
+
+            margin: auto;
+
+            padding: 13px 28px;
+
+            background-color: #ffd000;
+
+            color: #000;
+
+            border: none;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+
+        .btn-valoracion:hover {
+
+            background-color: white;
+
+            transform: scale(1.03);
+
+        }
+
+
+        .valoraciones-publicadas {
+
+            max-width: 1000px;
+
+            margin: 35px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .valoracion-publicada {
+
+            background-color: #151515;
+
+            border: 1px solid #292929;
+
+            border-radius: 10px;
+
+            padding: 25px;
+
+        }
+
+
+        .valoracion-publicada .estrellas {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .valoracion-publicada p {
+
+            color: #bbb;
+
+            line-height: 1.6;
+
+        }
+
+
+        .valoracion-publicada h4 {
+
+            margin-top: 15px;
+
+            color: white;
+
+        }
+
+
+        .sin-valoraciones {
+
+            max-width: 1000px;
+
+            margin: 30px auto 0;
+
+            text-align: center;
+
+            color: #777;
 
         }
 
@@ -1021,6 +1859,24 @@
         summary::-webkit-details-marker {
 
             display: none;
+
+        }
+
+
+        summary {
+
+            transition: 0.3s ease;
+
+        }
+
+
+        summary:hover {
+
+            transform: translateY(-4px) scale(1.01);
+
+            color: #ffd000;
+
+            text-shadow: 0 0 8px rgba(255, 208, 0, 0.35);
 
         }
 
@@ -1130,13 +1986,13 @@
 
         .contacto-grid {
 
-            max-width: 1100px;
+            max-width: 1400px;
 
             margin: auto;
 
             display: grid;
 
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr 1fr;
 
             gap: 30px;
 
@@ -1219,8 +2075,71 @@
 
             font-weight: bold;
 
+            transition: 0.3s ease;
+
         }
 
+
+        .whatsapp:hover {
+
+            transform: translateY(-5px) scale(1.05);
+
+            background-color: white;
+
+            box-shadow: 0 8px 20px rgba(255, 208, 0, 0.30);
+
+        }
+
+
+
+        .formulario-consulta-form {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+        }
+
+
+        .formulario-consulta-form .campo input,
+        .formulario-consulta-form .campo textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            background-color: #080808;
+
+            border: 1px solid #333;
+
+            color: white;
+
+            border-radius: 6px;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        .formulario-consulta-form .campo textarea {
+
+            min-height: 240px;
+
+            resize: vertical;
+
+        }
+
+
+        .formulario-consulta-form .campo input:focus,
+        .formulario-consulta-form .campo textarea:focus {
+
+            outline: none;
+
+            border-color: #ffd000;
+
+        }
 
         /* =========================
            REDES SOCIALES
@@ -1270,6 +2189,10 @@
 
             color: #000;
 
+            transform: translateY(-6px) scale(1.12);
+
+            box-shadow: 0 8px 18px rgba(255, 208, 0, 0.30);
+
         }
 
 
@@ -1310,6 +2233,15 @@
             height: 100%;
 
             border: 0;
+
+        }
+
+
+        @media (max-width: 992px) {
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
 
         }
 
@@ -1404,7 +2336,50 @@
         }
 
 
-        .campo select {
+        
+
+        input[type="file"] {
+
+            color: #ccc;
+
+            cursor: pointer;
+
+        }
+
+
+        input[type="file"]::file-selector-button {
+
+            background-color: #ffd000;
+
+            color: #000;
+
+            border: none;
+
+            padding: 10px 15px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            margin-right: 10px;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        input[type="file"]::file-selector-button:hover {
+
+            background-color: white;
+
+            transform: translateY(-3px) scale(1.05);
+
+            box-shadow: 0 6px 15px rgba(255, 208, 0, 0.30);
+
+        }
+.campo select {
 
             padding: 13px;
 
@@ -1416,6 +2391,19 @@
 
             border-radius: 6px;
 
+            transition: 0.3s ease;
+
+        }
+
+
+        .campo select:hover {
+
+            transform: translateY(-4px) scale(1.02);
+
+            border-color: #ffd000;
+
+            box-shadow: 0 6px 15px rgba(255, 208, 0, 0.25);
+
         }
 
 
@@ -1424,6 +2412,10 @@
             outline: none;
 
             border-color: #ffd000;
+
+            transform: translateY(-4px) scale(1.02);
+
+            box-shadow: 0 6px 15px rgba(255, 208, 0, 0.25);
 
         }
 
@@ -1458,6 +2450,19 @@
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .btn-registrar:hover {
+
+            transform: translateY(-5px) scale(1.03);
+
+            background-color: white;
+
+            box-shadow: 0 8px 20px rgba(255, 208, 0, 0.30);
 
         }
 
@@ -1516,40 +2521,223 @@
 
         footer {
 
-            background-color: #050505;
+            background-color: #000000;
 
-            border-top: 1px solid #292929;
+            border-top: 1px solid #333333;
+
+            color: white;
+
+            padding: 55px 8% 25px;
+
+        }
+
+
+        .footer-logo {
 
             text-align: center;
 
-            padding: 40px;
+            margin-bottom: 30px;
 
         }
 
 
-        footer i {
+        .footer-logo img {
+
+            width: 500px;
+
+            max-width: 100%;
+
+            height: auto;
+
+            display: inline-block;
+
+        }
+
+
+        .footer-linea {
+
+            width: 100%;
+
+            height: 1px;
+
+            background-color: #333333;
+
+            margin: 25px 0;
+
+        }
+
+
+        .footer-social {
+
+            text-align: center;
+
+        }
+
+
+        .footer-social h4 {
+
+            color: white;
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .footer-redes {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+        }
+
+
+        .footer-red {
+
+            width: 45px;
+
+            height: 45px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background-color: white;
+
+            color: #000000;
+
+            border-radius: 50%;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+
+        }
+
+
+        .footer-red i {
+
+            color: #000000;
+
+            font-size: 20px;
+
+        }
+
+
+        .footer-red:hover {
+
+            background-color: #ffd000;
+
+            transform: translateY(-6px) scale(1.12);
+
+            box-shadow: 0 8px 18px rgba(255, 208, 0, 0.30);
+
+        }
+
+
+        .footer-enlaces {
+
+            max-width: 900px;
+
+            margin: 35px auto 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            text-align: center;
+
+        }
+
+
+        .footer-columna h4 {
+
+            color: white;
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .footer-columna a {
+
+            display: block;
+
+            color: #ccc;
+
+            text-decoration: none;
+
+            margin-bottom: 13px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .footer-columna a:hover {
 
             color: #ffd000;
 
-            font-size: 30px;
-
         }
 
 
-        footer h3 {
+        .btn-libro-reclamaciones {
+
+            display: inline-block !important;
 
             margin-top: 10px;
 
+            padding: 12px 18px;
+
+            border: 1px solid #ffffff;
+
+            border-radius: 5px;
+
+            color: white !important;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
         }
 
 
-        footer p {
+        .btn-libro-reclamaciones:hover {
+
+            background-color: #ffd000;
+
+            border-color: #ffd000;
+
+            color: #000000 !important;
+
+        }
+
+
+        .footer-final {
+
+            text-align: center;
 
             color: #777;
 
-            margin-top: 10px;
-
             font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-top: 25px;
 
         }
 
@@ -1559,13 +2747,6 @@
         ========================= */
 
         @media (max-width: 1000px) {
-
-            nav {
-
-                display: none;
-
-            }
-
 
             .servicios-grid {
 
@@ -1786,7 +2967,34 @@
 
         }
 
-    </style>
+        /* =========================
+           FOOTER RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .footer-enlaces {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+
+            }
+
+            .footer-redes {
+
+                flex-wrap: wrap;
+
+            }
+
+        }
+
+
+    
+.precio-tachado del {
+    color: #000000;
+}
+</style>
 
 </head>
 
@@ -1811,34 +3019,99 @@
         </div>
 
 
-        <nav>
+        <div class="cuenta-opciones">
 
-            <a href="#inicio">Inicio</a>
+            <a href="#registro" class="btn-cuenta">
 
-            <a href="#nosotros">Nosotros</a>
+                Crear cuenta
 
-            <a href="#servicios">Servicios</a>
+            </a>
 
-            <a href="#membresias">Membresías</a>
+            <a href="#registro" class="btn-cuenta">
 
-            <a href="#horarios">Horarios</a>
+                Iniciar sesión
 
-            <a href="#galeria">Galería</a>
+            </a>
 
-            <a href="#contacto">Contacto</a>
+            <a href="#registro" class="btn-unete">
 
-        </nav>
+                <i class="bi bi-person"></i>
 
+                Únete ahora
 
-        <a href="#registro" class="btn-unete">
+            </a>
 
-            <i class="bi bi-person"></i>
+            <button class="btn-menu" id="btn-menu" aria-label="Abrir menú">
 
-            Únete ahora
+                <i class="bi bi-list"></i>
 
-        </a>
+            </button>
+
+        </div>
 
     </header>
+
+
+
+    <!-- =========================
+         MENÚ LATERAL
+    ========================= -->
+
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <aside class="menu-lateral" id="menu-lateral">
+
+        <div class="menu-cabecera">
+
+            <h2>
+                POWER <span>GYM</span>
+            </h2>
+
+            <button class="btn-cerrar-menu" id="btn-cerrar-menu" aria-label="Cerrar menú">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+        <a href="#inicio">
+            <i class="bi bi-house-door"></i>
+            Inicio
+        </a>
+
+        <a href="#nosotros">
+            <i class="bi bi-info-circle"></i>
+            Nosotros
+        </a>
+
+        <a href="#servicios">
+            <i class="bi bi-gear"></i>
+            Servicios
+        </a>
+
+        <a href="#membresias">
+            <i class="bi bi-credit-card"></i>
+            Membresías
+        </a>
+
+        <a href="#horarios">
+            <i class="bi bi-clock"></i>
+            Horarios
+        </a>
+
+        <a href="#galeria">
+            <i class="bi bi-images"></i>
+            Galería
+        </a>
+
+        <a href="#contacto">
+            <i class="bi bi-envelope"></i>
+            Contacto
+        </a>
+
+    </aside>
 
 
 
@@ -1977,8 +3250,7 @@
             </div>
 
 
-            <div class="nosotros-contenido">
-
+            <div class="nosotros-superior">
 
                 <div class="nosotros-texto">
 
@@ -1986,107 +3258,80 @@
                         Transformamos esfuerzo en resultados
                     </h3>
 
-
                     <p>
-
-                        En <strong>POWER GYM</strong> creemos que cada
-                        entrenamiento es una oportunidad para superarte.
-
+                        En <strong>POWER GYM</strong> creemos que cada entrenamiento es una oportunidad para superarte.
                     </p>
 
-
                     <p>
-
-                        Somos un espacio diseñado para quienes buscan
-                        mejorar su condición física, desarrollar fuerza,
-                        aumentar masa muscular y construir hábitos
-                        saludables.
-
+                        Somos un espacio diseñado para quienes buscan mejorar su condición física, desarrollar fuerza, aumentar masa muscular y construir hábitos saludables.
                     </p>
-
 
                     <a href="#registro" class="btn-plan">
-
                         ÚNETE A POWER GYM
-
                     </a>
 
                 </div>
 
 
-                <div class="nosotros-tarjetas">
+                <div class="nosotros-imagen">
+
+                    <img src="img/imgbanner2.jpg" alt="Entrenamiento en Power Gym">
+
+                </div>
+
+            </div>
 
 
-                    <div class="tarjeta">
+            <div class="nosotros-tarjetas">
 
-                        <i class="bi bi-bullseye"></i>
+                <div class="tarjeta">
 
-                        <h3>
-                            Nuestra misión
-                        </h3>
+                    <i class="bi bi-bullseye"></i>
 
-                        <p>
+                    <h3>Nuestra misión</h3>
 
-                            Brindar un espacio donde cada persona pueda
-                            desarrollar su potencial físico.
+                    <p>
+                        Brindar un espacio donde cada persona pueda desarrollar su potencial físico.
+                    </p>
 
-                        </p>
-
-                    </div>
+                </div>
 
 
-                    <div class="tarjeta">
+                <div class="tarjeta">
 
-                        <i class="bi bi-trophy"></i>
+                    <i class="bi bi-trophy"></i>
 
-                        <h3>
-                            Nuestra visión
-                        </h3>
+                    <h3>Nuestra visión</h3>
 
-                        <p>
+                    <p>
+                        Ser un gimnasio reconocido por nuestro ambiente y compromiso con nuestros miembros.
+                    </p>
 
-                            Ser un gimnasio reconocido por nuestro
-                            ambiente y compromiso con nuestros miembros.
-
-                        </p>
-
-                    </div>
+                </div>
 
 
-                    <div class="tarjeta">
+                <div class="tarjeta">
 
-                        <i class="bi bi-lightning-charge"></i>
+                    <i class="bi bi-lightning-charge"></i>
 
-                        <h3>
-                            Motivación
-                        </h3>
+                    <h3>Motivación</h3>
 
-                        <p>
+                    <p>
+                        Creamos un ambiente enfocado en disciplina, esfuerzo y progreso.
+                    </p>
 
-                            Creamos un ambiente enfocado en disciplina,
-                            esfuerzo y progreso.
-
-                        </p>
-
-                    </div>
+                </div>
 
 
-                    <div class="tarjeta">
+                <div class="tarjeta">
 
-                        <i class="bi bi-graph-up-arrow"></i>
+                    <i class="bi bi-graph-up-arrow"></i>
 
-                        <h3>
-                            Progreso
-                        </h3>
+                    <h3>Progreso</h3>
 
-                        <p>
-
-                            Cada entrenamiento representa un paso más
-                            hacia tus objetivos.
-
-                        </p>
-
-                    </div>
+                    <p>
+                        Cada entrenamiento representa un paso más hacia tus objetivos.
+                    </p>
 
                 </div>
 
@@ -2095,7 +3340,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -2115,6 +3359,13 @@
             <p>
                 Todo lo necesario para mejorar tu entrenamiento
             </p>
+
+        </div>
+
+
+        <div class="servicios-imagen">
+
+            <img src="img/imgbanner3.jpg" alt="Servicios de POWER GYM">
 
         </div>
 
@@ -2209,12 +3460,12 @@
 
             <i class="bi bi-credit-card"></i>
 
-            <h2>
-                Membresías
+            <h2 class="titulo-plan">
+                ELIGE TU <span>PLAN</span>
             </h2>
 
             <p>
-                Elige el plan que se adapte a tus objetivos
+                ¡Comienza a entrenar con nosotros! Elige el plan que quieras y nos vemos en la sede de tu preferencia.
             </p>
 
         </div>
@@ -2222,120 +3473,201 @@
 
         <div class="planes">
 
-
-            <div class="plan">
-
-                <h3>
-                    BÁSICO
-                </h3>
-
-                <div class="precio">
-                    S/ 70
-                </div>
-
-                <ul>
-
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Acceso al gimnasio
-                    </li>
-
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Uso de máquinas
-                    </li>
-
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Horario libre
-                    </li>
-
-                </ul>
-
-
-                <a href="#registro" class="btn-plan">
-                    ELEGIR PLAN
-                </a>
-
-            </div>
-
-
-
             <div class="plan destacado">
 
-                <h3>
-                    ESTÁNDAR
-                </h3>
-
-                <div class="precio">
-                    S/ 100
+                <div class="plan-etiqueta">
+                    El más <span>ventajoso</span>
                 </div>
 
-                <ul>
+                <h3>
+                    Plan <span>Black</span>
+                </h3>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Acceso al gimnasio
-                    </li>
+                <p class="plan-descripcion plan-descripcion-izquierda">
+                    Entrena en cualquiera de nuestras sedes de Perú y Latinoamérica
+                </p>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Rutina personalizada
-                    </li>
+                <div class="desde">
+                    DESDE
+                </div>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Monitoreo de progreso
-                    </li>
+                <div class="precio">
+                    <del>S/ 129,90</del>
+                </div>
 
-                </ul>
+                <div class="precio-oferta">
+                    <strong style="color: #ffffff;">S/ 19,90*</strong>
+                    <span>84% OFF</span>
+                </div>
 
+                <p class="plan-condicion">
+                    <strong>mensual por 2 meses</strong>, después S/ 129,90/mes
+                </p>
 
-                <a href="#registro" class="btn-plan">
-                    ELEGIR PLAN
+                <p class="fidelidad">
+                    12 meses de fidelidad
+                </p>
+
+                <a href="https://www.smartfit.com.pe/gimnasios" class="btn-plan" target="_blank">
+                    ¡Inscríbete ya!
                 </a>
 
+                <ul>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Entrena en todos los gimnasios de Smart Fit en Perú y Latinoamérica (+2.000)</del></strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Acceso ilimitado a todas las áreas de peso libre e integrado - Máquinas, pesas, discos y barras</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Clases grupales con profesores - Actívate, baila y relájate</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Smart Fit App - Tu plan de entrenamiento personalizado</strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Relájate en los sillones de masajes</del></strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>5 invitados al mes en el gimnasio que quieras</del></strong>
+                    </li>
+                </ul>
+
             </div>
-
-
 
             <div class="plan">
 
                 <h3>
-                    PREMIUM
+                    Plan <span>Fit</span>
                 </h3>
 
-                <div class="precio">
-                    S/ 150
+                <p class="plan-descripcion" style="text-align: left; color: #333333;">
+                    Entrena cuando quieras en tu gimnasio de elección
+                </p>
+
+                <div class="desde">
+                    DESDE
                 </div>
 
-                <ul>
+                <div class="precio precio-tachado">
+                    <del>S/ 89,90</del>
+                </div>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Acceso al gimnasio
-                    </li>
+                <div class="precio-oferta">
+                    <strong style="color: #000000;">S/ 19,90*</strong>
+                    <span>77% OFF</span>
+                </div>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Coach personalizado
-                    </li>
+                <p class="plan-condicion">
+                    <strong>mensual por 2 meses</strong>, después S/ 89,90/mes
+                </p>
 
-                    <li>
-                        <i class="bi bi-check"></i>
-                        Guía online
-                    </li>
+                <p class="fidelidad">
+                    12 meses de fidelidad
+                </p>
 
-                </ul>
-
-
-                <a href="#registro" class="btn-plan">
-                    ELEGIR PLAN
+                <a href="https://www.smartfit.com.pe/gimnasios" class="btn-plan" target="_blank">
+                    ¡Inscríbete ya!
                 </a>
+
+                <ul>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Entrena en todos los gimnasios de Smart Fit en Perú y Latinoamérica (+2.000)</del></strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Acceso ilimitado a todas las áreas de peso libre e integrado - Máquinas, pesas, discos y barras</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Clases grupales con profesores - Actívate, baila y relájate</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Smart Fit App - Tu plan de entrenamiento personalizado</strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Relájate en los sillones de masajes</del></strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>5 invitados al mes en el gimnasio que quieras</del></strong>
+                    </li>
+                </ul>
 
             </div>
 
-        </div>
+            <div class="plan">
+
+                <h3>
+                    Plan <span>Smart</span>
+                </h3>
+
+                <p class="plan-descripcion" style="text-align: left; color: #333333;">
+                    Entrena cuando quieras en la sede que elijas
+                </p>
+
+                <div class="desde">
+                    DESDE
+                </div>
+
+                <div class="precio precio-tachado">
+                    <del>S/ 99,90</del>
+                </div>
+
+                <div class="precio-oferta">
+                    <strong style="color: #000000;">S/ 19,90*</strong>
+                    <span>80% OFF</span>
+                </div>
+
+                <p class="plan-condicion">
+                    <strong>mensual por 2 meses</strong>, después S/ 99,90/mes
+                </p>
+
+                <p class="fidelidad">
+                    Sin fidelidad
+                </p>
+
+                <a href="https://www.smartfit.com.pe/gimnasios" class="btn-plan" target="_blank">
+                    ¡Inscríbete ya!
+                </a>
+
+                <ul>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Entrena en todos los gimnasios de Smart Fit en Perú y Latinoamérica (+2.000)</del></strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Acceso ilimitado a todas las áreas de peso libre e integrado - Máquinas, pesas, discos y barras</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Clases grupales con profesores - Actívate, baila y relájate</strong>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <strong>Smart Fit App - Tu plan de entrenamiento personalizado</strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>Relájate en los sillones de masajes</del></strong>
+                    </li>
+                    <li class="bloqueada">
+                        <i class="bi bi-lock-fill"></i>
+                        <strong><del>5 invitados al mes en el gimnasio que quieras</del></strong>
+                    </li>
+                </ul>
+
+            </div>
 
     </section>
 
@@ -2582,6 +3914,47 @@
             </div>
 
         </div>
+
+
+        <div class="valoracion-contenedor">
+
+            <h3>Califica POWER GYM</h3>
+
+            <p>Comparte tu experiencia y ayuda a otros a conocer nuestro gimnasio.</p>
+
+            <form id="formulario-valoracion">
+
+                <div class="estrellas-selector" aria-label="Selecciona una calificación de 1 a 5 estrellas">
+
+                    <button type="button" class="estrella-btn" data-estrella="1" aria-label="1 estrella">★</button>
+                    <button type="button" class="estrella-btn" data-estrella="2" aria-label="2 estrellas">★</button>
+                    <button type="button" class="estrella-btn" data-estrella="3" aria-label="3 estrellas">★</button>
+                    <button type="button" class="estrella-btn" data-estrella="4" aria-label="4 estrellas">★</button>
+                    <button type="button" class="estrella-btn" data-estrella="5" aria-label="5 estrellas">★</button>
+
+                </div>
+
+                <div class="valoracion-campo">
+                    <label for="nombre-valoracion">Nombre</label>
+                    <input type="text" id="nombre-valoracion" placeholder="Escribe tu nombre" required>
+                </div>
+
+                <div class="valoracion-campo">
+                    <label for="comentario-valoracion">Comentario</label>
+                    <textarea id="comentario-valoracion" placeholder="Cuéntanos tu experiencia en POWER GYM" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-valoracion">
+                    <i class="bi bi-star-fill"></i>
+                    Publicar valoración
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div id="valoraciones-publicadas" class="valoraciones-publicadas"></div>
 
     </section>
 
@@ -2901,6 +4274,39 @@
                     </a>
 
                 </div>
+
+            </div>
+
+
+            <div class="contacto-card formulario-consulta">
+
+                <h3>
+                    Formulario de consulta
+                </h3>
+
+                <form class="formulario-consulta-form" action="mailto:dayron.ccc.pa@gmail.com" method="post" enctype="text/plain">
+
+                    <div class="campo">
+                        <label for="consulta-nombre">Nombre completo:</label>
+                        <input type="text" id="consulta-nombre" name="Nombre completo" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="consulta-correo">Correo electrónico</label>
+                        <input type="email" id="consulta-correo" name="Correo electrónico" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="consulta-asunto">Asunto de consulta:</label>
+                        <input type="text" id="consulta-asunto" name="Asunto de consulta" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="consulta-mensaje">Tu mensaje:</label>
+                        <textarea id="consulta-mensaje" name="Tu mensaje" rows="10" required></textarea>
+                    </div>
+
+                </form>
 
             </div>
 
@@ -3226,22 +4632,280 @@
 
     <footer>
 
-        <i class="bi bi-barbell"></i>
+        <div class="footer-logo">
 
-        <h3>
-            POWER GYM
-        </h3>
+            <img src="img/logo.jpg" alt="Logo de POWER GYM">
 
-        <p>
-            Tu fuerza. Tu disciplina. Tu transformación.
-        </p>
+        </div>
 
-        <p>
-            © 2026 POWER GYM. Todos los derechos reservados.
-        </p>
+        <div class="footer-linea"></div>
+
+        <div class="footer-social">
+
+            <h4>
+                Síguenos
+            </h4>
+
+            <div class="footer-redes">
+
+                <a href="https://www.facebook.com/DayronChristianCarranza" target="_blank" rel="noopener noreferrer" class="footer-red" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="https://www.instagram.com/i_chris_dc/" target="_blank" rel="noopener noreferrer" class="footer-red" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="#" class="footer-red" aria-label="YouTube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@i_am_chris.dc" target="_blank" rel="noopener noreferrer" class="footer-red" aria-label="TikTok">
+                    <i class="bi bi-tiktok"></i>
+                </a>
+
+                <a href="#" class="footer-red" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-linea"></div>
+
+        <div class="footer-enlaces">
+
+            <div class="footer-columna">
+
+                <h4>
+                    POWER GYM
+                </h4>
+
+                <a href="#nosotros">¿Quiénes somos?</a>
+                <a href="#contacto">Habla con nosotros</a>
+                <a href="#faq">FAQ</a>
+                <a href="#">Política de datos personales</a>
+                <a href="#">Términos y condiciones</a>
+
+                <a href="#" class="btn-libro-reclamaciones">
+                    <i class="bi bi-book"></i>
+                    Libro de Reclamaciones
+                </a>
+
+            </div>
+
+
+            <div class="footer-columna">
+
+                <h4>
+                    Servicios y Planes
+                </h4>
+
+                <a href="#servicios">Conoce nuestros servicios</a>
+                <a href="#servicios">Entrenamiento personalizado</a>
+                <a href="#servicios">Guía online</a>
+                <a href="#membresias">Promociones del mes</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-linea"></div>
+
+        <div class="footer-final">
+
+            <p>
+                Tu fuerza. Tu disciplina. Tu transformación.
+            </p>
+
+            <p>
+                © 2026 POWER GYM. Todos los derechos reservados.
+            </p>
+
+        </div>
 
     </footer>
 
+
+
+    <!-- =========================
+         VALORACIONES
+    ========================= -->
+
+    <script>
+
+        const estrellasBotones = document.querySelectorAll(".estrella-btn");
+        const formularioValoracion = document.getElementById("formulario-valoracion");
+        const contenedorValoraciones = document.getElementById("valoraciones-publicadas");
+
+        let calificacionSeleccionada = 0;
+
+        estrellasBotones.forEach((boton) => {
+
+            boton.addEventListener("click", () => {
+
+                calificacionSeleccionada = Number(boton.dataset.estrella);
+
+                estrellasBotones.forEach((otraEstrella) => {
+
+                    otraEstrella.classList.toggle(
+                        "activa",
+                        Number(otraEstrella.dataset.estrella) <= calificacionSeleccionada
+                    );
+
+                });
+
+            });
+
+        });
+
+
+        function mostrarValoraciones() {
+
+            const valoraciones = JSON.parse(
+                localStorage.getItem("powerGymValoraciones") || "[]"
+            );
+
+            contenedorValoraciones.innerHTML = "";
+
+            if (valoraciones.length === 0) {
+
+                contenedorValoraciones.innerHTML =
+                    '<p class="sin-valoraciones">Todavía no hay valoraciones publicadas. ¡Sé el primero en calificar!</p>';
+
+                return;
+
+            }
+
+            valoraciones.slice().reverse().forEach((valoracion) => {
+
+                const tarjeta = document.createElement("div");
+                tarjeta.className = "valoracion-publicada";
+
+                const estrellas = document.createElement("div");
+                estrellas.className = "estrellas";
+                estrellas.textContent = "★".repeat(valoracion.estrellas) + "☆".repeat(5 - valoracion.estrellas);
+
+                const comentario = document.createElement("p");
+                comentario.textContent = valoracion.comentario;
+
+                const nombre = document.createElement("h4");
+                nombre.textContent = "— " + valoracion.nombre;
+
+                tarjeta.appendChild(estrellas);
+                tarjeta.appendChild(comentario);
+                tarjeta.appendChild(nombre);
+
+                contenedorValoraciones.appendChild(tarjeta);
+
+            });
+
+        }
+
+
+        formularioValoracion.addEventListener("submit", (evento) => {
+
+            evento.preventDefault();
+
+            if (calificacionSeleccionada === 0) {
+
+                alert("Selecciona una cantidad de estrellas antes de publicar tu valoración.");
+                return;
+
+            }
+
+            const nombre = document.getElementById("nombre-valoracion").value.trim();
+            const comentario = document.getElementById("comentario-valoracion").value.trim();
+
+            const valoraciones = JSON.parse(
+                localStorage.getItem("powerGymValoraciones") || "[]"
+            );
+
+            valoraciones.push({
+                nombre: nombre,
+                comentario: comentario,
+                estrellas: calificacionSeleccionada
+            });
+
+            localStorage.setItem(
+                "powerGymValoraciones",
+                JSON.stringify(valoraciones)
+            );
+
+            formularioValoracion.reset();
+            calificacionSeleccionada = 0;
+
+            estrellasBotones.forEach((estrella) => {
+                estrella.classList.remove("activa");
+            });
+
+            mostrarValoraciones();
+
+            alert("¡Gracias por valorar POWER GYM!");
+
+        });
+
+
+        mostrarValoraciones();
+
+    </script>
+
+
+    <!-- =========================
+         MENÚ LATERAL
+    ========================= -->
+
+    <script>
+
+        const btnMenu = document.getElementById("btn-menu");
+        const btnCerrarMenu = document.getElementById("btn-cerrar-menu");
+        const menuLateral = document.getElementById("menu-lateral");
+        const menuOverlay = document.getElementById("menu-overlay");
+        const enlacesMenu = menuLateral.querySelectorAll("a");
+
+
+        function abrirMenu() {
+
+            menuLateral.classList.add("activo");
+            menuOverlay.classList.add("activo");
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function cerrarMenu() {
+
+            menuLateral.classList.remove("activo");
+            menuOverlay.classList.remove("activo");
+            document.body.style.overflow = "";
+
+        }
+
+
+        btnMenu.addEventListener("click", abrirMenu);
+        btnCerrarMenu.addEventListener("click", cerrarMenu);
+        menuOverlay.addEventListener("click", cerrarMenu);
+
+
+        enlacesMenu.forEach((enlace) => {
+
+            enlace.addEventListener("click", cerrarMenu);
+
+        });
+
+
+        document.addEventListener("keydown", (evento) => {
+
+            if (evento.key === "Escape") {
+
+                cerrarMenu();
+
+            }
+
+        });
+
+    </script>
 
 
     <!-- =========================
