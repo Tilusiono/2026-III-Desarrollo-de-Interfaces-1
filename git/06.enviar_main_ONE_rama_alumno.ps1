@@ -17,10 +17,10 @@ git rm -r --ignore-unmatch pages
 
 # 4. TRAER SOLO lo permitido (NO usar ".")
 git checkout main -- $path
-git checkout main -- npm
+git checkout main -- npm profile
 
 # 5. agregar SOLO lo necesario
-git add $path npm
+git add $path npm profile
 
 # 6. commit
 if (git status --porcelain) {
