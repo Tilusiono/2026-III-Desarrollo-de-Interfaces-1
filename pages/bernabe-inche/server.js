@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const app = express();
-const PORT = process.env.PORT || 5485;
+const PORT = process.env.PORT || 18181;
 
 
 
@@ -14,10 +14,6 @@ app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
-});
-
-app.get('/inicio', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/inicio.html'));
 });
 
 app.get('/tema1', (req, res) => {
