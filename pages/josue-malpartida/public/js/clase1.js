@@ -1,10 +1,13 @@
-console.log("demo");
+function obtenerValores(NombreFormulario) {
+    const datosObtenidos = new FormData(NombreFormulario)
+    return Object.freeze({
+        nombre: String(datosObtenidos.get("nombre").trim().toUpperCase()),
+        apellidos: String(datosObtenidos.get("apellidos").trim().toUpperCase()),
+        correoElectronico: String(datosObtenidos.get("correo").trim().toUpperCase()),
+        nroContacto: Numbre(datosObtenidos.get("telefono").trim().toUpperCase()),
+        fechaNacimiento: String(datosObtenidos.get("fechaNaciemiento").trim().toUpperCase()),
+        genero: String(datosObtenidos.get("genero").trim().toUpperCase()),
+        mensaje: String(datosObtenidos.get("mensaje").trim().toUpperCase())
 
-let numero = 1;
-var numero1= 2;
-const numero2 = 3;
-
-
-console.log(numero)
-console.log(numero1)
-console.log(numero2)
+    })
+}
