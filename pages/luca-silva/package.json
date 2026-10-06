@@ -1,23 +1,18 @@
 {
-  "name": "2026-iii-desarrollo-de-interfaces-1",
+  "name": "luca-silva",
   "version": "1.0.0",
-  "description": "2026-III-Desarrollo-de-Interfaces-1",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1.git"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1/issues"
-  },
-  "homepage": "https://github.com/Tilusiono/2026-III-Desarrollo-de-Interfaces-1#readme",
+  "type": "commonjs",
   "dependencies": {
+    "@popperjs/core": "file:../../npm/popperjs-core-2.11.8.tgz",
+    "bootstrap": "file:../../npm/bootstrap-5.3.8.tgz",
+    "bootstrap-icons": "file:../../npm/bootstrap-icons-1.13.1.tgz",
     "express": "file:../../npm/express-5.2.1.tgz"
   }
 }

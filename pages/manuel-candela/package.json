@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -10,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@popperjs/core": "file:../../npm/popperjs-core-2.11.8.tgz",
     "bootstrap": "file:../../npm/bootstrap-5.3.8.tgz",
     "bootstrap-icons": "file:../../npm/bootstrap-icons-1.13.1.tgz",
     "express": "file:../../npm/express-5.2.1.tgz"
