@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('node:path');
 const app = express();
-const PORT = process.env.PORT || 5445;
+const PORT = process.env.PORT || 5051;
 
 
 
 
-app.use('/assets/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));
-app.use('/assets/bootstrap-icons', express.static(path.join(__dirname, 'node_modules', 'bootstrap-icons', 'font')));
+//app.use('/assets/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));
+//app.use('/assets/bootstrap-icons', express.static(path.join(__dirname, 'node_modules', 'bootstrap-icons', 'font')));
 
 const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
