@@ -2,12 +2,61 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="=viewport" content="width=device-width, initial-scale=1-0">
-    <title>Mi página web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="js/clase1.js"></script>
 </head>
 <body>
-    <h1>Hola mundo</h1>
-    <p>Conocerán distintas prendas de ropa</p>
+
+    <h1>Formulario de registro</h1>
+
+    <form id="formularioRegistro">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <br><br>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido">
+
+        <br><br>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo">
+
+        <br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <br><br>
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+
+        <br><br>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="">Seleccione una opción</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select>
+
+        <br><br>
+
+        <label for="mensaje">Mensaje:</label>
+        <br>
+        <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea>
+
+        <br><br>
+
+        <button type="submit" id="btnEnviar">Enviar</button>
+        <button type="reset" id="btnLimpiar">Limpiar</button>
+
+    </form>
 
 </body>
 </html>
