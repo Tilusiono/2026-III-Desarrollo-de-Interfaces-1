@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
+    <script src="js/CLASE_01.js"></script>
 </head>
 <body>
 
@@ -12,27 +13,27 @@
     <form id="formularioRegistro">
 
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" value="Jhan" name="nombre">
 
         <br><br>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido">
+        <input type="text" id="apellido" value="Castillo" name="apellido">
 
         <br><br>
 
         <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="correo" value="at61588777@idat.pe" name="correo">
 
         <br><br>
 
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+        <input type="tel" id="telefono" value="905493210" name="telefono">
 
         <br><br>
 
         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+        <input type="date" id="fechaNacimiento" value="2009-03-28" name="fechaNacimiento">
 
         <br><br>
 
@@ -56,6 +57,23 @@
         <button type="reset" id="btnLimpiar">Limpiar</button>
 
     </form>
+
+    <section id="resultadoFormulario" aria-live="polite" hidden>
+        <h2>Datos obtenidos del formulario</h2>
+ 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                    <th>Tipo JavaScript</th>
+                </tr>
+            </thead>
+ 
+            <tbody id="cuerpoResultado">
+            </tbody>
+        </table>
+    </section>
 
 </body>
 </html>
