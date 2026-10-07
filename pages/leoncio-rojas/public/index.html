@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
-    <script src="js/clase1.js"></script>
+    <script src="js/clase1.js" defer></script>
 </head>
 <body>
 
@@ -13,27 +13,27 @@
     <form id="formularioRegistro">
 
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" value="CZ">
 
         <br><br>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido">
+        <input type="text" id="apellido" name="apellido" value="Ingeniero">
 
         <br><br>
 
         <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="correo" name="correo" value="correo@gmail.com">
 
         <br><br>
 
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+        <input type="tel" id="telefono" name="telefono" value="+51 987 654 321">
 
         <br><br>
 
         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="1999-12-31" value="01" >
 
         <br><br>
 
@@ -47,16 +47,43 @@
 
         <br><br>
 
-        <label for="mensaje">Mensaje:</label>
+        <label for="mensaje">Mensaje: </label>
         <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea>
+        <textarea id="mensaje" name="mensaje"  rows="5" cols="40"  value>Es el mensaje </textarea>
+
+        <label for="numero1">Numero1:</label>
+        <input type="text" id="nombre" name="nombre" value="CZ"> 
+
+        <label for="numero2">Numero2:</label>
+        <input type="text" id="nombre" name="nombre" value="CZ">
+        
 
         <br><br>
 
         <button type="submit" id="btnEnviar">Enviar</button>
         <button type="reset" id="btnLimpiar">Limpiar</button>
 
-    </form>
 
+    </form>
+    <section id="resultadoFormulario" aria-live="polite" hidden>
+        <h2>Datos obtenidos del formulario</h2>
+ 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                    <th>Tipo JavaScript</th>
+                </tr>
+            </thead>
+ 
+            <tbody id="cuerpoResultado">
+            </tbody>
+        </table>
+        <table>
+
+        </table>
+    </section>
+    <script src="js/clase1.js" defer></script>
 </body>
 </html>
