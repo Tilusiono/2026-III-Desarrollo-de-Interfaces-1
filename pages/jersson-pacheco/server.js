@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
+app.get('/formulario', (req, res) => {
+  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
+});
+
 app.get('/inicio', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/inicio.html'));
 });
