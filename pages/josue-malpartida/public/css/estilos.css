@@ -1,0 +1,97 @@
+/* Variables CSS */
+:root {
+    --color-principal: #0d6efd;
+    --color-fondo: #f2f5f9;
+    --color-texto: #212529;
+    --radio-borde: 12px;
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--color-fondo) !important;
+    color: var(--color-texto);
+    font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+body > header {
+    background: linear-gradient(135deg, #0d6efd, #084298) !important;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+}
+
+/* Tarjetas */
+.card {
+    border: none;
+    border-radius: var(--radio-borde);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.25rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Etiquetas */
+.form-label {
+    font-weight: 600;
+    color: #343a40;
+}
+
+/* Campos del formulario */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 0.7rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* Efecto al seleccionar un campo */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 0.2rem rgb(13 110 253 / 15%);
+}
+
+/* Botones */
+.btn {
+    border-radius: 8px;
+    padding: 0.65rem 1.2rem;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Tabla */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table caption {
+    color: #6c757d;
+}
+
+/* Pie de página */
+body > footer {
+    margin-top: 2rem;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
