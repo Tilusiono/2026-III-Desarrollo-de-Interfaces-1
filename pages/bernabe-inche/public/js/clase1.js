@@ -22,6 +22,9 @@ function procesarFormulario(evento) {
 
     // Utilizar nuestra función con FormData.
     const valoresObtenidos = obtenerValores(formularioRegistro);
+
+    
+
     imprimirDatosConsola(valoresObtenidos);  
     imprimirDatosHTML(valoresObtenidos);
 }
