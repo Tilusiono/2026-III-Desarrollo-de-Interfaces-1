@@ -13,11 +13,11 @@ const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(publicPath, 'formulario.html'));
 });
 
 app.get('/inicio', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/inicio.html'));
+  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
 });
 
 app.get('/tema1', (req, res) => {
