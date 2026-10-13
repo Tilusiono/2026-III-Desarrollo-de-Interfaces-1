@@ -26,6 +26,14 @@ app.get('/tema2', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/tema2.html'));
 });
 
+app.get('/DEMOPRUEBA', (req, res) => {
+  res.sendFile(path.join(publicPath, 'docs/demo.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}/formulario`);
 });
