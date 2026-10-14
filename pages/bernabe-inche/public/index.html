@@ -4,82 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <script src="js/clase1.js" defer></script>
+
+    <title>Desarrollo de Interfaces</title>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 
 <body>
 
-    <h1>Formulario de registro</h1>
+    <header class="encabezado">
+        <nav class="navbar navbar-dark container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-code-slash"></i>
+                Desarrollo de Interfaces 1
+            </a>
+        </nav>
+    </header>
 
-    <form id="formularioRegistro">
+    <main class="container py-5">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="bernabe" pattern="[A-Za-z\s]+"
-            title="Solo se permiten letras y espacios.">
+        <section class="text-center mb-5">
+            <h1>Menú principal</h1>
+            <p class="text-secondary">
+                Selecciona una actividad para continuar.
+            </p>
+        </section>
 
-        <br><br>
+        <section class="row g-4">
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="inche" pattern="[A-Za-z\s]+"
-            title="Solo se permiten letras y espacios.">
+            <article class="col-12 col-md-6 col-lg-4">
+                <section class="card tarjeta h-100">
+                    <header class="card-body">
+                        <i class="bi bi-person-lines-fill icono"></i>
+                        <h2 class="h5 mt-3">Formulario de registro</h2>
+                        <p>
+                            Práctica de formularios HTML5,
+                            validaciones y JavaScript.
+                        </p>
+                        <a href="/formulario" class="btn btn-primary">
+                            Ir al formulario
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </header>
+                </section>
+            </article>
 
-        <br><br>
+            <article class="col-12 col-md-6 col-lg-4">
+                <section class="card tarjeta h-100">
+                    <header class="card-body">
+                        <i class="bi bi-palette icono"></i>
+                        <h2 class="h5 mt-3">Tema 1</h2>
+                        <p>
+                            Consulta la primera práctica
+                            de desarrollo de interfaces.
+                        </p>
+                        <a href="/pages/tema1.html" class="btn btn-outline-primary">
+                            Ver tema 1
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
 
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" value="bernabe.inche@idat.com">
+                         <a href="/DEMOPRUEBA" class="btn btn-outline-primary">
+                          DEMO CON RUTA
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
 
-        <br><br>
+                            <a href="/docs/demo.html" class="btn btn-outline-primary">
+                          DEMO CON HTML
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </header>
+                </section>
+            </article>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" value="987654321" maxlength="9" pattern="[0-9]{9}">
+        </section>
 
-        <br><br>
+    </main>
 
-        <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="1993-08-18" pattern="\d{4}-\d{2}-\d{2}"
-            title="Formato: AAAA-MM-DD">
+    <footer class="pie-pagina text-center py-3">
+        <p class="mb-0">
+            Desarrollo de Interfaces &copy; 2026
+        </p>
+    </footer>
 
-        <br><br>
-
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero">
-            <option value="">Seleccione una opción</option>
-            <option value="M" selected>Masculino</option>
-            <option value="F">Femenino</option>
-            <option value="X">Otro</option>
-        </select>
-
-        <br><br>
-
-        <label for="mensaje">Mensaje:</label>
-        <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40" pattern=".*"
-            title="Este campo es obligatorio."> Estoy interesado en el servicio.</textarea>
-
-        <br><br>
-
-        <button type="submit" id="btnEnviar">Enviar</button>
-        <button type="reset" id="btnLimpiar">Limpiar</button>
-
-    </form>
-    
-    <section id="resultadoFormulario" aria-live="polite" hidden>
-        <h2>Datos obtenidos del formulario</h2>
-
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                    <th>Tipo JavaScript</th>
-                </tr>
-            </thead>
-
-            <tbody id="cuerpoResultado">
-            </tbody>
-        </table>
-    </section>
 </body>
 
 </html>

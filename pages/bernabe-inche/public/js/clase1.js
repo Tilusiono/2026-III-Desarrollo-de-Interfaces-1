@@ -22,6 +22,9 @@ function procesarFormulario(evento) {
 
     // Utilizar nuestra función con FormData.
     const valoresObtenidos = obtenerValores(formularioRegistro);
+
+    
+
     imprimirDatosConsola(valoresObtenidos);  
     imprimirDatosHTML(valoresObtenidos);
 }
@@ -47,9 +50,7 @@ function limpiarFormulario() {
 }
 
 // Buscar el formulario en el DOM.
-const formularioRegistro = document.querySelector(
-    "#formularioRegistro"
-);
+const formularioRegistro = document.querySelector("#formularioRegistro");
 
 if (!formularioRegistro) {
     throw new Error("No se encontró el formulario #formularioRegistro");
@@ -133,4 +134,3 @@ function imprimirDatosHTML(valores) {
 
 //Ctrl + Shift + P
 //Debug: Open Link
-
