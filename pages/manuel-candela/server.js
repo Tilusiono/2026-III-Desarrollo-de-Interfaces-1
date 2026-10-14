@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 
 
@@ -25,6 +25,14 @@ app.get('/tema1', (req, res) => {
 });
 app.get('/tema2', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/tema2.html'));
+});
+
+app.get('/formulario', (req, res) => {
+  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
+});
+
+app.get('/index 1', (req, res) => {
+  res.sendFile(path.join(publicPath, 'pages/index 1.html'));
 });
 
 app.listen(PORT, ()=>{
