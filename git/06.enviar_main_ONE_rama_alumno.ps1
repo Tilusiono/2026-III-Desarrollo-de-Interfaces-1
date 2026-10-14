@@ -17,18 +17,19 @@ git rm -r --ignore-unmatch pages
 
 # 4. TRAER SOLO lo permitido (NO usar ".")
 git checkout main -- $path
-git checkout main -- npm profile
+git checkout main -- npm profile demo docs
 
 # 5. agregar SOLO lo necesario
-git add $path npm profile
+git add $path npm profile demo docs
 
 # 6. commit
 if (git status --porcelain) {
     git commit -m "Sincronizar branch -> $branch desde main"
     git push origin $branch
     Write-Host "✔ $branch actualizado"
-}else{
-     Write-Host "⏭ Sin cambios en $branch"
+}
+else {
+    Write-Host "⏭ Sin cambios en $branch"
 }
 
 # 7. volver a main

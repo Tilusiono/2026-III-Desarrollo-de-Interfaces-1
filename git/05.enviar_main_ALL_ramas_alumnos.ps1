@@ -24,10 +24,10 @@ foreach ($student in $branches) {
 
     # 🔥 traer SOLO lo permitido desde main
     git checkout main -- $path
-    git checkout main -- npm profile
+    git checkout main -- npm profile docs demo
 
     # agregar SOLO lo necesario
-    git add $path npm profile
+    git add $path npm profile docs demo
 
     # commit si hay cambios
     if (git status --porcelain) {

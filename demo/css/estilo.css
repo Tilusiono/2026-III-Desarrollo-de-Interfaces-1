@@ -1,0 +1,33 @@
+/* Respaldo visual: el formulario funciona también sin los assets de Bootstrap. */
+* { box-sizing: border-box; }
+body { margin: 0; color: #24324a; background: #f4f6fa; font-family: system-ui, sans-serif; }
+.container { width: min(1200px, 94%); margin: auto; }
+body > header { background: #0d6efd; color: white; padding: 24px 0; }
+main { padding: 24px 0; }
+.card { background: white; border: 1px solid #dbe1eb; border-radius: 8px; margin-bottom: 24px; overflow: hidden; }
+.card-header, .card-body { padding: 20px; }
+.card-header { border-bottom: 1px solid #dbe1eb; }
+h1, h2 { margin: 0 0 8px; }
+fieldset { border: 0; padding: 0; margin: 0; }
+.mb-3, .mb-4 { margin-bottom: 16px; }
+label { display: block; margin-bottom: 6px; }
+input, select, textarea { width: 100%; padding: 10px; border: 1px solid #aeb9ca; border-radius: 5px; font: inherit; }
+small { font-size: 0.85em; }
+.form-text { display: block; color: #596579; margin-top: 4px; }
+button { padding: 10px 16px; border: 1px solid #0d6efd; border-radius: 5px; cursor: pointer; font: inherit; }
+.btn-primary { background: #0d6efd; color: white; }
+.btn-outline-secondary { background: white; color: #34445c; border-color: #768399; }
+.d-flex { display: flex; gap: 8px; flex-wrap: wrap; }
+.table-responsive { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+caption { text-align: left; padding: 0 0 12px; color: #596579; }
+th, td { padding: 12px; border: 1px solid #dbe1eb; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+thead { background: #24324a; color: white; }
+tbody tr:nth-child(even) { background: #f4f6fa; }
+footer { background: #212529; color: white; text-align: center; padding: 16px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+#estadoRegistro { min-height: 1.5em; }
+
+[hidden] { display: none !important; }
+.campos-rol { margin: 20px 0; padding: 16px; border: 1px solid #dbe1eb; border-radius: 6px; background: #f4f6fa; }
+.campos-rol legend { font-weight: 600; }
