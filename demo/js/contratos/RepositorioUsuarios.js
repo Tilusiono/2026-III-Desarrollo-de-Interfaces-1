@@ -13,4 +13,8 @@ export class RepositorioUsuarios {
     listar() {
         throw new Error("Debe implementar listar().");
     }
+    
+    listar(genero) {
+        throw new Error("Debe implementar listar().");
+    }
 }

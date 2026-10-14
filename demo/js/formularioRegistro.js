@@ -16,10 +16,12 @@ const fabrica = new FabricaUsuarios({
 });
 const repositorio = new RepositorioUsuariosMemoria();
 const servicio = new RegistroUsuarios(repositorio);
+
 const vista = new TablaUsuarios(
     document.getElementById("cuerpoResultado"),
     document.getElementById("totalUsuarios")
 );
+
 const camposRol = new CamposRol(
     document.getElementById("tipoUsuario"),
     document.querySelectorAll("[data-rol]")

@@ -10,4 +10,8 @@ export class RepositorioUsuariosMemoria extends RepositorioUsuarios {
     listar() {
         return [...this.#usuarios]; // Copia para proteger el arreglo interno.
     }
+
+    listar(genero) {
+        return [...this.#usuarios]; // Copia para proteger el arreglo interno.
+    }
 }

@@ -1,3 +1,5 @@
+import { Usuario } from "../modelos/Usuario";
+
 export class TablaUsuarios {
     #cuerpo;
     #contador;
@@ -10,10 +12,14 @@ export class TablaUsuarios {
     mostrar(usuarios) {
         const fragmento = document.createDocumentFragment();
         usuarios.forEach((usuario, indice) => {
+
+           // Usuario -> usuario
+
             const fila = document.createElement("tr");
             const valores = [
-                indice + 1,
+                indice +1,
                 usuario.obtenerNombreCompleto(),
+                // usuario.getNombre() + " " + usuario.getApellido(),
                 usuario.correo,
                 usuario.telefono,
                 usuario.fechaNacimiento,
@@ -26,11 +32,13 @@ export class TablaUsuarios {
                     .join(" | "),
                 usuario.mensaje
             ];
+
             valores.forEach(valor => {
                 const celda = document.createElement("td");
                 celda.textContent = String(valor);
                 fila.appendChild(celda);
             });
+
             fragmento.appendChild(fila);
         });
         this.#cuerpo.replaceChildren(fragmento);

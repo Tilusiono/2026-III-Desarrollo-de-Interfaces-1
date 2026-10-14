@@ -1,5 +1,7 @@
 import { RolUsuario } from "../contratos/RolUsuario.js";
 
+//EXTENDS -> HERENCIA POO
+//IMPLEMENTS -> INTERFACES
 export class Usuario extends RolUsuario {
     #nombre;
     #apellido;
@@ -11,7 +13,7 @@ export class Usuario extends RolUsuario {
     fechaNacimiento;
     genero;
     mensaje;
-
+    
     constructor(nombre, apellido, correo, telefono, fechaNacimiento, genero, mensaje, rol) {
         super();
         if (new.target === Usuario) {
@@ -29,17 +31,38 @@ export class Usuario extends RolUsuario {
         }
         this.#rol = rol.trim();
     }
+    /*
+          constructor(nombre, apellido, rol) {
+            super();
+            if (new.target === Usuario) {
+                throw new Error("Usuario es abstracta: cree una subclase concreta.");
+            }
+            this.nombre = nombre;
+            this.apellido = apellido;
+            
+            this.correo = "";
+            this.telefono = "000000000";
+            this.fechaNacimiento = null;
+            this.genero = "";
+            this.mensaje = "Mensaje por defecto";
+    
+            if (typeof rol !== "string" || !rol.trim()) {
+                throw new Error("Debe indicar un rol.");
+            }
+            this.#rol = rol.trim();
+        }
+    */
 
-    get nombre() { return this.#nombre; }
-    set nombre(valor) {
+    get getNombre() { return this.#nombre; }
+    set setNombre(valor) {
         if (typeof valor !== "string" || valor.trim().length < 2) {
             throw new Error("El nombre debe tener al menos dos caracteres.");
         }
         this.#nombre = valor.trim();
     }
 
-    get apellido() { return this.#apellido; }
-    set apellido(valor) {
+    get getApellido() { return this.#apellido; }
+    set setApellido(valor) {
         if (typeof valor !== "string" || valor.trim().length < 2) {
             throw new Error("El apellido debe tener al menos dos caracteres.");
         }
@@ -50,6 +73,6 @@ export class Usuario extends RolUsuario {
     get rol() { return this.#rol; }
 
     obtenerNombreCompleto() {
-        return `${this.#nombre} ${this.#apellido}`;
+        return `${this.#nombre.toUpperCase()} ${this.#apellido.toUpperCase()}`;
     }
 }

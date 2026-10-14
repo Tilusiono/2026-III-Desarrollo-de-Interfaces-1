@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import { rutasFormulario } from './server/rutas/formulario.routes.js';
 
-const puerto = Number(process.env.PORT ?? 4545);
+const puerto = Number(process.env.PORT ?? 4848);
 
 const servidor = createServer(async (solicitud, respuesta) => {
     try {

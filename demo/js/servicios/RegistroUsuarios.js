@@ -14,4 +14,8 @@ export class RegistroUsuarios {
     listar() {
         return this.#repositorio.listar();
     }
+
+     listar(genero) {
+        return this.#repositorio.listar(genero);
+    }
 }
