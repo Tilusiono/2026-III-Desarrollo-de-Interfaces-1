@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de usuarios — POO</title>
+<!-- CSS incluido: no necesita descargas para funcionar. Bootstrap es opcional. -->
+<!-- Opcional: <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"> -->
+<!-- Opcional: <link rel="stylesheet" href="/assets/bootstrap-icons/bootstrap-icons.min.css"> -->
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="bg-light">
+<header class="bg-primary text-white py-4"><section class="container">
+<h1 class="h2">Formulario de Registro</h1><p>Registre alumnos, maestros y personal de aseo.</p>
+</section></header>
+<main class="container py-4">
+<section class="card shadow-sm mb-4">
+<header class="card-header bg-white"><h2 class="h5">Datos personales</h2></header>
+<section class="card-body">
+<form id="formularioRegistro">
+<fieldset><legend class="visually-hidden">Información del usuario</legend>
+<section class="mb-3"><label for="nombre" class="form-label">Nombre:</label><input class="form-control" id="nombre" name="nombre" type="text" value="Bernabe Daniel" minlength="2" maxlength="60" autocomplete="given-name" pattern="\p{L}+(?:[ '\-]\p{L}+)*" required></section>
+<section class="mb-3"><label for="apellido" class="form-label">Apellidos:</label><input class="form-control" id="apellido" name="apellido" type="text" value="Inche Ticlavilca" minlength="2" maxlength="80" autocomplete="family-name" pattern="\p{L}+(?:[ '\-]\p{L}+)*" required></section>
+<section class="mb-3"><label for="correo" class="form-label">Correo electrónico:</label><input class="form-control" id="correo" name="correo" type="email" value="fbinche@idat.pe" maxlength="100" autocomplete="email" required></section>
+<section class="mb-3"><label for="telefono" class="form-label">Teléfono:</label><input class="form-control" id="telefono" name="telefono" type="tel" value="919759571" pattern="9[0-9]{8}" minlength="9" maxlength="9" inputmode="numeric" autocomplete="tel" required></section>
+<section class="mb-3"><label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label><input class="form-control" id="fechaNacimiento" name="fechaNacimiento" type="date" value="1993-08-28" autocomplete="bday" required></section>
+<section class="mb-3">
+<label for="tipoUsuario" class="form-label">Tipo de usuario:</label>
+<select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
+<option value="">Seleccione una opción</option>
+<option value="alumno">Alumno</option>
+<option value="maestro">Maestro</option>
+<option value="personalAseo">Personal de aseo</option>
+</select></section>
+<section class="mb-3"><label for="genero" class="form-label">Género:</label>
+<select class="form-select" id="genero" name="genero" required>
+<option value="">Seleccione una opción</option>
+<option value="masculino" selected>Masculino</option>
+<option value="femenino">Femenino</option><option value="otro">Otro</option>
+</select></section>
+<section class="mb-4"><label for="mensaje" class="form-label">Mensaje:</label>
+<textarea class="form-control" id="mensaje" name="mensaje" rows="4" minlength="5" maxlength="500" required>Mensaje de prueba.</textarea>
+<small class="form-text">Escriba entre 5 y 500 caracteres.</small></section>
+</fieldset>
+<fieldset class="campos-rol" data-rol="alumno" hidden disabled>
+<legend>Datos de alumno</legend>
+<section class="mb-3"><label for="codigoAlumno">Código del alumno:</label><input class="form-control" id="codigoAlumno" name="codigoAlumno" value="ALU-001" data-especifico maxlength="100" required></section>
+<section class="mb-3"><label for="carrera">Carrera:</label><input class="form-control" id="carrera" name="carrera" value="Desarrollo de Sistemas" data-especifico maxlength="100" required></section>
+</fieldset>
+<fieldset class="campos-rol" data-rol="maestro" hidden disabled>
+<legend>Datos de maestro</legend>
+<section class="mb-3"><label for="especialidad">Especialidad:</label><input class="form-control" id="especialidad" name="especialidad" value="Programación" data-especifico maxlength="100" required></section>
+<section class="mb-3"><label for="gradoAcademico">Grado académico:</label><input class="form-control" id="gradoAcademico" name="gradoAcademico" value="Licenciatura" data-especifico maxlength="100" required></section>
+</fieldset>
+<fieldset class="campos-rol" data-rol="personalAseo" hidden disabled>
+<legend>Datos de personal de aseo</legend>
+<section class="mb-3"><label for="areaAsignada">Área asignada:</label><input class="form-control" id="areaAsignada" name="areaAsignada" value="Pabellón A" data-especifico maxlength="100" required></section>
+<section class="mb-3"><label for="turno">Turno:</label><input class="form-control" id="turno" name="turno" value="Mañana" data-especifico maxlength="100" required></section>
+</fieldset>
+<section class="d-flex flex-wrap gap-2">
+<button type="submit" id="btnEnviar" class="btn btn-primary">Registrar usuario</button>
+<button type="reset" id="btnLimpiar" class="btn btn-outline-secondary">Restaurar valores</button>
+</section>
+<p id="estadoRegistro" role="status" aria-live="polite"></p>
+</form></section></section>
+<section id="resultadoFormulario" class="card shadow-sm mb-4">
+<header class="card-header bg-white"><h2 class="h5">Usuarios registrados (<span id="totalUsuarios">0</span>)</h2></header>
+<section class="card-body"><div class="table-responsive">
+<table class="table table-bordered table-striped table-hover align-middle mb-0">
+<caption class="caption-top">Cada fila representa un usuario. Rol y descripción se obtienen con métodos polimórficos. Los registros se conservan mientras esta página esté abierta.</caption>
+<thead class="table-dark"><tr>
+<th scope="col">N.º</th><th scope="col">Nombre completo</th><th scope="col">Correo</th><th scope="col">Teléfono</th><th scope="col">Nacimiento</th><th scope="col">Género</th><th scope="col">Rol</th><th scope="col">Descripción del rol</th><th scope="col">Datos propios del rol</th><th scope="col">Mensaje</th>
+</tr></thead><tbody id="cuerpoResultado"></tbody>
+</table></div></section></section>
+</main>
+<footer class="bg-dark text-white text-center py-3">
+<p class="mb-0"><small>Formulario de Registro &copy; 2026</small></p>
+</footer>
+<!-- Los módulos importan las clases; ya no necesitas js/clase1.js. -->
+<script type="module" src="js/formularioRegistro.js"></script>
+</body></html>
