@@ -12,27 +12,27 @@
     <form id="formularioRegistro">
 
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+        <input type="text" id="nombre" name="nombre" value="romy">
 
         <br><br>
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido">
+        <input type="text" id="apellido" name="apellido" value="villarroel">
 
         <br><br>
 
         <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo">
+        <input type="email" id="correo" name="correo" value="romy@gmail.com">
 
         <br><br>
 
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+        <input type="tel" id="telefono" name="telefono" value="9696969">
 
         <br><br>
 
         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="1997-01-31">
 
         <br><br>
 
@@ -56,6 +56,22 @@
         <button type="reset" id="btnLimpiar">Limpiar</button>
 
     </form>
+    <section id="resultadoFormulario" aria-live="polite" hidden>
+        <h2>Datos obtenidos del formulario</h2>
+ 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                    <th>Tipo JavaScript</th>
+                </tr>
+            </thead>
+ 
+            <tbody id="cuerpoResultado">
+            </tbody>
+        </table>
+    </section>
     <script src="js/clase1.js"></script>
 
 </body>
