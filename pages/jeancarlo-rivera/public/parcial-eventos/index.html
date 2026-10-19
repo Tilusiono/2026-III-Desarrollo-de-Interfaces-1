@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Eventos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gestión de Eventos</h1>
+        <p>Explora eventos y administra tus inscripciones</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Eventos disponibles</h2>
+
+            <label for="filtro">Filtrar por categoría:</label>
+            <select id="filtro">
+                <option value="todos">Todas las categorías</option>
+                <option value="Tecnología">Tecnología</option>
+                <option value="Educación">Educación</option>
+                <option value="Entretenimiento">Entretenimiento</option>
+            </select>
+
+            <div id="lista-eventos" class="contenedor"></div>
+        </section>
+
+        <section>
+            <h2>Mis inscripciones</h2>
+            <div id="mis-inscripciones"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto de Evaluación Parcial - Desarrollo de Interfaces 1</p>
+    </footer>
+</body>
+</html>
