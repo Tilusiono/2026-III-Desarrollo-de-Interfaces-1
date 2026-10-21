@@ -142,19 +142,7 @@
                             </select>
                         </section>
 
-                        <section class="mb-3">
-                            <label for="tipoUsuario" class="form-label">
-                                Tipo de usuario:
-                            </label>
 
-                            <select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="alumno" >Alumno</option>
-                                <option value="maestro" >Maestro</option>
-                                <option value="personalApoyo">Personal de apoyo</option>
-                                <option value="soporteTI">soporteTI</option>
-                            </select>
-                        </section>
 
                         <section class="mb-4">
                             <label for="mensaje" class="form-label">
@@ -169,9 +157,52 @@
                                 Escriba entre 5 y 500 caracteres.
                             </small>
                         </section>
+                        <section class="mb-3">
+                            <label for="tipoUsuario" class="form-label">
+                                Tipo de usuario:
+                            </label>
 
+                            <select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
+                                <option value="">Seleccione una opción</option>
+                                <option value="alumno">Alumno</option>
+                                <option value="maestro">Maestro</option>
+                                <option value="personalApoyo" disabled>Personal de apoyo</option>
+                                <option value="soporteTI" disabled>soporteTI</option>
+                                <option value="personalAseo">Personal de aseo</option>
+                            </select>
+                        </section>
                     </fieldset>
 
+                    <!--Secciones desactivadas por tipo de usuario-->
+
+                    <fieldset class="campos-rol" data-rol="alumno" hidden disabled>
+                        <legend>Datos de alumno</legend>
+                        <section class="mb-3"><label for="codigoAlumno">Código del alumno:</label><input
+                                class="form-control" id="codigoAlumno" name="codigoAlumno" value="ALU-001"
+                                data-especifico maxlength="100" required></section>
+                        <section class="mb-3"><label for="carrera">Carrera:</label><input class="form-control"
+                                id="carrera" name="carrera" value="Desarrollo de Sistemas" data-especifico
+                                maxlength="100" required></section>
+                    </fieldset>
+                    <fieldset class="campos-rol" data-rol="maestro" hidden disabled>
+                        <legend>Datos de maestro</legend>
+                        <section class="mb-3"><label for="especialidad">Especialidad:</label><input class="form-control"
+                                id="especialidad" name="especialidad" value="Programación" data-especifico
+                                maxlength="100" required></section>
+                        <section class="mb-3"><label for="gradoAcademico">Grado académico:</label><input
+                                class="form-control" id="gradoAcademico" name="gradoAcademico" value="Licenciatura"
+                                data-especifico maxlength="100" required></section>
+                    </fieldset>
+                    <fieldset class="campos-rol" data-rol="personalAseo" hidden disabled>
+                        <legend>Datos de personal de aseo</legend>
+                        <section class="mb-3"><label for="areaAsignada">Área asignada:</label><input
+                                class="form-control" id="areaAsignada" name="areaAsignada" value="Pabellón A"
+                                data-especifico maxlength="100" required></section>
+                        <section class="mb-3"><label for="turno">Turno:</label><input class="form-control" id="turno"
+                                name="turno" value="Mañana" data-especifico maxlength="100" required></section>
+                    </fieldset>
+
+                    <!-- Botones de acción -->
                     <section class="d-flex flex-wrap gap-2">
 
                         <button type="submit" id="btnEnviar" class="btn btn-primary">
@@ -250,7 +281,7 @@
     <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Este archivo importa el resto de las clases. -->
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/formulario.js"></script>
 
 
 </body>
