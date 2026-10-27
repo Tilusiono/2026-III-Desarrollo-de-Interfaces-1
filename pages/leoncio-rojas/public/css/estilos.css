@@ -1,0 +1,29 @@
+body {
+  background-color: #fafafa;
+}
+
+header {
+  background-color: #4d0780;
+  color: #ffffff;
+}
+
+.card {
+  border: 1px solid #dfdfdf;
+  border-radius: 8px;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+fieldset legend {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+#total {
+  color: #4d0780;
+  font-weight: 700;
+}
