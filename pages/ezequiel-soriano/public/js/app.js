@@ -1,19 +1,21 @@
-import MatriculaFactory from '../../factory/matriculaFactory.js';
-import MatriculaRepo from '../../repository/matriculaRepo.js';
+import UsuarioFactory from '../factory/usuarioFactory.js';
+import UsuarioRepo from '../repository/usuarioRepo.js';
 
-const repo = new MatriculaRepo();
+const repo = new UsuarioRepo();
 
-const form = document.getElementById('formMatricula');
-const tablaCuerpo = document.getElementById('tablaCuerpo');
+const form = document.getElementById('formularioRegistro');
+const cuerpoResultado = document.getElementById('cuerpoResultado');
+const totalUsuarios = document.getElementById('totalUsuarios');
 
 function dibujarTabla() {
-  tablaCuerpo.innerHTML = '';
+  cuerpoResultado.innerHTML = '';
   const registros = repo.listar();
+  totalUsuarios.textContent = registros.length;
 
   if (registros.length === 0) {
-    tablaCuerpo.innerHTML = `
+    cuerpoResultado.innerHTML = `
       <tr>
-        <td colspan="6" class="text-center text-muted py-3">No hay matrículas registradas aún.</td>
+        <td colspan="9" class="text-center text-muted py-3">No hay usuarios registrados aún.</td>
       </tr>
     `;
     return;
@@ -23,18 +25,19 @@ function dibujarTabla() {
     const fila = document.createElement('tr');
     fila.innerHTML = `
       <td><strong>${item.id}</strong></td>
+      <td>${item.nombreCompleto}</td>
+      <td>${item.correo}</td>
+      <td>${item.telefono}</td>
+      <td>${item.fechaNacimiento}</td>
+      <td class="text-capitalize">${item.genero}</td>
+      <td><span class="badge bg-secondary">${item.rol}</span></td>
+      <td><small>${item.descripcionRol}</small></td>
       <td>
-        <div>${item.estudiante}</div>
-        <small class="text-muted">DNI: ${item.dni}</small>
-      </td>
-      <td>${item.programa} <br><small class="badge bg-secondary">${item.creditos} crd.</small></td>
-      <td><small class="text-dark">${item.detalle}</small></td>
-      <td><span class="text-success fw-bold">S/ ${item.total.toFixed(2)}</span></td>
-      <td>
-        <button class="btn btn-sm btn-outline-danger btn-eliminar" data-id="${item.id}">Eliminar</button>
+        ${item.mensaje} <br>
+        <button class="btn btn-sm btn-outline-danger mt-1 btn-eliminar" data-id="${item.id}">Eliminar</button>
       </td>
     `;
-    tablaCuerpo.appendChild(fila);
+    cuerpoResultado.appendChild(fila);
   });
 
   document.querySelectorAll('.btn-eliminar').forEach(btn => {
@@ -49,27 +52,32 @@ function dibujarTabla() {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const dni = document.getElementById('dni').value;
-  const estudiante = document.getElementById('estudiante').value;
-  const programa = document.getElementById('programa').value;
-  const creditos = document.getElementById('creditos').value;
-  const modalidad = document.getElementById('modalidad').value;
+  const nombre = document.getElementById('nombre').value;
+  const apellido = document.getElementById('apellido').value;
+  const correo = document.getElementById('correo').value;
+  const telefono = document.getElementById('telefono').value;
+  const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+  const genero = document.getElementById('genero').value;
+  const tipoUsuario = document.getElementById('tipoUsuario').value;
+  const mensaje = document.getElementById('mensaje').value;
 
   try {
-    const nuevaMatricula = MatriculaFactory.crearMatricula(
-      modalidad, 
-      dni, 
-      estudiante, 
-      programa, 
-      creditos, 
-      30
+    const nuevoUsuario = UsuarioFactory.crearUsuario(
+      tipoUsuario, 
+      nombre, 
+      apellido, 
+      correo, 
+      telefono, 
+      fechaNacimiento, 
+      genero, 
+      mensaje
     );
 
-    repo.guardar(nuevaMatricula);
+    repo.guardar(nuevoUsuario);
     dibujarTabla();
     form.reset();
   } catch (error) {
-    alert("Error: " + error.message);
+    alert("Error al registrar: " + error.message);
   }
 });
 

@@ -1,7 +1,7 @@
 {
-  "name": "sistema-matriculas-academia",
+  "name": "sistema-registro-usuarios",
   "version": "1.0.0",
-  "description": "Sistema de Matrícula para una Academia usando POO, Factory, Repository, Express y Bootstrap",
+  "description": "Sistema de Registro de Usuarios usando POO, Factory, Repository, Express y Bootstrap",
   "main": "server.js",
   "type": "module",
   "scripts": {

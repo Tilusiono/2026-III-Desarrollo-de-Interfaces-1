@@ -1,4 +1,4 @@
-export default class MatriculaRepo {
+export default class UsuarioRepo {
   #registros;
   #idCounter;
 
@@ -7,15 +7,17 @@ export default class MatriculaRepo {
     this.#idCounter = 1;
   }
 
-  guardar(matricula) {
+  guardar(usuario) {
     const item = {
       id: this.#idCounter++,
-      dni: matricula.dni,
-      estudiante: matricula.estudiante,
-      programa: matricula.programa,
-      creditos: matricula.creditos,
-      detalle: matricula.obtenerDetalle(),
-      total: matricula.calcularTotal()
+      nombreCompleto: `${usuario.nombre} ${usuario.apellido}`,
+      correo: usuario.correo,
+      telefono: usuario.telefono,
+      fechaNacimiento: usuario.fechaNacimiento,
+      genero: usuario.genero,
+      rol: usuario.obtenerRol(),
+      descripcionRol: usuario.obtenerDescripcionRol(),
+      mensaje: usuario.mensaje
     };
     this.#registros.push(item);
     return item;
