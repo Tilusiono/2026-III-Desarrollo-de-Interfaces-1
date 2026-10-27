@@ -4,136 +4,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Registro</title>
+    <title>Instituto Tecnológico de Sistemas - Ficha de Matrícula</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- CSS personalizado -->
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 
 <body class="bg-light">
 
-    <header class="bg-primary text-white py-4">
+    <header class="bg-dark text-white py-4 shadow-sm border-bottom border-primary border-4">
         <section class="container">
             <h1 class="h2 mb-1">
-                <i class="bi bi-person-plus-fill"></i>
-                Formulario de Registro
+                <i class="bi bi-laptop"></i>
+                Instituto Tecnológico de Sistemas
             </h1>
-            <p class="mb-0">Ingrese sus datos personales para registrarse.</p>
+            <p class="mb-0 text-light">Formulario de Matrícula para Carreras Tecnológicas y Bootcamps 2026.</p>
         </section>
     </header>
 
     <main class="container py-4">
+
         <section class="card shadow-sm mb-4">
+
             <header class="card-header bg-white">
                 <h2 class="h5 mb-0">
-                    <i class="bi bi-person-vcard"></i>
-                    Datos personales
+                    <i class="bi bi-person-vcard-fill text-primary"></i>
+                    Datos del Postulante
                 </h2>
             </header>
 
             <section class="card-body">
+
                 <form id="formularioRegistro">
+
                     <fieldset class="border-0 p-0 m-0">
-                        <legend class="visually-hidden">Información personal del usuario</legend>
 
-                        <section class="mb-3">
-                            <label for="nombre" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="Bernabe Daniel" placeholder="Ingrese sus nombres" required>
-                        </section>
+                        <legend class="visually-hidden">
+                            Información personal del postulante a carreras tecnológicas
+                        </legend>
 
-                        <section class="mb-3">
-                            <label for="apellido" class="form-label">Apellidos:</label>
-                            <input type="text" class="form-control" id="apellido" name="apellido" value="Inche Ticlavilca" placeholder="Ingrese sus apellidos" required>
-                        </section>
+                        <div class="row">
+                            <section class="col-md-6 mb-3">
+                                <label for="nombre" class="form-label">
+                                    Nombres del estudiante:
+                                </label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" value="Ezequiel"
+                                    placeholder="Ingrese sus nombres" required>
+                            </section>
 
-                        <section class="mb-3">
-                            <label for="correo" class="form-label">Correo electrónico:</label>
-                            <input type="email" class="form-control" id="correo" name="correo" value="fbinche@idat.pe" placeholder="ejemplo@correo.com" required>
-                        </section>
+                            <section class="col-md-6 mb-3">
+                                <label for="apellido" class="form-label">
+                                    Apellidos del estudiante:
+                                </label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" value="Soriano"
+                                    placeholder="Ingrese sus apellidos" required>
+                            </section>
+                        </div>
 
-                        <section class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono:</label>
-                            <input type="tel" class="form-control" id="telefono" name="telefono" value="919759571" placeholder="999999999" required>
-                        </section>
+                        <div class="row">
+                            <section class="col-md-6 mb-3">
+                                <label for="correo" class="form-label">
+                                    Correo institucional / personal:
+                                </label>
+                                <input type="email" class="form-control" id="correo" name="correo" value="ezequiel@sistemas.edu.pe"
+                                    placeholder="ejemplo@correo.com" required>
+                            </section>
 
-                        <section class="mb-3">
-                            <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
-                            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value="1993-08-28" required>
-                        </section>
+                            <section class="col-md-6 mb-3">
+                                <label for="telefono" class="form-label">
+                                    Teléfono / WhatsApp:
+                                </label>
+                                <input type="tel" class="form-control" id="telefono" name="telefono" value="919759571"
+                                    placeholder="999999999" pattern="9[0-9]{8}" required>
+                            </section>
+                        </div>
 
-                        <section class="mb-3">
-                            <label for="genero" class="form-label">Género:</label>
-                            <select class="form-select" id="genero" name="genero" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="masculino" selected>Masculino</option>
-                                <option value="femenino">Femenino</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </section>
+                        <div class="row">
+                            <section class="col-md-4 mb-3">
+                                <label for="fechaNacimiento" class="form-label">
+                                    Fecha de nacimiento:
+                                </label>
+                                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
+                                    value="2004-05-15" required>
+                            </section>
 
-                        <section class="mb-3">
-                            <label for="tipoUsuario" class="form-label">Tipo de usuario:</label>
-                            <select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="alumno">Alumno</option>
-                                <option value="maestro">Maestro</option>
-                                <option value="personalApoyo">Personal de apoyo</option>
-                                <option value="soporteTI">Soporte TI</option>
-                            </select>
-                        </section>
+                            <section class="col-md-4 mb-3">
+                                <label for="genero" class="form-label">
+                                    Género:
+                                </label>
+                                <select class="form-select" id="genero" name="genero" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="masculino" selected>Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </section>
+
+                            <section class="col-md-4 mb-3">
+                                <label for="tipoUsuario" class="form-label">
+                                    Especialidad Tech a matricularse:
+                                </label>
+                                <select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
+                                    <option value="">Seleccione especialidad...</option>
+                                    <option value="software" selected>Desarrollo de Software y Web</option>
+                                    <option value="redes">Redes y Ciberseguridad</option>
+                                    <option value="sistemas">Administración de Sistemas Cloud</option>
+                                    <option value="bootcamp">Bootcamp IA & Data Science</option>
+                                </select>
+                            </section>
+                        </div>
 
                         <section class="mb-4">
-                            <label for="mensaje" class="form-label">Mensaje:</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required>Mensaje de prueba.</textarea>
+                            <label for="mensaje" class="form-label">
+                                Experiencia previa / Observaciones:
+                            </label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"
+                                placeholder="Escriba su experiencia en programación o requisitos especiales..."
+                                required>Con conocimientos previos en HTML, CSS, JavaScript y Express.</textarea>
                         </section>
+
                     </fieldset>
 
                     <section class="d-flex flex-wrap gap-2">
-                        <button type="submit" id="btnEnviar" class="btn btn-primary">
-                            <i class="bi bi-send-fill"></i> Enviar
+                        <button type="submit" id="btnEnviar" class="btn btn-primary fw-bold">
+                            <i class="bi bi-check-circle-fill"></i> Registrar Matrícula
                         </button>
                         <button type="reset" id="btnLimpiar" class="btn btn-outline-secondary">
-                            <i class="bi bi-eraser-fill"></i> Restaurar valores
+                            <i class="bi bi-eraser-fill"></i> Limpiar Campos
                         </button>
                     </section>
+
                 </form>
+
             </section>
         </section>
 
-        <section id="resultadoFormulario" class="card shadow-sm mb-4">
-            <header class="card-header bg-white">
+        <section id="resultadoFormulario" class="card shadow-sm mb-4 border-top border-primary border-3">
+
+            <header class="card-header bg-white d-flex justify-content-between align-items-center">
                 <h2 class="h5 mb-0">
-                    Usuarios registrados: <span id="totalUsuarios">0</span>
+                    <i class="bi bi-table text-primary"></i>
+                    Matrículas Registradas en el Sistema:
                 </h2>
+                <span class="badge bg-primary fs-6" id="totalUsuarios">0</span>
             </header>
+
             <section class="card-body">
+
                 <div class="table-responsive">
+
                     <table class="table table-bordered table-striped table-hover align-middle mb-0">
+
                         <thead class="table-dark">
                             <tr>
-                                <th scope="col">N.º</th>
-                                <th scope="col">Nombre completo</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Nacimiento</th>
-                                <th scope="col">Género</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Descripción del rol</th>
-                                <th scope="col">Mensaje / Acción</th>
+                                <th scope="col">Cód. Matrícula</th>
+                                <th scope="col">Estudiante</th>
+                                <th scope="col">Contacto</th>
+                                <th scope="col">F. Nacimiento</th>
+                                <th scope="col">Especialidad Tech</th>
+                                <th scope="col">Duración</th>
+                                <th scope="col">Pensión (Mensual)</th>
+                                <th scope="col">Observaciones / Acción</th>
                             </tr>
                         </thead>
+
                         <tbody id="cuerpoResultado"></tbody>
+
                     </table>
+
                 </div>
+
             </section>
         </section>
+
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0"><small>Formulario de Registro &copy; 2026</small></p>
+        <p class="mb-0">
+            <small>Instituto Tecnológico de Sistemas &copy; 2026 - Desarrollo de Interfaces I</small>
+        </p>
     </footer>
 
+    <!-- JS de la App en ES6 Module -->
     <script type="module" src="/js/app.js"></script>
+
 </body>
 
 </html>

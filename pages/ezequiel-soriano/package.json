@@ -1,7 +1,7 @@
 {
-  "name": "sistema-registro-usuarios",
+  "name": "sistema-matricula-tecnologia-sistemas",
   "version": "1.0.0",
-  "description": "Sistema de Registro de Usuarios usando POO, Factory, Repository, Express y Bootstrap",
+  "description": "Sistema de Matrícula para I.E. de Tecnología y Sistemas usando Express, POO, Factory, Repository y Bootstrap",
   "main": "server.js",
   "type": "module",
   "scripts": {
