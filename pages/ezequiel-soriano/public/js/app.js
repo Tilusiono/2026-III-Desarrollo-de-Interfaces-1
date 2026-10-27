@@ -1,5 +1,5 @@
-import MatriculaTechFactory from '../factory/matriculaTechFactory.js';
-import MatriculaTechRepo from '../repository/matriculaTechRepo.js';
+import MatriculaTechFactory from '/factory/matriculaTechFactory.js';
+import MatriculaTechRepo from '/repository/matriculaTechRepo.js';
 
 const repo = new MatriculaTechRepo();
 
