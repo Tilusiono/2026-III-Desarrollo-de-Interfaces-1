@@ -1,93 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Desarrollo de Interfaces</title>
-
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="/css/estilo.css">
+    <title>Sistema de Matrículas - Centro Cultural</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h2 class="mb-4 text-center text-primary fw-bold">Sistema de Gestión de Matrículas</h2>
+        
+        <div class="row g-4">
+            <!-- Formulario de Registro -->
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Registrar Nueva Matrícula</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="formMatricula">
+                            <div class="mb-3">
+                                <label class="form-label">DNI del Estudiante</label>
+                                <input type="text" id="dni" class="form-control" placeholder="Ej. 76543210" required maxlength="8" pattern="[0-9]{8}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre Completo</label>
+                                <input type="text" id="estudiante" class="form-control" placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Programa / Taller</label>
+                                <input type="text" id="programa" class="form-control" placeholder="Ej. Desarrollo de Software" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cantidad de Créditos</label>
+                                <input type="number" id="creditos" class="form-control" placeholder="Ej. 4" required min="1" max="30">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Modalidad de Matrícula</label>
+                                <select id="modalidad" class="form-select" required>
+                                    <option value="" disabled selected>Seleccione modalidad...</option>
+                                    <option value="regular">Regular</option>
+                                    <option value="becado">Becado (30% Descuento)</option>
+                                    <option value="corporativo">Corporativo (Convenio -S/100)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 fw-bold">Guardar Matrícula</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<body>
+            <!-- Tabla de Resultados -->
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="card-title mb-0">Listado de Matrículas Procesadas</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped mb-0 align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#ID</th>
+                                        <th>Estudiante</th>
+                                        <th>Programa</th>
+                                        <th>Modalidad / Detalle</th>
+                                        <th>Total (S/)</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaCuerpo">
+                                    <!-- Se llena dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <header class="encabezado">
-        <nav class="navbar navbar-dark container">
-            <a class="navbar-brand fw-bold" href="/">
-                <i class="bi bi-code-slash"></i>
-                Desarrollo de Interfaces 1
-            </a>
-        </nav>
-    </header>
-
-    <main class="container py-5">
-
-        <section class="text-center mb-5">
-            <h1>Menú principal</h1>
-            <p class="text-secondary">
-                Selecciona una actividad para continuar.
-            </p>
-        </section>
-
-        <section class="row g-4">
-
-            <article class="col-12 col-md-6 col-lg-4">
-                <section class="card tarjeta h-100">
-                    <header class="card-body">
-                        <i class="bi bi-person-lines-fill icono"></i>
-                        <h2 class="h5 mt-3">Formulario de registro</h2>
-                        <p>
-                            Práctica de formularios HTML5,
-                            validaciones y JavaScript.
-                        </p>
-                        <a href="/formulario" class="btn btn-primary">
-                            Ir al formulario
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </header>
-                </section>
-            </article>
-
-            <article class="col-12 col-md-6 col-lg-4">
-                <section class="card tarjeta h-100">
-                    <header class="card-body">
-                        <i class="bi bi-palette icono"></i>
-                        <h2 class="h5 mt-3">Tema 1</h2>
-                        <p>
-                            Consulta la primera práctica
-                            de desarrollo de interfaces.
-                        </p>
-                        <a href="/pages/tema1.html" class="btn btn-outline-primary">
-                            Ver tema 1
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                         <a href="/DEMOPRUEBA" class="btn btn-outline-primary">
-                          DEMO CON RUTA
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-
-                            <a href="/docs/demo.html" class="btn btn-outline-primary">
-                          DEMO CON HTML
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </header>
-                </section>
-            </article>
-
-        </section>
-
-    </main>
-
-    <footer class="pie-pagina text-center py-3">
-        <p class="mb-0">
-            Desarrollo de Interfaces &copy; 2026
-        </p>
-    </footer>
-
+    <script type="module" src="/js/app.js"></script>
 </body>
-
 </html>

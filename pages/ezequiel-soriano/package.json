@@ -1,19 +1,13 @@
 {
-  "name": "pages",
+  "name": "sistema-matriculas-academia",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Sistema de Matrícula para una Academia usando POO, Factory, Repository, Express y Bootstrap",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "@popperjs/core": "file:../../npm/popperjs-core-2.11.8.tgz",
-    "bootstrap": "file:../../npm/bootstrap-5.3.8.tgz",
-    "bootstrap-icons": "file:../../npm/bootstrap-icons-1.13.1.tgz",
-    "express": "file:../../npm/express-5.2.1.tgz"
+    "express": "^4.18.2"
   }
 }
