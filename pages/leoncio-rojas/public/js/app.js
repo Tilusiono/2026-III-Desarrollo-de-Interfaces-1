@@ -4,13 +4,13 @@ import { RepositorioVentas } from "./repositorio/RepositorioVentas.js";
 
 // Elementos del DOM
 const formulario = document.querySelector("#formularioVenta");
-const operador = document.querySelector("#operador");
-const paneles = document.querySelectorAll("[data-operador]");
+const marca = document.querySelector("#marca");
+const paneles = document.querySelectorAll("[data-marca]");
 const mensaje = document.querySelector("#mensaje");
 const cuerpoVentas = document.querySelector("#cuerpoVentas");
 const resumen = document.querySelector("#resumen");
 
-// Instancia del repositorio en memoria
+// Repositorio en memoria
 const repositorio = new RepositorioVentas();
 
 function limpiarResultado() {
@@ -22,7 +22,7 @@ function limpiarResultado() {
 
 function actualizarCampos() {
   for (const panel of paneles) {
-    const activo = panel.dataset.operador === operador.value;
+    const activo = panel.dataset.marca === marca.value;
     panel.hidden = !activo;
     panel.disabled = !activo;
   }
@@ -64,7 +64,7 @@ function dibujarTabla() {
         v.dni,
         v.modelo,
         v.cantidad,
-        v.obtenerOperador(),
+        v.obtenerMarca(),
         v.obtenerDetalle(),
         moneda(v.calcularTotal())
       ];
@@ -75,7 +75,7 @@ function dibujarTabla() {
         fila.appendChild(celda);
       });
 
-      // Botón para eliminar registro
+      // Celda con botón eliminar
       const celdaAccion = document.createElement("td");
       const botonEliminar = document.createElement("button");
       botonEliminar.type = "button";
@@ -100,7 +100,7 @@ function dibujarTabla() {
 }
 
 // Eventos
-operador.addEventListener("change", actualizarCampos);
+marca.addEventListener("change", actualizarCampos);
 formulario.addEventListener("reset", () => {
   setTimeout(actualizarCampos, 0);
 });
@@ -121,7 +121,7 @@ formulario.addEventListener("submit", (evento) => {
     );
 
     const registro = repositorio.guardar(venta);
-    mensaje.textContent = `Venta ${registro.id} registrada: ${venta.obtenerOperador()}.`;
+    mensaje.textContent = `Venta ${registro.id} registrada: ${venta.obtenerMarca()}.`;
 
     dibujarTabla();
   } catch (error) {
@@ -130,6 +130,6 @@ formulario.addEventListener("submit", (evento) => {
   }
 });
 
-// Inicialización
+// Inicialización al cargar la página
 actualizarCampos();
 dibujarTabla();

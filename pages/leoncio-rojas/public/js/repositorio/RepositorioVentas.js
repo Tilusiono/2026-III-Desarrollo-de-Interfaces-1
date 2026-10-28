@@ -20,7 +20,7 @@ export class RepositorioVentas {
   eliminar(id) {
     const indice = this.#ventas.findIndex((registro) => registro.id === id);
     if (indice === -1) {
-      throw new Error("La venta no existe.");
+      throw new Error("La venta seleccionada no existe.");
     }
     this.#ventas.splice(indice, 1);
   }

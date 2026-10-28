@@ -1,19 +1,19 @@
-import { VentaMovistar } from "../modelos/VentaMovistar.js";
-import { VentaClaro } from "../modelos/VentaClaro.js";
-import { VentaEntel } from "../modelos/VentaEntel.js";
-import { VentaBitel } from "../modelos/VentaBitel.js";
+import { VentaHP } from "../modelos/VentaHP.js";
+import { VentaLenovo } from "../modelos/VentaLenovo.js";
+import { VentaDell } from "../modelos/VentaDell.js";
+import { VentaAsus } from "../modelos/VentaAsus.js";
 
 export function crearVenta(datos) {
-  switch (datos.operador) {
-    case "movistar":
-      return new VentaMovistar(datos);
-    case "claro":
-      return new VentaClaro(datos);
-    case "entel":
-      return new VentaEntel(datos);
-    case "bitel":
-      return new VentaBitel(datos);
+  switch (datos.marca) {
+    case "hp":
+      return new VentaHP(datos);
+    case "lenovo":
+      return new VentaLenovo(datos);
+    case "dell":
+      return new VentaDell(datos);
+    case "asus":
+      return new VentaAsus(datos);
     default:
-      throw new Error("Seleccione un operador válido.");
+      throw new Error("Seleccione una marca válida.");
   }
 }

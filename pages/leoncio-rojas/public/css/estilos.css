@@ -1,19 +1,19 @@
 body {
-  background-color: #fafafa;
+  background-color: #f8f9fa;
 }
 
 header {
-  background-color: #4d0780;
+  background-color: #0b3b60;
   color: #ffffff;
 }
 
 .card {
-  border: 1px solid #dfdfdf;
+  border: 1px solid #dee2e6;
   border-radius: 8px;
 }
 
 fieldset {
-  border: 1px solid #ccc;
+  border: 1px solid #ced4da;
   border-radius: 8px;
 }
 
@@ -24,6 +24,6 @@ fieldset legend {
 }
 
 #total {
-  color: #4d0780;
+  color: #0b3b60;
   font-weight: 700;
 }

@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventas de celulares</title>
+  <title>Venta de Laptops y Computadoras</title>
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
   <header class="py-4">
     <div class="container">
-      <h1>Ventas de celulares</h1>
-      <p class="mb-0">Formulario académico: Movistar, Claro, Entel y Bitel.</p>
+      <h1>Venta de Laptops y Computadoras</h1>
+      <p class="mb-0">Gestión de cotizaciones y ventas: HP, Lenovo, Dell y Asus.</p>
     </div>
   </header>
 
   <main class="container py-4">
-    <section class="card p-4">
+    <section class="card p-4 shadow-sm">
       <h2 class="h4 mb-3">Datos de la venta</h2>
       <form id="formularioVenta">
         <div class="row g-3">
@@ -29,7 +29,7 @@
             <input id="dni" name="dni" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" required>
           </div>
           <div class="col-md-6">
-            <label for="modelo" class="form-label">Modelo del celular</label>
+            <label for="modelo" class="form-label">Modelo de laptop / equipo</label>
             <input id="modelo" name="modelo" type="text" class="form-control" required>
           </div>
           <div class="col-md-6">
@@ -41,78 +41,78 @@
             <input id="cantidad" name="cantidad" type="number" min="1" value="1" class="form-control" required>
           </div>
           <div class="col-md-6">
-            <label for="operador" class="form-label">Operador móvil</label>
-            <select id="operador" name="operador" class="form-select" required>
-              <option value="">Seleccione un operador</option>
-              <option value="movistar">Movistar</option>
-              <option value="claro">Claro</option>
-              <option value="entel">Entel</option>
-              <option value="bitel">Bitel</option>
+            <label for="marca" class="form-label">Marca</label>
+            <select id="marca" name="marca" class="form-select" required>
+              <option value="">Seleccione una marca</option>
+              <option value="hp">HP</option>
+              <option value="lenovo">Lenovo</option>
+              <option value="dell">Dell</option>
+              <option value="asus">Asus</option>
             </select>
           </div>
         </div>
 
-        <!-- Paneles específicos por operador -->
-        <fieldset data-operador="movistar" class="p-3 my-3" hidden disabled>
-          <legend>Movistar: datos específicos</legend>
+        <!-- Paneles específicos condicionales por marca -->
+        <fieldset data-marca="hp" class="p-3 my-3" hidden disabled>
+          <legend>HP: Beneficios y descuentos</legend>
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="planMovistar" class="form-label">Nombre del plan</label>
-              <input id="planMovistar" name="planMovistar" type="text" class="form-control" required>
+              <label for="garantiaHP" class="form-label">Tipo de garantía</label>
+              <input id="garantiaHP" name="garantiaHP" type="text" class="form-control" placeholder="Ej. Care Pack 2 años" required>
             </div>
             <div class="col-md-6">
-              <label for="descuentoMovistar" class="form-label">Descuento fijo por venta (S/)</label>
-              <input id="descuentoMovistar" name="descuentoMovistar" type="number" step="0.01" value="0" class="form-control" required>
+              <label for="descuentoHP" class="form-label">Descuento corporativo fijo (S/)</label>
+              <input id="descuentoHP" name="descuentoHP" type="number" step="0.01" value="0" class="form-control" required>
             </div>
           </div>
         </fieldset>
 
-        <fieldset data-operador="claro" class="p-3 my-3" hidden disabled>
-          <legend>Claro: datos específicos</legend>
+        <fieldset data-marca="lenovo" class="p-3 my-3" hidden disabled>
+          <legend>Lenovo: Beneficios y descuentos</legend>
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="paqueteClaro" class="form-label">Nombre del paquete</label>
-              <input id="paqueteClaro" name="paqueteClaro" type="text" class="form-control" required>
+              <label for="comboLenovo" class="form-label">Combo de accesorios</label>
+              <input id="comboLenovo" name="comboLenovo" type="text" class="form-control" placeholder="Ej. Mochila + Mouse Legion" required>
             </div>
             <div class="col-md-6">
-              <label for="descuentoClaro" class="form-label">Descuento sobre el subtotal (%)</label>
-              <input id="descuentoClaro" name="descuentoClaro" type="number" step="1" min="0" max="100" value="0" class="form-control" required>
+              <label for="descuentoLenovo" class="form-label">Descuento sobre el subtotal (%)</label>
+              <input id="descuentoLenovo" name="descuentoLenovo" type="number" step="1" min="0" max="100" value="0" class="form-control" required>
             </div>
           </div>
         </fieldset>
 
-        <fieldset data-operador="entel" class="p-3 my-3" hidden disabled>
-          <legend>Entel: datos específicos</legend>
+        <fieldset data-marca="dell" class="p-3 my-3" hidden disabled>
+          <legend>Dell: Soporte especializado</legend>
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="mesesGarantiaEntel" class="form-label">Meses de garantía</label>
-              <input id="mesesGarantiaEntel" name="mesesGarantiaEntel" type="number" min="1" value="12" class="form-control" required>
+              <label for="mesesSoporteDell" class="form-label">Meses de soporte ProSupport</label>
+              <input id="mesesSoporteDell" name="mesesSoporteDell" type="number" min="1" value="12" class="form-control" required>
             </div>
             <div class="col-md-6">
-              <label for="costoGarantiaEntel" class="form-label">Garantía por venta (S/)</label>
-              <input id="costoGarantiaEntel" name="costoGarantiaEntel" type="number" step="0.01" value="0" class="form-control" required>
+              <label for="costoSoporteDell" class="form-label">Costo por soporte técnico (S/)</label>
+              <input id="costoSoporteDell" name="costoSoporteDell" type="number" step="0.01" value="0" class="form-control" required>
             </div>
           </div>
         </fieldset>
 
-        <fieldset data-operador="bitel" class="p-3 my-3" hidden disabled>
-          <legend>Bitel: datos específicos</legend>
+        <fieldset data-marca="asus" class="p-3 my-3" hidden disabled>
+          <legend>Asus: Upgrades y configuración</legend>
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="gbBonoBitel" class="form-label">GB de bono por equipo</label>
-              <input id="gbBonoBitel" name="gbBonoBitel" type="number" min="0" value="10" class="form-control" required>
+              <label for="ramExtraAsus" class="form-label">Memoria RAM extra (GB)</label>
+              <input id="ramExtraAsus" name="ramExtraAsus" type="number" min="0" value="8" class="form-control" required>
             </div>
             <div class="col-md-6">
-              <label for="costoActivacionBitel" class="form-label">Activación por venta (S/)</label>
-              <input id="costoActivacionBitel" name="costoActivacionBitel" type="number" step="0.01" value="0" class="form-control" required>
+              <label for="costoInstalacionAsus" class="form-label">Costo de instalación y upgrade (S/)</label>
+              <input id="costoInstalacionAsus" name="costoInstalacionAsus" type="number" step="0.01" value="0" class="form-control" required>
             </div>
           </div>
         </fieldset>
 
-        <p class="small text-secondary mt-3">Descuentos y cargos se aplican una vez por venta.</p>
+        <p class="small text-secondary mt-3">Descuentos y cargos especiales se aplican una sola vez por venta.</p>
 
         <div class="d-flex gap-2">
-          <button id="btnCalcular" type="submit" class="btn btn-primary">Registrar venta</button>
+          <button id="btnRegistrar" type="submit" class="btn btn-primary">Registrar venta</button>
           <button id="btnLimpiar" type="reset" class="btn btn-outline-secondary">Limpiar formulario</button>
         </div>
       </form>
@@ -126,8 +126,8 @@
       </div>
     </section>
 
-    <!-- Hito 5: Tabla de Historial en Memoria -->
-    <section class="card p-4 mt-4">
+    <!-- Hito 5: Tabla de Historial -->
+    <section class="card p-4 mt-4 shadow-sm">
       <h2 class="h4">Ventas guardadas en el arreglo</h2>
       <p id="resumen">0 ventas | 0 equipos | S/ 0.00</p>
       <div class="table-responsive">
@@ -140,15 +140,13 @@
               <th>DNI</th>
               <th>Modelo</th>
               <th>Cantidad</th>
-              <th>Operador</th>
+              <th>Marca</th>
               <th>Detalle</th>
               <th>Total</th>
               <th>Acción</th>
             </tr>
           </thead>
-          <tbody id="cuerpoVentas">
-            <!-- Renderizado dinámico desde app.js -->
-          </tbody>
+          <tbody id="cuerpoVentas"></tbody>
         </table>
       </div>
     </section>
