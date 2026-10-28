@@ -1,0 +1,155 @@
+/* ESTILOS GENERALES */
+
+:root {
+    --color-principal: #4f46e5;
+    --color-oscuro: #17213b;
+    --color-fondo: #f5f7fc;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-fondo);
+    color: #263246;
+}
+
+/* NAVEGACIÓN */
+
+.barra-navegacion {
+    background-color: var(--color-oscuro);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* PRESENTACIÓN */
+
+.seccion-inicio {
+    background: linear-gradient(135deg, #17213b, #4f46e5);
+    padding: 65px 0;
+}
+
+.seccion-inicio h1 {
+    max-width: 850px;
+    margin: auto;
+}
+
+/* TÍTULOS */
+
+.titulo-seccion {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-oscuro);
+    margin-bottom: 15px;
+}
+
+/* TARJETAS DE EVENTOS */
+
+.tarjeta-evento {
+    border: 1px solid #e3e7f0;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-evento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-evento .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-evento .btn {
+    margin-top: auto;
+}
+
+.tarjeta-evento p i {
+    color: var(--color-principal);
+    margin-right: 5px;
+}
+
+/* BOTONES */
+
+.btn-primary {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+.btn-primary:hover {
+    background-color: #3730a3;
+    border-color: #3730a3;
+}
+
+/* FORMULARIO */
+
+.seccion-formulario {
+    background-color: #edf0fa;
+}
+
+.seccion-formulario .card {
+    border-radius: 18px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* MIS INSCRIPCIONES */
+
+.estado-vacio {
+    background-color: white;
+    border: 2px dashed #cbd3e3;
+    border-radius: 15px;
+}
+
+.icono-vacio {
+    font-size: 3rem;
+    color: #7d88a5;
+}
+
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+    background-color: var(--color-oscuro);
+}
+
+/* DISEÑO RESPONSIVE */
+
+@media (max-width: 768px) {
+    .seccion-inicio {
+        padding: 40px 0;
+    }
+
+    .seccion-inicio h1 {
+        font-size: 2rem;
+    }
+
+    .titulo-seccion {
+        font-size: 1.6rem;
+    }
+
+    .tarjeta-evento .card-body {
+        padding: 20px;
+    }
+}

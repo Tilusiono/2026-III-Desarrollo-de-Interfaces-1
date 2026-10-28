@@ -4,66 +4,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <script src="js/clase1.js"></script>
+    <meta name="description" content="Plataforma de inscripción y gestión de eventos">
+    <title>EventHub | Gestión de Eventos</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="/assets/bootstrap-icons/bootstrap-icons.css">
+
+    <!-- JavaScript de nuestra aplicación -->
+    <script type="module" src="/js/app.js"></script>
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/css/eventos.css">
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 </head>
 
 <body>
 
-    <h1>Formulario de registro</h1>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-dark barra-navegacion">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-calendar-event"></i> EventHub
+            </a>
 
-    <form id="formularioRegistro">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventos">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inscripcion">Inscribirme</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mis-inscripciones">
+                            Mis inscripciones
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <br><br>
+    <main>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido">
+        <!-- PRESENTACIÓN -->
+        <section id="inicio" class="seccion-inicio text-white">
+            <div class="container text-center py-5">
+                <h1 class="display-5 fw-bold">
+                    Descubre experiencias inolvidables
+                </h1>
 
-        <br><br>
+                <p class="lead mt-3">
+                    Explora eventos, inscríbete fácilmente
+                    y administra tus participaciones.
+                </p>
 
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo">
+                <a href="#eventos" class="btn btn-light btn-lg mt-3">
+                    <i class="bi bi-search"></i> Explorar eventos
+                </a>
+            </div>
+        </section>
 
-        <br><br>
+        <!-- CATÁLOGO DE EVENTOS -->
+        <section id="eventos" class="container py-5">
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono">
+            <h2 class="titulo-seccion">Eventos disponibles</h2>
 
-        <br><br>
+            <p class="text-secondary">
+                Encuentra el evento que más te interese.
+            </p>
 
-        <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <!-- CONTROLES DE FILTRADO -->
+            <div class="row g-3 mb-4">
 
-        <br><br>
+                <div class="col-md-7">
+                    <label for="buscarEvento" class="form-label">
+                        Buscar evento
+                    </label>
 
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero">
-            <option value="">Seleccione una opción</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-        </select>
+                    <input type="search" class="form-control" id="buscarEvento"
+                        placeholder="Escribe el nombre del evento">
+                </div>
 
-        <br><br>
+                <div class="col-md-5">
+                    <label for="filtroCategoria" class="form-label">
+                        Filtrar por categoría
+                    </label>
 
-        <label for="mensaje">Mensaje:</label>
-        <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea>
+                    <select class="form-select" id="filtroCategoria">
+                        <option value="todos">Todas las categorías</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="educacion">Educación</option>
+                        <option value="emprendimiento">Emprendimiento</option>
+                    </select>
+                </div>
 
-        <br><br>
+            </div>
 
-        <button type="submit" id="btnEnviar">Enviar</button>
-        <button type="reset" id="btnLimpiar">Limpiar</button>
+            <!-- TARJETAS DE EVENTOS -->
+            <div class="row g-4" id="listaEventos">
 
-    </form>
+                <!-- EVENTO 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card tarjeta-evento h-100" data-categoria="tecnologia">
+                        <div class="card-body">
 
-    <section id="resultadoFormulario" aria-live="polite" hidden>
-        <h2>Datos obtenidos del formulario</h2>
+                            <span class="badge text-bg-primary mb-3">
+                                Tecnología
+                            </span>
 
-        <table border="1">
+                            <h3 class="card-title h5">
+                                Conferencia de Tecnología
+                            </h3>
+
+                            <p class="card-text text-secondary">
+                                Conoce las últimas tendencias en
+                                inteligencia artificial y desarrollo web.
+                            </p>
+
+                            <p>
+                                <i class="bi bi-calendar3"></i>
+                                15 de noviembre de 2026
+                            </p>
+
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                Lima, Perú
+                            </p>
+
+                            <a href="#inscripcion" class="btn btn-primary w-100">
+                                Inscribirme
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+                <!-- EVENTO 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card tarjeta-evento h-100" data-categoria="educacion">
+                        <div class="card-body">
+
+                            <span class="badge text-bg-success mb-3">
+                                Educación
+                            </span>
+
+                            <h3 class="card-title h5">
+                                Taller de Diseño Web
+                            </h3>
+
+                            <p class="card-text text-secondary">
+                                Aprende fundamentos de diseño,
+                                accesibilidad y experiencia de usuario.
+                            </p>
+
+                            <p>
+                                <i class="bi bi-calendar3"></i>
+                                22 de noviembre de 2026
+                            </p>
+
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                Evento virtual
+                            </p>
+
+                            <a href="#inscripcion" class="btn btn-primary w-100">
+                                Inscribirme
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+                <!-- EVENTO 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <article class="card tarjeta-evento h-100" data-categoria="emprendimiento">
+                        <div class="card-body">
+
+                            <span class="badge text-bg-warning mb-3">
+                                Emprendimiento
+                            </span>
+
+                            <h3 class="card-title h5">
+                                Feria de Emprendedores
+                            </h3>
+
+                            <p class="card-text text-secondary">
+                                Descubre nuevos proyectos, conecta con
+                                emprendedores y aprende sobre negocios.
+                            </p>
+
+                            <p>
+                                <i class="bi bi-calendar3"></i>
+                                5 de diciembre de 2026
+                            </p>
+
+                            <p>
+                                <i class="bi bi-geo-alt"></i>
+                                Lima, Perú
+                            </p>
+
+                            <a href="#inscripcion" class="btn btn-primary w-100">
+                                Inscribirme
+                            </a>
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE INSCRIPCIÓN -->
+        <section id="inscripcion" class="seccion-formulario py-5">
+
+            <div class="container">
+
+                <h2 class="titulo-seccion text-center">
+                    Formulario de inscripción
+                </h2>
+
+                <p class="text-center text-secondary mb-4">
+                    Completa tus datos para registrarte en un evento.
+                </p>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4">
+
+                                <form id="formInscripcion">
+
+                                    <div class="row g-3">
+
+                                        <div class="col-md-6">
+                                            <label for="nombre" class="form-label">
+                                                Nombres *
+                                            </label>
+
+                                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                                autocomplete="given-name" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="apellido" class="form-label">
+                                                Apellidos *
+                                            </label>
+
+                                            <input type="text" class="form-control" id="apellido" name="apellido"
+                                                autocomplete="family-name" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="correo" class="form-label">
+                                                Correo electrónico *
+                                            </label>
+
+                                            <input type="email" class="form-control" id="correo" name="correo"
+                                                autocomplete="email" placeholder="ejemplo@correo.com" required>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="telefono" class="form-label">
+                                                Teléfono
+                                            </label>
+
+                                            <input type="tel" class="form-control" id="telefono" name="telefono"
+                                                autocomplete="tel" placeholder="987654321">
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="eventoSeleccionado" class="form-label">
+                                                Selecciona un evento *
+                                            </label>
+
+                                            <select class="form-select" id="eventoSeleccionado" name="evento" required>
+
+                                                <option value="" selected disabled>
+                                                    Selecciona una opción
+                                                </option>
+
+                                                <option value="1">
+                                                    Conferencia de Tecnología
+                                                </option>
+
+                                                <option value="2">
+                                                    Taller de Diseño Web
+                                                </option>
+
+                                                <option value="3">
+                                                    Feria de Emprendedores
+                                                </option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="aceptarCondiciones"
+                                                    required>
+
+                                                <label class="form-check-label" for="aceptarCondiciones">
+                                                    Confirmo que mis datos son
+                                                    correctos y acepto registrarme
+                                                    en el evento seleccionado.
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="d-flex flex-wrap gap-2 mt-4">
+
+                                        <button type="submit" class="btn btn-primary" id="btnRegistrar">
+                                            <i class="bi bi-check-circle"></i>
+                                            Confirmar inscripción
+                                        </button>
+
+                                        <button type="reset" class="btn btn-outline-secondary">
+                                            Limpiar formulario
+                                        </button>
+
+                                    </div>
+
+                                    <p class="text-secondary small mt-3 mb-0">
+                                        * Campos obligatorios.
+                                    </p>
+
+                                    <!-- Mensajes del sistema -->
+                                    <div id="mensajeInscripcion" class="mt-3" role="status" aria-live="polite">
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MIS INSCRIPCIONES -->
+        <section id="mis-inscripciones" class="container py-5">
+
+            <h2 class="titulo-seccion">
+                Mis inscripciones
+            </h2>
+
+            <p class="text-secondary">
+                Aquí podrás consultar tus eventos registrados
+                y cancelar una inscripción cuando lo necesites.
+            </p>
+
+            <div id="contenedorInscripciones" class="estado-vacio text-center p-5" aria-live="polite">
+
+                <i class="bi bi-calendar-x icono-vacio"></i>
+
+                <h3 class="h5 mt-3">
+                    Todavía no tienes inscripciones
+                </h3>
+
+                <p class="text-secondary">
+                    Selecciona un evento y completa el formulario
+                    para comenzar.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie-pagina text-center text-white py-4">
+        <div class="container">
+            <p class="mb-1">
+                EventHub - Sistema de Gestión de Eventos
+            </p>
+            <small>
+                Proyecto académico | Desarrollo de Interfaces 1
+            </small>
+        </div>
+    </footer>
 
 </body>
 

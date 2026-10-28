@@ -23,7 +23,7 @@ export class Usuario extends RolUsuario {
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;
-        this.mensaje = mensaje;
+        this.mensaje = mensaje; 
         if (typeof rol !== "string" || !rol.trim()) {
             throw new Error("Debe indicar un rol.");
         }
