@@ -1,27 +1,58 @@
-import { Venta } from "./Venta.js";
-import { entero } from "../utilidades.js";
+import { centavos, entero } from '../utilidades.js';
 
-export class VentaLenovo extends Venta {
-  #comboAccesorios;
-  #porcentaje;
+/**
+ * Clase base abstracta Venta
+ */
+export default class Venta {
+  // 2 variables privadas
+  #dni;
+  #precio;
+
+  // 3 variables públicas
+  cliente;
+  modelo;
+  cantidad;
+
+  // Identificador asignado por el repositorio
+  id = null;
 
   constructor(datos) {
-    super(datos);
-    this.#comboAccesorios = datos.comboLenovo;
-    this.#porcentaje = entero(datos.descuentoLenovo);
+    if (new.target === Venta) {
+      throw new Error('No se puede instanciar directamente la clase abstracta Venta');
+    }
+
+    this.cliente = datos.cliente;
+    this.#dni = String(datos.dni || '');
+    this.modelo = datos.modelo;
+    this.#precio = centavos(datos.precioUnitario);
+    this.cantidad = entero(datos.cantidad);
   }
 
-  obtenerMarca() {
-    return "Lenovo";
+  get dni() {
+    return this.#dni;
   }
 
-  obtenerDetalle() {
-    return `Combo: ${this.#comboAccesorios}; Descuento: ${this.#porcentaje}%`;
+  get precio() {
+    return this.#precio;
+  }
+
+  calcularSubtotal() {
+    return this.cantidad * this.#precio;
+  }
+
+  calcularTotal() {
+    return this.calcularSubtotal() + this.calcularAjuste();
   }
 
   calcularAjuste() {
-    // Descuento porcentual sobre el subtotal (resta al total)
-    const descuento = Math.round(this.calcularSubtotal() * (this.#porcentaje / 100));
-    return -descuento;
+    throw new Error('El método abstracto calcularAjuste() debe ser implementado');
+  }
+
+  obtenerTipo() {
+    throw new Error('El método abstracto obtenerTipo() debe ser implementado');
+  }
+
+  obtenerDetalle() {
+    throw new Error('El método abstracto obtenerDetalle() debe ser implementado');
   }
 }

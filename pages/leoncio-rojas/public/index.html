@@ -3,155 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Venta de Laptops y Computadoras</title>
+  <title>Sistema de Ventas y Cotizaciones Tech</title>
+  <meta name="description" content="Sistema académico de ventas y cotizaciones tecnológicas desarrollado con Node.js, Express, JavaScript nativo ES Modules y Bootstrap 5.">
+  <meta property="og:title" content="Sistema de Ventas y Cotizaciones Tech">
+  <meta property="og:description" content="Sistema académico de ventas y cotizaciones tecnológicas desarrollado con Node.js, Express, JavaScript nativo ES Modules y Bootstrap 5.">
+  <meta property="og:type" content="website">
+
+  <!-- Hito 1: Enlace a Bootstrap servido desde node_modules -->
   <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <!-- Hito 2: Estilos CSS personalizados -->
   <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-  <header class="py-4">
-    <div class="container">
-      <h1>Venta de Laptops y Computadoras</h1>
-      <p class="mb-0">Gestión de cotizaciones y ventas: HP, Lenovo, Dell y Asus.</p>
+
+  <!-- Encabezado de la aplicación -->
+  <header class="app-header py-4 px-3 mb-4 shadow-sm">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div>
+        <h1 class="h3 mb-1 fw-bold text-white">TechHardware Pro | Gestión de Ventas y Cotizaciones</h1>
+        <p class="mb-0 text-white-50 small">Sistema Académico Full Stack con Node.js, Express, ES Modules nativos y Bootstrap 5</p>
+      </div>
+      <div>
+        <span class="badge badge-tag px-3 py-2 rounded-pill">Arquitectura POO + Repositorio</span>
+      </div>
     </div>
   </header>
 
-  <main class="container py-4">
-    <section class="card p-4 shadow-sm">
-      <h2 class="h4 mb-3">Datos de la venta</h2>
-      <form id="formularioVenta">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label for="cliente" class="form-label">Cliente</label>
-            <input id="cliente" name="cliente" type="text" class="form-control" required>
+  <main class="container mb-5">
+    <!-- Formulario de Registro de Ventas (Hitos 2 y 3) -->
+    <div class="card card-tech mb-5">
+      <div class="card-tech-header">
+        <h2 class="h5 mb-0 fw-bold text-primary">Formulario de Registro y Cotización de Equipos</h2>
+      </div>
+      <div class="card-body p-4">
+        <form id="formularioVenta" novalidate>
+          <!-- Fila de Campos Generales -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label for="cliente" class="form-label fw-semibold">Nombre del Cliente <span class="text-danger">*</span></label>
+              <input type="text" id="cliente" name="cliente" class="form-control" placeholder="Ej. Carlos Mendoza" required>
+            </div>
+            <div class="col-md-6">
+              <label for="dni" class="form-label fw-semibold">DNI (8 dígitos) <span class="text-danger">*</span></label>
+              <input type="text" id="dni" name="dni" class="form-control" placeholder="Ej. 74859612" pattern="[0-9]{8}" maxlength="8" required>
+              <div class="form-text">Debe contener exactamente 8 números.</div>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="dni" class="form-label">DNI</label>
-            <input id="dni" name="dni" type="text" class="form-control" maxlength="8" pattern="[0-9]{8}" required>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-4">
+              <label for="modelo" class="form-label fw-semibold">Modelo / Producto <span class="text-danger">*</span></label>
+              <input type="text" id="modelo" name="modelo" class="form-control" placeholder="Ej. Asus ROG Strix G16" required>
+            </div>
+            <div class="col-md-4">
+              <label for="precioUnitario" class="form-label fw-semibold">Precio Unitario (S/) <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <span class="input-group-text">S/</span>
+                <input type="number" id="precioUnitario" name="precioUnitario" class="form-control" step="0.01" min="0.01" placeholder="0.00" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="cantidad" class="form-label fw-semibold">Cantidad <span class="text-danger">*</span></label>
+              <input type="number" id="cantidad" name="cantidad" class="form-control" min="1" step="1" placeholder="1" required>
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="modelo" class="form-label">Modelo de laptop / equipo</label>
-            <input id="modelo" name="modelo" type="text" class="form-control" required>
-          </div>
-          <div class="col-md-6">
-            <label for="precioUnitario" class="form-label">Precio unitario (S/)</label>
-            <input id="precioUnitario" name="precioUnitario" type="number" step="0.01" min="0.01" class="form-control" required>
-          </div>
-          <div class="col-md-6">
-            <label for="cantidad" class="form-label">Cantidad</label>
-            <input id="cantidad" name="cantidad" type="number" min="1" value="1" class="form-control" required>
-          </div>
-          <div class="col-md-6">
-            <label for="marca" class="form-label">Marca</label>
-            <select id="marca" name="marca" class="form-select" required>
-              <option value="">Seleccione una marca</option>
-              <option value="hp">HP</option>
-              <option value="lenovo">Lenovo</option>
-              <option value="dell">Dell</option>
-              <option value="asus">Asus</option>
+
+          <!-- Selector Único de Categoría / Marca tecnológica -->
+          <div class="mb-3">
+            <label for="categoria" class="form-label fw-semibold">Categoría / Tipo de Equipo <span class="text-danger">*</span></label>
+            <select id="categoria" name="categoria" class="form-select" required>
+              <option value="" selected disabled>-- Seleccione una categoría tecnológica --</option>
+              <option value="gamer">Laptop Gamer (Alto Rendimiento & Gráficos)</option>
+              <option value="ultrabook">Ultrabook Portátil (Productividad & Movilidad)</option>
+              <option value="workstation">Workstation Móvil (Render 3D & Inteligencia Artificial)</option>
+              <option value="servidor">Servidor Cloud / Rack (Virtualización & Data Center)</option>
             </select>
           </div>
-        </div>
 
-        <!-- Paneles específicos condicionales por marca -->
-        <fieldset data-marca="hp" class="p-3 my-3" hidden disabled>
-          <legend>HP: Beneficios y descuentos</legend>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="garantiaHP" class="form-label">Tipo de garantía</label>
-              <input id="garantiaHP" name="garantiaHP" type="text" class="form-control" placeholder="Ej. Care Pack 2 años" required>
+          <!-- 4 Bloques Fieldsets Específicos (Inicialmente ocultos y deshabilitados) -->
+          <!-- 1. Categoría Gamer (Aplica Descuento Porcentual Negativo) -->
+          <fieldset data-categoria="gamer" hidden disabled>
+            <legend>Configuración Exclusiva: Gamer Series</legend>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="perifericoRegalo" class="form-label">Combo de Periféricos Incluido <span class="text-danger">*</span></label>
+                <input type="text" id="perifericoRegalo" name="perifericoRegalo" class="form-control" placeholder="Ej. Teclado Mecánico RGB + Headset 7.1" required>
+              </div>
+              <div class="col-md-6">
+                <label for="descuentoGamer" class="form-label">Descuento Promocional Torneo (%) <span class="text-danger">*</span></label>
+                <input type="number" id="descuentoGamer" name="descuentoGamer" class="form-control" min="0" max="100" step="1" value="10" placeholder="10" required>
+                <div class="form-text">Descuento porcentual que se descuenta del subtotal.</div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <label for="descuentoHP" class="form-label">Descuento corporativo fijo (S/)</label>
-              <input id="descuentoHP" name="descuentoHP" type="number" step="0.01" value="0" class="form-control" required>
+          </fieldset>
+
+          <!-- 2. Categoría Ultrabook (Aplica Descuento Fijo Negativo) -->
+          <fieldset data-categoria="ultrabook" hidden disabled>
+            <legend>Configuración Exclusiva: Ultrabook Ejecutiva</legend>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="fundaProtectora" class="form-label">Accesorio Ejecutivo / Funda <span class="text-danger">*</span></label>
+                <input type="text" id="fundaProtectora" name="fundaProtectora" class="form-control" placeholder="Ej. Maletín de Cuero Slim + Adaptador USB-C" required>
+              </div>
+              <div class="col-md-6">
+                <label for="descuentoFijo" class="form-label">Cupón de Descuento Fijo (S/) <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">S/</span>
+                  <input type="number" id="descuentoFijo" name="descuentoFijo" class="form-control" min="0" step="0.01" value="150.00" placeholder="150.00" required>
+                </div>
+                <div class="form-text">Monto fijo que se descuenta directamente de la cotización.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 3. Categoría Workstation (Aplica Recargo Positivo por Garantía VIP) -->
+          <fieldset data-categoria="workstation" hidden disabled>
+            <legend>Configuración Exclusiva: Workstation Profesional</legend>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="softwareLicencia" class="form-label">Suite de Software / Licencia <span class="text-danger">*</span></label>
+                <input type="text" id="softwareLicencia" name="softwareLicencia" class="form-control" placeholder="Ej. Suite Adobe CC + CUDA Drivers" required>
+              </div>
+              <div class="col-md-6">
+                <label for="costoGarantia" class="form-label">Garantía Extendida VIP On-Site (S/) <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">S/</span>
+                  <input type="number" id="costoGarantia" name="costoGarantia" class="form-control" min="0" step="0.01" value="250.00" placeholder="250.00" required>
+                </div>
+                <div class="form-text">Costo adicional agregado por servicio técnico empresarial.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 4. Categoría Servidor (Aplica Recargo Positivo por Instalación en Rack) -->
+          <fieldset data-categoria="servidor" hidden disabled>
+            <legend>Configuración Exclusiva: Servidor Cloud / Infraestructura</legend>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="tipoVirtualizacion" class="form-label">Entorno de Virtualización <span class="text-danger">*</span></label>
+                <input type="text" id="tipoVirtualizacion" name="tipoVirtualizacion" class="form-control" placeholder="Ej. VMware ESXi / Proxmox VE con RAID 10" required>
+              </div>
+              <div class="col-md-6">
+                <label for="costoInstalacion" class="form-label">Costo de Instalación y Montaje en Rack (S/) <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">S/</span>
+                  <input type="number" id="costoInstalacion" name="costoInstalacion" class="form-control" min="0" step="0.01" value="400.00" placeholder="400.00" required>
+                </div>
+                <div class="form-text">Costo adicional agregado por puesta en marcha en centro de datos.</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Resumen de Importes de la Cotización -->
+          <div class="resumen-totales-box my-4">
+            <div class="row align-items-center g-3">
+              <div class="col-sm-4">
+                <div class="subtotal-box">
+                  <span class="d-block small text-light opacity-75">Subtotal acumulado:</span>
+                  <span id="subtotal" class="h5 mb-0 fw-bold text-white">S/ 0.00</span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="ajuste-box">
+                  <span class="d-block small text-light opacity-75">Ajuste (Desc. / Recargo):</span>
+                  <span id="ajuste" class="h5 mb-0 fw-bold text-warning">S/ 0.00</span>
+                </div>
+              </div>
+              <div class="col-sm-4 text-sm-end">
+                <span class="total-destacado-label d-block">Importe Total Calculado:</span>
+                <span id="total" class="total-destacado-valor">S/ 0.00</span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div id="mensaje" class="small text-info mb-0">Complete el formulario y seleccione una categoría para cotizar.</div>
             </div>
           </div>
-        </fieldset>
 
-        <fieldset data-marca="lenovo" class="p-3 my-3" hidden disabled>
-          <legend>Lenovo: Beneficios y descuentos</legend>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="comboLenovo" class="form-label">Combo de accesorios</label>
-              <input id="comboLenovo" name="comboLenovo" type="text" class="form-control" placeholder="Ej. Mochila + Mouse Legion" required>
-            </div>
-            <div class="col-md-6">
-              <label for="descuentoLenovo" class="form-label">Descuento sobre el subtotal (%)</label>
-              <input id="descuentoLenovo" name="descuentoLenovo" type="number" step="1" min="0" max="100" value="0" class="form-control" required>
-            </div>
+          <!-- Botones de Acción -->
+          <div class="d-flex flex-wrap gap-2 justify-content-end">
+            <button id="btnLimpiar" type="reset" class="btn btn-outline-secondary px-4">Limpiar formulario</button>
+            <button id="btnRegistrar" type="submit" class="btn btn-primary px-4 fw-semibold">Registrar venta</button>
           </div>
-        </fieldset>
-
-        <fieldset data-marca="dell" class="p-3 my-3" hidden disabled>
-          <legend>Dell: Soporte especializado</legend>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="mesesSoporteDell" class="form-label">Meses de soporte ProSupport</label>
-              <input id="mesesSoporteDell" name="mesesSoporteDell" type="number" min="1" value="12" class="form-control" required>
-            </div>
-            <div class="col-md-6">
-              <label for="costoSoporteDell" class="form-label">Costo por soporte técnico (S/)</label>
-              <input id="costoSoporteDell" name="costoSoporteDell" type="number" step="0.01" value="0" class="form-control" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset data-marca="asus" class="p-3 my-3" hidden disabled>
-          <legend>Asus: Upgrades y configuración</legend>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label for="ramExtraAsus" class="form-label">Memoria RAM extra (GB)</label>
-              <input id="ramExtraAsus" name="ramExtraAsus" type="number" min="0" value="8" class="form-control" required>
-            </div>
-            <div class="col-md-6">
-              <label for="costoInstalacionAsus" class="form-label">Costo de instalación y upgrade (S/)</label>
-              <input id="costoInstalacionAsus" name="costoInstalacionAsus" type="number" step="0.01" value="0" class="form-control" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <p class="small text-secondary mt-3">Descuentos y cargos especiales se aplican una sola vez por venta.</p>
-
-        <div class="d-flex gap-2">
-          <button id="btnRegistrar" type="submit" class="btn btn-primary">Registrar venta</button>
-          <button id="btnLimpiar" type="reset" class="btn btn-outline-secondary">Limpiar formulario</button>
-        </div>
-      </form>
-
-      <p id="mensaje" class="mt-3" role="status" aria-live="polite"></p>
-
-      <div class="row mt-3 border-top pt-3">
-        <div class="col-4"><strong>Subtotal:</strong> <span id="subtotal">—</span></div>
-        <div class="col-4"><strong>Ajuste:</strong> <span id="ajuste">—</span></div>
-        <div class="col-4"><strong>Total:</strong> <span id="total">—</span></div>
+        </form>
       </div>
-    </section>
+    </div>
 
-    <!--  Tabla de Historial -->
-    <section class="card p-4 mt-4 shadow-sm">
-      <h2 class="h4">Ventas guardadas en el arreglo</h2>
-      <p id="resumen">0 ventas | 0 equipos | S/ 0.00</p>
-      <div class="table-responsive">
-        <table class="table table-striped align-middle">
-          <caption class="text-secondary">El historial se vacía al recargar la página.</caption>
-          <thead>
-            <tr>
-              <th>N.°</th>
-              <th>Cliente</th>
-              <th>DNI</th>
-              <th>Modelo</th>
-              <th>Cantidad</th>
-              <th>Marca</th>
-              <th>Detalle</th>
-              <th>Total</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody id="cuerpoVentas"></tbody>
-        </table>
+    <!-- Hito 5: Tabla de Historial de Ventas Guardadas en Memoria -->
+    <section class="card card-tech">
+      <div class="card-tech-header d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <h2 class="h5 mb-0 fw-bold text-dark">Ventas guardadas en el arreglo</h2>
+        <p id="resumen" class="mb-0">0 ventas | 0 equipos | S/ 0.00</p>
+      </div>
+      <div class="card-body p-3">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle mb-0">
+            <caption>El historial se vacía al recargar la página.</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="width: 5%;">N.°</th>
+                <th scope="col" style="width: 15%;">Cliente</th>
+                <th scope="col" style="width: 10%;">DNI</th>
+                <th scope="col" style="width: 15%;">Modelo</th>
+                <th scope="col" style="width: 8%;">Cantidad</th>
+                <th scope="col" style="width: 14%;">Tipo/Marca</th>
+                <th scope="col" style="width: 18%;">Detalle</th>
+                <th scope="col" style="width: 10%;">Total</th>
+                <th scope="col" style="width: 5%; text-align: center;">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoVentas">
+              <!-- Renderizado dinámicamente con app.js -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Script principal con ES Modules nativos (Hitos 2 al 5) -->
   <script type="module" src="/js/app.js"></script>
 </body>
 </html>
