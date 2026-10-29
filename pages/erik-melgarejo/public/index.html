@@ -15,6 +15,18 @@
             <h1 class="h2 mb-4">Formulario de registro</h1>
 
             <form id="formularioRegistro">
+                <div class="mb-3 rol-selector">
+                    <label for="rol" class="form-label">Primero, selecciona tu rol</label>
+                    <select id="rol" name="rol" class="form-select" required>
+                        <option value="">Selecciona un rol</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="profesor">Profesor</option>
+                        <option value="recursos-humanos">Recursos Humanos</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <fieldset id="camposFormulario" hidden disabled>
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input
@@ -55,6 +67,54 @@
                     >
                     <div class="form-text">Debe tener entre 4 y 30 caracteres.</div>
                 </div>
+
+                <fieldset class="mb-3" data-rol="estudiante" hidden disabled>
+                    <legend class="h6">Datos de estudiante</legend>
+                    <div class="mb-3">
+                        <label for="codigoEstudiante" class="form-label">Código de estudiante</label>
+                        <input id="codigoEstudiante" name="codigoEstudiante" type="text" class="form-control" data-campo-rol maxlength="30" required>
+                    </div>
+                    <div>
+                        <label for="carrera" class="form-label">Carrera</label>
+                        <input id="carrera" name="carrera" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-3" data-rol="profesor" hidden disabled>
+                    <legend class="h6">Datos de profesor</legend>
+                    <div class="mb-3">
+                        <label for="especialidad" class="form-label">Especialidad</label>
+                        <input id="especialidad" name="especialidad" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                    <div>
+                        <label for="gradoAcademico" class="form-label">Grado académico</label>
+                        <input id="gradoAcademico" name="gradoAcademico" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-3" data-rol="recursos-humanos" hidden disabled>
+                    <legend class="h6">Datos de Recursos Humanos</legend>
+                    <div class="mb-3">
+                        <label for="departamento" class="form-label">Departamento</label>
+                        <input id="departamento" name="departamento" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                    <div>
+                        <label for="cargo" class="form-label">Cargo</label>
+                        <input id="cargo" name="cargo" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-3" data-rol="otro" hidden disabled>
+                    <legend class="h6">Otros datos</legend>
+                    <div class="mb-3">
+                        <label for="rolEspecifico" class="form-label">Especifica el rol</label>
+                        <input id="rolEspecifico" name="rolEspecifico" type="text" class="form-control" data-campo-rol maxlength="80" required>
+                    </div>
+                    <div>
+                        <label for="datosAdicionales" class="form-label">Datos adicionales</label>
+                        <input id="datosAdicionales" name="datosAdicionales" type="text" class="form-control" data-campo-rol maxlength="120" required>
+                    </div>
+                </fieldset>
 
                 <div class="mb-3">
                     <label for="correo" class="form-label">Correo electrónico</label>
@@ -149,17 +209,6 @@
                     ></textarea>
                 </div>
 
-                <div class="mb-4">
-                    <label for="numero1" class="form-label">Número</label>
-                    <input
-                        id="numero1"
-                        name="numero1"
-                        type="number"
-                        class="form-control"
-                        required
-                    >
-                </div>
-
                 <div class="form-check mb-4">
                     <input
                         id="aceptaTerminos"
@@ -173,8 +222,11 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn btn-primary me-2">Enviar</button>
-                <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                <div class="acciones-formulario">
+                    <button type="submit" class="btn btn-primary me-2">Enviar</button>
+                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                </div>
+                </fieldset>
             </form>
 
             <section id="resultadoFormulario" class="mt-5" hidden>

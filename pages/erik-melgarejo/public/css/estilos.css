@@ -50,9 +50,39 @@ h1 {
   gap: 1.2rem 1.4rem;
 }
 
-#formularioRegistro > div {
+#formularioRegistro > .rol-selector,
+#formularioRegistro > #camposFormulario {
+  grid-column: 1 / -1;
+}
+
+#camposFormulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.4rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#camposFormulario > div {
   min-width: 0;
   margin: 0 !important;
+}
+
+#camposFormulario > [data-rol] {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.4rem;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+}
+
+#camposFormulario > [data-rol] legend {
+  grid-column: 1 / -1;
 }
 
 .form-label {
@@ -115,7 +145,7 @@ textarea.form-control {
   cursor: pointer;
 }
 
-#formularioRegistro > button {
+#camposFormulario button {
   margin: 0;
   min-height: 44px;
   padding: 0.65rem 1.2rem;
@@ -125,19 +155,19 @@ textarea.form-control {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-#formularioRegistro > button:hover {
+#camposFormulario button:hover {
   transform: translateY(-1px);
   box-shadow: 0 5px 12px rgb(30 55 90 / 12%);
 }
 
-#formularioRegistro > button[type="submit"] {
+#camposFormulario button[type="submit"] {
   justify-self: end;
   min-width: 130px;
   border-color: #2563eb;
   background-color: #2563eb;
 }
 
-#formularioRegistro > button[type="reset"] {
+#camposFormulario button[type="reset"] {
   justify-self: start;
   min-width: 110px;
   border: 1px solid #cbd5e1;
@@ -200,8 +230,16 @@ th {
     gap: 1rem;
   }
 
-  #formularioRegistro > button[type="submit"],
-  #formularioRegistro > button[type="reset"] {
+  #camposFormulario {
+    grid-template-columns: 1fr;
+  }
+
+  #camposFormulario > [data-rol] {
+    grid-template-columns: 1fr;
+  }
+
+  #camposFormulario button[type="submit"],
+  #camposFormulario button[type="reset"] {
     justify-self: stretch;
   }
 
