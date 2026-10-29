@@ -8,6 +8,7 @@ function obtenerValores(nombreFormulario) {
         correoElectronico: String(datosObtenidos.get("correo") ?? "").trim().toUpperCase(),
         nroContacto: Number(datosObtenidos.get("telefono")),
         fechaNacimiento: new Date(datosObtenidos.get("fechaNacimiento")),
+        fechaRegistro: new Date(),
         genero: String(datosObtenidos.get("genero") ?? "").trim(),
         mensaje: String(datosObtenidos.get("mensaje") ?? "").trim(),
         num: Number(datosObtenidos.get("numero1")),
@@ -93,6 +94,11 @@ function imprimirDatosHTML(valores) {
             campo: "Aceptó los términos",
             valor: valores.aceptaTerminos ? "Sí" : "No",
             tipo: "Confirmación"
+        },
+        {
+            campo: "Fecha y hora de registro",
+            valor: valores.fechaRegistro.toLocaleString("es-PE"),
+            tipo: "Fecha y hora"
         }
     ];
 
