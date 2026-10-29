@@ -1,112 +1,213 @@
-body {
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  background-color: #f4f6f9;
-  color: #253047;
+:root {
   font-family: Arial, Helvetica, sans-serif;
+  color: #253047;
+  background-color: #f3f6fb;
 }
 
-main {
-  width: min(100%, 760px);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 3rem 1rem;
+  color: #253047;
+  background:
+    radial-gradient(circle at top left, #e4efff 0, transparent 32rem),
+    #f3f6fb;
+}
+
+main.container {
+  width: min(100%, 900px);
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
-  border: 1px solid #e1e6ed;
-  border-radius: 12px;
+  padding: 0;
+}
+
+.card {
+  padding: 2.5rem !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 18px !important;
   background-color: #fff;
-  box-shadow: 0 6px 24px rgb(25 42 70 / 8%);
+  box-shadow: 0 16px 40px rgb(30 55 90 / 9%) !important;
 }
 
 h1,
 h2 {
-  color: #1d2939;
+  color: #172b4d;
   font-weight: 700;
 }
 
 h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem !important;
+  letter-spacing: -0.03em;
 }
 
-form > div {
-  margin-bottom: 1rem;
+#formularioRegistro {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.4rem;
 }
 
-label {
+#formularioRegistro > div {
+  min-width: 0;
+  margin: 0 !important;
+}
+
+.form-label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
+  color: #344563;
   font-weight: 600;
 }
 
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 0.65rem 0.75rem;
+.form-control,
+.form-select {
+  min-height: 46px;
   border: 1px solid #cbd5e1;
-  border-radius: 6px;
+  border-radius: 9px;
+  color: #253047;
   background-color: #fff;
   font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #6ea8fe;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgb(13 110 253 / 15%);
-}
-
-textarea {
+textarea.form-control {
+  min-height: 120px;
   resize: vertical;
 }
 
-button {
-  margin: 0.5rem 0.4rem 0 0;
-  padding: 0.65rem 1rem;
-  border: 0;
-  border-radius: 6px;
-  background-color: #0d6efd;
-  color: white;
-  font: inherit;
+.form-control:focus,
+.form-select:focus {
+  border-color: #4f8df7;
+  box-shadow: 0 0 0 4px rgb(79 141 247 / 16%);
+}
+
+.form-text {
+  margin-top: 0.4rem;
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.form-check {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc;
+}
+
+.form-check-input {
+  flex: 0 0 auto;
+  width: 1.1rem !important;
+  height: 1.1rem;
+  margin: 0 !important;
   cursor: pointer;
 }
 
-button[type="reset"] {
-  border: 1px solid #adb5bd;
-  background-color: white;
-  color: #344054;
+.form-check-label {
+  margin: 0;
+  color: #344563;
+  cursor: pointer;
 }
 
-button:hover {
-  filter: brightness(0.95);
+#formularioRegistro > button {
+  margin: 0;
+  min-height: 44px;
+  padding: 0.65rem 1.2rem;
+  border-radius: 9px;
+  font: inherit;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#formularioRegistro > button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgb(30 55 90 / 12%);
+}
+
+#formularioRegistro > button[type="submit"] {
+  justify-self: end;
+  min-width: 130px;
+  border-color: #2563eb;
+  background-color: #2563eb;
+}
+
+#formularioRegistro > button[type="reset"] {
+  justify-self: start;
+  min-width: 110px;
+  border: 1px solid #cbd5e1;
+  background-color: #fff;
+  color: #475569;
 }
 
 #resultadoFormulario {
-  margin-top: 2rem;
+  margin-top: 2.5rem !important;
+  padding-top: 1.8rem;
+  border-top: 1px solid #e8edf4;
+}
+
+#resultadoFormulario h2 {
+  margin-bottom: 1rem !important;
+}
+
+.table-responsive {
   overflow-x: auto;
+  border-radius: 10px;
 }
 
 table {
   width: 100%;
+  margin-bottom: 0 !important;
   border-collapse: collapse;
+  vertical-align: middle;
 }
 
 th,
 td {
-  padding: 0.7rem;
-  border: 1px solid #dee2e6;
+  padding: 0.8rem 0.9rem !important;
+  border: 1px solid #e1e7ef !important;
   text-align: left;
 }
 
 th {
-  background-color: #f1f4f8;
+  color: #344563 !important;
+  background-color: #f1f5f9 !important;
+  font-weight: 700;
 }
 
-@media (max-width: 576px) {
+#cuerpoResultado td:last-child {
+  color: #15803d;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
   body {
-    padding: 1rem 0.75rem;
+    padding: 1rem 0.7rem;
   }
 
-  main {
-    padding: 1.25rem;
+  .card {
+    padding: 1.3rem !important;
+    border-radius: 14px !important;
+  }
+
+  #formularioRegistro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  #formularioRegistro > button[type="submit"],
+  #formularioRegistro > button[type="reset"] {
+    justify-self: stretch;
+  }
+
+  th,
+  td {
+    padding: 0.65rem !important;
+    font-size: 0.9rem;
   }
 }
