@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../estilos_reserva.css">
+</head>
+
+<body>
+
+
+    <h2>Agendar Nueva Cita</h2>
+
+    <!-- Formulario de Reserva -->
+    <form id="form-reserva" class="formulario">
+        <fieldset class="campo">
+            <label for="cliente">Nombre del Cliente:</label>
+            <input type="text" id="cliente" required placeholder="Ej. Carlos Pérez">
+        </fieldset>
+
+        <fieldset class="campo">
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" required>
+                <option value="">-- Seleccione un servicio --</option>
+                <option value="Corte de Cabello">Corte de Cabello</option>
+                <option value="Manicure">Manicure</option>
+                <option value="Barba">Barba</option>
+            </select>
+        </fieldset>
+
+        <fieldset class="campo">
+            <label for="fecha">Fecha y Hora:</label>
+            <input type="datetime-local" id="fecha" required>
+        </fieldset>
+
+        <button type="submit" class="btn">Guardar Reserva</button>
+    </form>
+
+    <h2>Lista de Citas Agendadas</h2>
+
+    <!-- Tabla de Citas -->
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Servicio</th>
+                <th>Fecha / Hora</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-citas">
+            <tr>
+                <td>1</td>
+                <td>Ana Gómez</td>
+                <td>Manicure</td>
+                <td>2026-11-01 10:00</td>
+                <td><span class="estado pendiente">Pendiente</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+
+</html>
