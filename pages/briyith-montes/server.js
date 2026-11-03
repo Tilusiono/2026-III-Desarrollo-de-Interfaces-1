@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 18181;
 
 
 
@@ -16,10 +16,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-app.get('/inicio', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/inicio.html'));
+app.get('/formulario', (req, res) => {
+  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
 });
-
 app.get('/tema1', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/tema1.html'));
 });
@@ -27,6 +26,14 @@ app.get('/tema2', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/tema2.html'));
 });
 
-app.listen(PORT, ()=>{
-     console.log(`Abre http://localhost:${PORT}`);
+app.get('/DEMOPRUEBA', (req, res) => {
+  res.sendFile(path.join(publicPath, 'docs/demo.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}/formulario`);
 });
