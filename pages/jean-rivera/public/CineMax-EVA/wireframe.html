@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boceto CineMax</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #eee;
+    }
+    section {
+      background: white;
+      border: 2px dashed #777;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .eventos {
+      display: flex;
+      gap: 10px;
+    }
+    .tarjeta {
+      flex: 1;
+      border: 1px dashed #888;
+      padding: 10px;
+    }
+    .campo, .boton {
+      border: 1px solid #999;
+      padding: 10px;
+      margin: 5px 0;
+    }
+    @media (max-width: 600px) {
+      .eventos { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <strong>CineMax</strong>
+    <p>Barra de navegación</p>
+  </section>
+
+  <section>
+    <h1>Encuentra tu próximo evento</h1>
+    <p>Presentación de la aplicación</p>
+  </section>
+
+  <section>
+    <h2>Eventos disponibles</h2>
+    <div class="campo">Buscar evento y filtrar categoría</div>
+    <div class="eventos">
+      <div class="tarjeta">
+        <h3>Evento 1</h3>
+        <p>Fecha, lugar y descripción</p>
+        <div class="boton">Ver detalles | Inscribirme</div>
+      </div>
+      <div class="tarjeta">
+        <h3>Evento 2</h3>
+        <p>Fecha, lugar y descripción</p>
+        <div class="boton">Ver detalles | Inscribirme</div>
+      </div>
+      <div class="tarjeta">
+        <h3>Evento 3</h3>
+        <p>Fecha, lugar y descripción</p>
+        <div class="boton">Ver detalles | Inscribirme</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Formulario de inscripción</h2>
+    <div class="campo">Nombre y apellido</div>
+    <div class="campo">Correo y teléfono</div>
+    <div class="campo">Seleccionar evento</div>
+    <div class="boton">Inscribirme</div>
+  </section>
+
+  <section>
+    <h2>Mis inscripciones</h2>
+    <p>Datos del usuario y botón para cancelar.</p>
+  </section>
+</body>
+</html>
+  

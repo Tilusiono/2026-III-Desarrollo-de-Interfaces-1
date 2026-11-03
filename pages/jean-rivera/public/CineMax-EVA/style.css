@@ -1,0 +1,175 @@
+
+/* ===== 1. Configuración general ===== */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --rojo: #e50914;
+    --fondo: #111;
+    --panel: #1d1d1d;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== 2. Barra superior y logo ===== */
+.topbar {
+    background: #080808;
+    border-bottom: 2px solid var(--rojo);
+}
+
+.brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 800;
+}
+
+.brand span {
+    color: var(--rojo);
+}
+
+.small,
+.muted,
+footer {
+    color: #bdbdbd;
+}
+
+/* ===== 3. Portada principal ===== */
+.hero {
+    padding: 2rem;
+    border-radius: 12px;
+    background: linear-gradient(120deg, #2a090b, #242424);
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+}
+
+.tag,
+.event-top {
+    color: #ff5961;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ===== 4. Tarjetas y paneles ===== */
+h2 {
+    font-size: 1.45rem;
+    margin-bottom: 1rem;
+}
+
+.event-card,
+.panel {
+    background: var(--panel);
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.event-top {
+    padding: 0.8rem 1rem;
+    background: #292020;
+}
+
+.event-card h3 {
+    font-size: 1.2rem;
+}
+
+.event-card p {
+    color: #ddd;
+}
+
+.details {
+    font-size: 0.92rem;
+}
+
+.panel {
+    padding: 1.25rem;
+}
+
+/* ===== 5. Botones ===== */
+.btn-cine {
+    background: var(--rojo);
+    color: white;
+    border: 0;
+}
+
+.btn-cine:hover {
+    background: #b80710;
+    color: white;
+}
+
+/* ===== 6. Lista de inscripciones ===== */
+.registration {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #383838;
+}
+
+.registration:last-child {
+    border-bottom: 0;
+}
+
+.registration span {
+    color: #ccc;
+    overflow-wrap: anywhere;
+}
+
+/* ===== 7. Campos de los formularios ===== */
+.form-control,
+.form-select {
+    background-color: #292929;
+    color: white;
+    border-color: #484848;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #292929;
+    color: white;
+    border-color: var(--rojo);
+    box-shadow: 0 0 0 0.2rem #e5091433;
+}
+
+.form-control::placeholder {
+    color: #bbb;
+}
+
+.form-check-input {
+    background-color: #292929;
+    border-color: #666;
+}
+
+.form-check-input:checked {
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+}
+
+/* ===== 8. Pie de página ===== */
+footer {
+    border-top: 1px solid #333;
+    margin-top: 2rem;
+}
+
+/* ===== 9. Adaptación a móviles ===== */
+@media (max-width: 576px) {
+    .hero {
+        padding: 1.4rem;
+    }
+
+    .registration {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
