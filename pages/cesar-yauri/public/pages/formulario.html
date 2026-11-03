@@ -4,254 +4,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Formulario de Registro</title>
-
-    <!-- Bootstrap -->
+    <title>D-Hardware - Ventas</title>
+    <!-- Rutas locales exactas de tu server.js -->
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="/assets/bootstrap-icons/bootstrap-icons.min.css">
-
-    <!-- CSS personalizado -->
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 
 <body class="bg-light">
 
-    <header class="bg-primary text-white py-4">
-        <section class="container">
-            <h1 class="h2 mb-1">
-                <i class="bi bi-person-plus-fill"></i>
-                Formulario de Registro
-            </h1>
-            <p class="mb-0">Ingrese sus datos personales para registrarse.</p>
-        </section>
+    <header class="py-4 text-white encabezado">
+        <div class="container">
+            <h1 class="h2"><i class="bi bi-cpu"></i> D-Hardware: Sistema de Gestión</h1>
+            <p class="mb-0">Formulario interactivo de ventas de componentes informáticos.</p>
+        </div>
     </header>
 
     <main class="container py-4">
+        <section class="card p-4 mb-4 border-0 shadow-sm rounded-3">
+            <h2 class="h4 mb-3 text-secondary"><i class="bi bi-receipt-cutoff"></i> Registrar Componente</h2>
+            <form id="formularioVenta">
 
-        <section class="card shadow-sm mb-4">
-
-            <header class="card-header bg-white">
-                <h2 class="h5 mb-0">
-                    <i class="bi bi-person-vcard"></i>
-                    Datos personales
-                </h2>
-            </header>
-
-            <section class="card-body">
-
-                <form id="formularioRegistro">
-
-                    <fieldset class="border-0 p-0 m-0">
-
-                        <legend class="visually-hidden">
-                            Información personal del usuario
-                        </legend>
-
-                        <section class="mb-3">
-                            <label for="nombre" class="form-label">
-                                Nombre:
-                            </label>
-
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="Bernabe Daniel"
-                                placeholder="Ingrese sus nombres"
-                                pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+([ '-][A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+)*" minlength="2"
-                                maxlength="60"
-                                title="Ingrese nombres válidos, usando letras, espacios, guiones o apóstrofes."
-                                autocomplete="given-name" required>
-
-                            <small class="form-text text-muted">
-                                Solo letras, espacios, guiones o apóstrofes.
-                            </small>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="apellido" class="form-label">
-                                Apellidos:
-                            </label>
-
-                            <input type="text" class="form-control" id="apellido" name="apellido"
-                                value="Inche Ticlavilca" placeholder="Ingrese sus apellidos"
-                                pattern="[A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+([ '-][A-Za-zÁÉÍÓÚáéíóúÜüÑñ]+)*" minlength="2"
-                                maxlength="80"
-                                title="Ingrese apellidos válidos, usando letras, espacios, guiones o apóstrofes."
-                                autocomplete="family-name" required>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="correo" class="form-label">
-                                Correo electrónico:
-                            </label>
-
-                            <input type="email" class="form-control" id="correo" name="correo" value="fbinche@idat.pe"
-                                placeholder="ejemplo@correo.com"
-                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" maxlength="100"
-                                title="Ingrese un correo con formato usuario@dominio.com." autocomplete="email"
-                                required>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="telefono" class="form-label">
-                                Teléfono:
-                            </label>
-
-                            <input type="tel" class="form-control" id="telefono" name="telefono" value="919759571"
-                                placeholder="999999999" pattern="9[0-9]{8}" minlength="9" maxlength="9"
-                                inputmode="numeric"
-                                title="Ingrese un número móvil peruano de 9 dígitos que comience con 9."
-                                autocomplete="tel" required>
-
-                            <small class="form-text text-muted">
-                                Ejemplo: 919759571.
-                            </small>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="fechaNacimiento" class="form-label">
-                                Fecha de nacimiento:
-                            </label>
-
-                            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento"
-                                value="1993-08-28" max="2026-10-13" autocomplete="bday" required>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="genero" class="form-label">
-                                Género:
-                            </label>
-
-                            <select class="form-select" id="genero" name="genero" required>
-
-                                <option value="">
-                                    Seleccione una opción
-                                </option>
-
-                                <option value="masculino" selected>
-                                    Masculino
-                                </option>
-
-                                <option value="femenino">
-                                    Femenino
-                                </option>
-
-                                <option value="otro">
-                                    Otro
-                                </option>
-                            </select>
-                        </section>
-
-                        <section class="mb-3">
-                            <label for="tipoUsuario" class="form-label">
-                                Tipo de usuario:
-                            </label>
-
-                            <select class="form-select" id="tipoUsuario" name="tipoUsuario" required>
-                                <option value="">Seleccione una opción</option>
-                                <option value="alumno" selected>Alumno</option>
-                                <option value="maestro">Maestro</option>
-                                <option value="personalApoyo">Personal de apoyo</option>
-                            </select>
-                        </section>
-
-                        <section class="mb-4">
-                            <label for="mensaje" class="form-label">
-                                Mensaje:
-                            </label>
-
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5" minlength="5"
-                                maxlength="500" placeholder="Escriba su mensaje..."
-                                required>Mensaje de prueba.</textarea>
-
-                            <small class="form-text text-muted">
-                                Escriba entre 5 y 500 caracteres.
-                            </small>
-                        </section>
-
-                    </fieldset>
-
-                    <section class="d-flex flex-wrap gap-2">
-
-                        <button type="submit" id="btnEnviar" class="btn btn-primary">
-
-                            <i class="bi bi-send-fill"></i>
-                            Enviar
-                        </button>
-
-                        <button type="reset" id="btnLimpiar" class="btn btn-outline-secondary">
-
-                            <i class="bi bi-eraser-fill"></i>
-                            Restaurar valores
-                        </button>
-
-                    </section>
-
-                </form>
-
-            </section>
-        </section>
-
-        <section id="resultadoFormulario" class="card shadow-sm mb-4">
-
-            <header class="card-header bg-white">
-                <h2 class="h5 mb-0">
-                    Usuarios registrados:
-                    <span id="totalUsuarios">0</span>
-                </h2>
-            </header>
-
-            <section class="card-body">
-
-                <div class="table-responsive">
-
-                    <table class="table table-bordered table-striped
-                               table-hover align-middle mb-0">
-
-                        <caption class="caption-top">
-                            Rol y descripción se obtienen mediante
-                            métodos polimórficos.
-                            Los registros se conservan mientras la página
-                            permanezca abierta.
-                        </caption>
-
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">N.º</th>
-                                <th scope="col">Nombre completo</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">Teléfono</th>
-                                <th scope="col">Nacimiento</th>
-                                <th scope="col">Género</th>
-                                <th scope="col">Rol</th>
-                                <th scope="col">Descripción del rol</th>
-                                <th scope="col">Mensaje</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="cuerpoResultado"></tbody>
-
-                    </table>
-
+                <!-- CAMPOS COMUNES -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label for="cliente" class="form-label">Cliente</label>
+                        <input id="cliente" name="cliente" type="text" class="form-control" minlength="3"
+                            maxlength="100" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input id="dni" name="dni" type="text" class="form-control" inputmode="numeric"
+                            pattern="[0-9]{8}" maxlength="8" title="Ingrese ocho dígitos" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="modelo" class="form-label">Modelo del Componente</label>
+                        <input id="modelo" name="modelo" type="text" class="form-control" minlength="2" maxlength="80"
+                            required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="precioUnitario" class="form-label">Precio Unitario (S/)</label>
+                        <input id="precioUnitario" name="precioUnitario" type="number" class="form-control" min="0.01"
+                            max="999999.99" step="0.01" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cantidad" class="form-label">Cantidad</label>
+                        <input id="cantidad" name="cantidad" type="number" class="form-control" min="1" max="100"
+                            step="1" value="1" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Categoría de Hardware</label>
+                        <select id="categoria" name="categoria" class="form-select" required>
+                            <option value="">Seleccione una categoría</option>
+                            <option value="procesador">Procesadores (AMD/Intel)</option>
+                            <option value="gpu">Tarjetas de Video (GPU)</option>
+                            <option value="ram">Memorias RAM</option>
+                            <option value="ssd">Almacenamiento SSD</option>
+                        </select>
+                    </div>
                 </div>
 
-            </section>
+                <!-- PANELES DINÁMICOS ESPECÍFICOS -->
+
+                <!-- Procesadores -->
+                <fieldset data-categoria="procesador" class="p-3 mb-3 border border-info bg-white rounded shadow-sm"
+                    hidden disabled>
+                    <legend class="w-auto px-2 h6 text-info fw-bold">Detalles de Procesador</legend>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="socket" class="form-label">Placa Madre Compatible (Socket)</label>
+                            <input id="socket" name="socket" type="text" class="form-control" minlength="2"
+                                maxlength="80" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="descuentoCombo" class="form-label">Descuento por Combo Placa+CPU (S/)</label>
+                            <input id="descuentoCombo" name="descuentoCombo" type="number" class="form-control" min="0"
+                                max="999999.99" step="0.01" value="0" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Tarjetas de Video -->
+                <fieldset data-categoria="gpu" class="p-3 mb-3 border border-success bg-white rounded shadow-sm" hidden
+                    disabled>
+                    <legend class="w-auto px-2 h6 text-success fw-bold">Detalles de Tarjeta Gráfica</legend>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="refrigeracion" class="form-label">Tipo de Refrigeración</label>
+                            <input id="refrigeracion" name="refrigeracion" type="text" class="form-control"
+                                minlength="2" maxlength="80" placeholder="Ej. Aire / Líquida" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="descuentoCyber" class="form-label">Descuento Especial Cyber (%)</label>
+                            <input id="descuentoCyber" name="descuentoCyber" type="number" class="form-control" min="0"
+                                max="100" step="1" value="0" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Memorias RAM -->
+                <fieldset data-categoria="ram" class="p-3 mb-3 border border-warning bg-white rounded shadow-sm" hidden
+                    disabled>
+                    <legend class="w-auto px-2 h6 text-warning fw-bold">Detalles de Memoria RAM</legend>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="frecuencia" class="form-label">Frecuencia de Operación (MHz)</label>
+                            <input id="frecuencia" name="frecuencia" type="number" class="form-control" min="1333"
+                                max="8000" step="1" value="3200" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="costoDisipador" class="form-label">Adicional por Disipador RGB (S/)</label>
+                            <input id="costoDisipador" name="costoDisipador" type="number" class="form-control" min="0"
+                                max="999999.99" step="0.01" value="0" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Almacenamiento SSD -->
+                <fieldset data-categoria="ssd" class="p-3 mb-3 border border-primary bg-white rounded shadow-sm" hidden
+                    disabled>
+                    <legend class="w-auto px-2 h6 text-primary fw-bold">Detalles de Almacenamiento</legend>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="capacidad" class="form-label">Capacidad de Almacenamiento (GB/TB)</label>
+                            <input id="capacidad" name="capacidad" type="number" class="form-control" min="120"
+                                max="8000" step="1" value="1000" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="costoInstalacion" class="form-label">Servicio de Instalación y Clonado
+                                (S/)</label>
+                            <input id="costoInstalacion" name="costoInstalacion" type="number" class="form-control"
+                                min="0" max="999999.99" step="0.01" value="0" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="mt-4">
+                    <button class="btn btn-primary" type="submit"><i class="bi bi-save"></i> Registrar Venta</button>
+                    <button class="btn btn-outline-secondary" type="reset">Limpiar Formulario</button>
+                </div>
+            </form>
+
+            <p id="mensaje" class="mt-3" role="status" aria-live="polite"></p>
+
+            <dl class="row mb-0 mt-4 p-3 bg-light rounded text-dark fs-5">
+                <dt class="col-6 text-muted">Subtotal</dt>
+                <dd id="subtotal" class="col-6 text-end">—</dd>
+                <dt class="col-6 text-muted">Ajuste</dt>
+                <dd id="ajuste" class="col-6 text-end">—</dd>
+                <dt class="col-6 fw-bold">Total Neto</dt>
+                <dd id="total" class="col-6 text-end fw-bold text-primary">—</dd>
+            </dl>
         </section>
 
+        <!-- TABLA DE HISTORIAL -->
+        <section class="card p-4 border-0 shadow-sm rounded-3">
+            <h2 class="h4 text-secondary"><i class="bi bi-cpu-fill"></i> Registro de Componentes Guardados</h2>
+            <p id="resumen" class="fw-bold text-muted">0 ventas | 0 componentes | S/ 0.00</p>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <caption class="text-danger small"><i class="bi bi-info-circle"></i> El historial vive temporalmente
+                        en la memoria del navegador.</caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>N.º</th>
+                            <th>Cliente</th>
+                            <th>DNI</th>
+                            <th>Componente</th>
+                            <th>Cant.</th>
+                            <th>Categoría</th>
+                            <th>Detalle</th>
+                            <th>Total</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoVentas">
+                        <tr>
+                            <td colspan="9" class="text-center text-muted py-3">Todavía no hay ventas registradas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p class="mb-0">
-            <small>Formulario de Registro &copy; 2026</small>
-        </p>
+    <footer class="text-center py-3 bg-dark text-white-50 mt-5">
+        <p class="mb-0">Desarrollo de Interfaces &copy; 2026</p>
     </footer>
 
-    <script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Este archivo importa el resto de las clases. -->
-    <script type="module" src="js/app.js"></script>
-
-
+    <!-- Vinculación del script principal -->
+    <script type="module" src="/js/app.js"></script>
 </body>
 
 </html>
