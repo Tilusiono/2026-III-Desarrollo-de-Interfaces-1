@@ -1,78 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Profesor Particular | Clases Personalizadas</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
-
-    <h1>Formulario de registro</h1>
-
-    <form id="formularioRegistro">
-
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="romy">
-
-        <br><br>
-
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="villarroel">
-
-        <br><br>
-
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" value="romy@gmail.com">
-
-        <br><br>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" value="9696969">
-
-        <br><br>
-
-        <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="1997-01-31">
-
-        <br><br>
-
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero">
-            <option value="">Seleccione una opción</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-        </select>
-
-        <br><br>
-
-        <label for="mensaje">Mensaje:</label>
-        <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40"></textarea>
-
-        <br><br>
-
-        <button type="submit" id="btnEnviar">Enviar</button>
-        <button type="reset" id="btnLimpiar">Limpiar</button>
-
-    </form>
-    <section id="resultadoFormulario" aria-live="polite" hidden>
-        <h2>Datos obtenidos del formulario</h2>
- 
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Campo</th>
-                    <th>Valor</th>
-                    <th>Tipo JavaScript</th>
-                </tr>
-            </thead>
- 
-            <tbody id="cuerpoResultado">
-            </tbody>
-        </table>
+    <header>
+        <div class="nav-container">
+            <div class="logo">ProfeRomy</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#materias">Clases</a></li>
+                <li><a href="#solicitar">Solicitar Clase</a></li>
+            </ul>
+        </div>
+    </header>
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>**Lleva tu aprendizaje al siguiente nivel**</h1>
+            <p>Clases particulares personalizadas y dinámicas. Refuerzo escolar, preparación de exámenes y apoyo
+                universitario adaptado a tu ritmo.</p>
+            <a href="#solicitar" class="btn">Reserva tu primera clase</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://romyvillarroel.com" alt="Profesor enseñando">
+        </div>
     </section>
-    <script src="js/clase1.js"></script>
+    <section id="materias" class="subjects">
+        <h2 class="section-title">¿Qué clases necesitas?</h2>
+        <div class="grid-subjects">
+            <div class="subject-card">
+                <div class="subject-icon">📐</div>
+                <h3>Matemáticas</h3>
+                <p>Álgebra, geometría, cálculo y resolución de problemas para todos los niveles.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🧪</div>
+                <h3>Física y Química</h3>
+                <p>Comprensión teórica y práctica paso a paso para perder el miedo a las ciencias.</p>
+            </div>
+            <div class="subject-card">
+                <div class="subject-icon">🇬🇧</div>
+                <h3>Inglés / Idiomas</h3>
+                <p>Conversación, gramática y preparación intensiva para exámenes oficiales.</p>
+            </div>
+        </div>
+    </section>
+    <section id="solicitar" class="contact">
+        <h2 class="section-title">Solicita tu clase particular</h2>
+        <div id="successNotification" class="notification">
+            ¡Muchas gracias! Tu solicitud ha sido enviada. Me pondré en contacto contigo muy pronto.
+        </div>
+
+        <form id="classRequestForm">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" required placeholder="Tu nombre y apellido">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required placeholder="tu@email.com">
+            </div>
+            <div class="form-group">
+                <label for="materia">Materia de interés</label>
+                <select id="materia" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="matematicas">Matemáticas</option>
+                    <option value="ciencias">Física / Química</option>
+                    <option value="ingles">Inglés</option>
+                    <option value="otra">Otra materia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Detalles adicionales</label>
+                <textarea id="mensaje"
+                    placeholder="Cuéntame tu nivel actual, tus objetivos o tus horarios disponibles..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ProfeRomy. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
-</html>
