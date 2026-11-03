@@ -14,10 +14,12 @@ app.use("/assets/bootstrap-icons", express.static(
 ));
 app.use(express.static(path.join(carpeta, "public")));
 
-app.get("/ventas", (req, res) => {
+const servirFormulario = (req, res) => {
     res.sendFile(path.join(carpeta, "public/index.html"));
-});
+};
+
+app.get("/pedidos", servirFormulario);
 
 app.listen(puerto, () => {
-    console.log(`Abra http://localhost:${puerto}/ventas`);
+    console.log(`Abra http://localhost:${puerto}/pedidos`);
 });
