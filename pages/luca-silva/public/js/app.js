@@ -1,5 +1,3 @@
-
-
 // ========================================
 // 1. IMPORTACIÓN DE CLASES
 // ========================================
@@ -42,6 +40,51 @@ const eventos = [
     }, "Sede por confirmar")
 
 ];
+
+
+// ========================================
+// 2.1. PRECIOS, EXTRAS Y DESCUENTOS
+// ========================================
+
+// Configuración económica de cada evento
+const tarifasEventos = {
+
+    // Conferencia de Tecnología
+    1: {
+        precioBase: 150,
+        extras: [
+            { id: "kit", nombre: "Kit tecnológico", precio: 40 },
+            { id: "taller", nombre: "Taller práctico", precio: 60 },
+            { id: "certificado", nombre: "Certificado", precio: 30 }
+        ]
+    },
+
+    // Taller de Diseño Web
+    2: {
+        precioBase: 100,
+        extras: [
+            { id: "plantillas", nombre: "Plantillas premium", precio: 25 },
+            { id: "asesoria", nombre: "Asesoría personalizada", precio: 50 },
+            { id: "certificado", nombre: "Certificado", precio: 20 }
+        ]
+    },
+
+    // Feria de Emprendedores
+    3: {
+        precioBase: 60,
+        extras: [
+            { id: "material", nombre: "Material de negocios", precio: 20 },
+            { id: "networking", nombre: "Acceso a networking", precio: 35 },
+            { id: "taller", nombre: "Taller empresarial", precio: 45 }
+        ]
+    }
+
+};
+
+// Cupones de descuento disponibles
+const cuponesDescuento = {
+    EVENTHUB10: 0.10
+};
 
 
 // Comprobar la creación de los objetos
@@ -133,8 +176,18 @@ document.addEventListener("DOMContentLoaded", () => {
                         correo: registro.correo.trim().toLowerCase(),
                         telefono: typeof registro.telefono === "string"
                             ? registro.telefono
-                            : ""
+                            : "",
+
+                        // Recuperar los precios registrados originalmente
+                        detallePago:
+                            registro.detallePago &&
+                                typeof registro.detallePago.total === "number" &&
+                                Number.isFinite(registro.detallePago.total) &&
+                                registro.detallePago.total >= 0
+                                ? registro.detallePago
+                                : null
                     });
+
                 }
             } catch (error) {
                 console.warn("Registro omitido:", error.message);
@@ -153,6 +206,313 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Faltan elementos necesarios en el HTML.");
         return;
     }
+
+
+
+    // ========================================
+    // 3.1. MOSTRAR PRECIOS Y EXTRAS
+    // ========================================
+
+    tarjetas.forEach((tarjeta) => {
+
+        // Identificar el evento de cada tarjeta
+        const eventoId = Number(tarjeta.dataset.eventoId);
+
+        // Obtener los precios correspondientes
+        const tarifa = tarifasEventos[eventoId];
+
+        if (!tarifa) return;
+
+        // Buscar la zona donde están los botones
+        const acciones = tarjeta.querySelector(".acciones-evento");
+
+        if (!acciones) return;
+
+        // Crear el contenedor de precios
+        const bloquePrecios = document.createElement("div");
+        bloquePrecios.className = "mt-3 mb-3";
+
+        // Mostrar el precio base
+        const precio = document.createElement("p");
+        precio.className = "fw-bold text-primary mb-2";
+        precio.textContent =
+            `Precio de inscripción: S/ ${tarifa.precioBase.toFixed(2)}`;
+
+        // Título de materiales adicionales
+        const tituloExtras = document.createElement("p");
+        tituloExtras.className = "small fw-semibold mb-1";
+        tituloExtras.textContent = "Extras opcionales:";
+
+        // Crear la lista de materiales
+        const listaExtras = document.createElement("ul");
+        listaExtras.className = "small text-secondary ps-3 mb-0";
+
+        tarifa.extras.forEach((extra) => {
+
+            const elemento = document.createElement("li");
+
+            elemento.textContent =
+                `${extra.nombre} (+ S/ ${extra.precio.toFixed(2)})`;
+
+            listaExtras.appendChild(elemento);
+
+        });
+
+        // Organizar los elementos
+        bloquePrecios.append(
+            precio,
+            tituloExtras,
+            listaExtras
+        );
+
+        // Colocar los precios encima de los botones
+        acciones.before(bloquePrecios);
+
+    });
+
+
+    // ========================================
+    // 3.2. SELECCIONAR MATERIALES ADICIONALES
+    // ========================================
+
+    const selectorEvento = document.getElementById("eventoSeleccionado");
+    const bloqueExtras = document.getElementById("bloqueExtras");
+    const listaExtrasFormulario = document.getElementById("listaExtrasFormulario");
+    const subtotalInscripcion = document.getElementById("subtotalInscripcion");
+
+    // Elementos para descuentos y total
+    const campoCupon = document.getElementById("cuponDescuento");
+    const botonAplicarCupon = document.getElementById("btnAplicarCupon");
+    const mensajeCupon = document.getElementById("mensajeCupon");
+    const descuentoInscripcion = document.getElementById("descuentoInscripcion");
+    const totalInscripcion = document.getElementById("totalInscripcion");
+
+    // Cupón actualmente aplicado
+    let cuponAplicado = "";
+
+    // Obtener el desglose económico de la inscripción
+    function obtenerDetallePago() {
+
+        const eventoId = Number(selectorEvento.value);
+        const tarifa = tarifasEventos[eventoId];
+
+        if (!tarifa) return null;
+
+        // Identificar los materiales seleccionados
+        const seleccionados = new Set(
+            Array.from(
+                listaExtrasFormulario.querySelectorAll(
+                    'input[type="checkbox"]:checked'
+                ),
+                casilla => casilla.value
+            )
+        );
+
+        // Obtener los materiales y sus precios originales
+        const extras = tarifa.extras
+            .filter(extra => seleccionados.has(extra.id))
+            .map(extra => ({
+                id: extra.id,
+                nombre: extra.nombre,
+                precio: extra.precio
+            }));
+
+        // Calcular los importes
+        const totalExtras = extras.reduce(
+            (suma, extra) => suma + extra.precio,
+            0
+        );
+
+        const subtotal = Math.round(
+            (tarifa.precioBase + totalExtras) * 100
+        ) / 100;
+
+        const porcentaje = cuponesDescuento[cuponAplicado] || 0;
+
+        const descuento = Math.round(
+            subtotal * porcentaje * 100
+        ) / 100;
+
+        const total = Math.round(
+            (subtotal - descuento) * 100
+        ) / 100;
+
+        return {
+            precioBase: tarifa.precioBase,
+            extras,
+            subtotal,
+            cupon: cuponAplicado,
+            descuento,
+            total
+        };
+    }
+
+
+    // Actualizar el resumen económico del formulario
+    function calcularSubtotal() {
+
+        const detalle = obtenerDetallePago();
+
+        if (!detalle) return;
+
+        subtotalInscripcion.textContent =
+            `Subtotal: S/ ${detalle.subtotal.toFixed(2)}`;
+
+        descuentoInscripcion.textContent =
+            `Descuento: - S/ ${detalle.descuento.toFixed(2)}`;
+
+        totalInscripcion.textContent =
+            `Total por pagar: S/ ${detalle.total.toFixed(2)}`;
+    }
+
+
+
+    // ========================================
+    // 3.3. VALIDAR Y APLICAR CUPONES
+    // ========================================
+
+    function aplicarCupon() {
+
+        const codigo = campoCupon.value.trim().toUpperCase();
+
+        if (!selectorEvento.value) {
+            mensajeCupon.textContent = "Primero selecciona un evento.";
+            mensajeCupon.className = "small text-danger mt-2 mb-0";
+            return;
+        }
+
+        // Si no se ingresó un cupón, quitar el descuento
+        if (codigo === "") {
+
+            cuponAplicado = "";
+
+            mensajeCupon.textContent =
+                "No has ingresado ningún cupón.";
+
+            mensajeCupon.className = "small text-secondary mt-2 mb-0";
+
+            calcularSubtotal();
+            return;
+        }
+
+        // Verificar si el cupón existe
+        if (Object.hasOwn(cuponesDescuento, codigo)) {
+
+            cuponAplicado = codigo;
+
+            mensajeCupon.textContent =
+                "¡Cupón aplicado correctamente! Obtienes un 10 % de descuento.";
+
+            mensajeCupon.className = "small text-success mt-2 mb-0";
+
+        } else {
+
+            cuponAplicado = "";
+
+            mensajeCupon.textContent =
+                "El cupón ingresado no es válido.";
+
+            mensajeCupon.className = "small text-danger mt-2 mb-0";
+        }
+
+        calcularSubtotal();
+    }
+
+    // Aplicar descuento al pulsar el botón
+    botonAplicarCupon.addEventListener("click", aplicarCupon);
+
+    // Permitir aplicar el cupón con Enter sin enviar el formulario
+    campoCupon.addEventListener("keydown", (event) => {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            aplicarCupon();
+        }
+
+    });
+
+    // Si se modifica el código, retirar el descuento anterior
+    campoCupon.addEventListener("input", () => {
+
+        cuponAplicado = "";
+        mensajeCupon.textContent = "";
+
+        if (selectorEvento.value) {
+            calcularSubtotal();
+        }
+
+    });
+
+
+    // Mostrar los materiales correspondientes al evento
+    function mostrarExtrasFormulario() {
+
+        const eventoId = Number(selectorEvento.value);
+        const tarifa = tarifasEventos[eventoId];
+
+        listaExtrasFormulario.replaceChildren();
+
+
+        // Reiniciar el cupón al cambiar de evento
+        cuponAplicado = "";
+        campoCupon.value = "";
+        mensajeCupon.textContent = "";
+
+
+        if (!tarifa) {
+            bloqueExtras.hidden = true;
+            subtotalInscripcion.textContent = "";
+            return;
+        }
+
+        bloqueExtras.hidden = false;
+
+        tarifa.extras.forEach((extra) => {
+
+            const contenedorExtra = document.createElement("div");
+            contenedorExtra.className = "form-check";
+
+            const casilla = document.createElement("input");
+            casilla.type = "checkbox";
+            casilla.className = "form-check-input";
+            casilla.id = `extra-${extra.id}`;
+            casilla.value = extra.id;
+            casilla.dataset.precio = extra.precio;
+
+            const etiqueta = document.createElement("label");
+            etiqueta.className = "form-check-label";
+            etiqueta.htmlFor = casilla.id;
+            etiqueta.textContent =
+                `${extra.nombre} (+ S/ ${extra.precio.toFixed(2)})`;
+
+            contenedorExtra.append(casilla, etiqueta);
+            listaExtrasFormulario.appendChild(contenedorExtra);
+
+        });
+
+        calcularSubtotal();
+    }
+
+    // Cambiar los materiales cuando se selecciona otro evento
+    selectorEvento.addEventListener("change", mostrarExtrasFormulario);
+
+    // Actualizar subtotal al seleccionar o quitar un material
+    listaExtrasFormulario.addEventListener("change", calcularSubtotal);
+
+    // Limpiar los materiales al reiniciar el formulario
+    formulario.addEventListener("reset", () => {
+        listaExtrasFormulario.replaceChildren();
+        subtotalInscripcion.textContent = "";
+        bloqueExtras.hidden = true;
+
+        // Reiniciar el descuento
+        cuponAplicado = "";
+        campoCupon.value = "";
+        mensajeCupon.textContent = "";
+        descuentoInscripcion.textContent = "Descuento: - S/ 0.00";
+        totalInscripcion.textContent = "Total por pagar: S/ 0.00";
+
+    });
 
 
     // ========================================
@@ -300,6 +660,109 @@ document.addEventListener("DOMContentLoaded", () => {
             const fecha = document.createElement("p");
             fecha.textContent = `Fecha: ${formatearFecha(evento.fecha)}`;
 
+            // ========================================
+            // MOSTRAR DETALLE ECONÓMICO
+            // ========================================
+
+            const resumenPago = document.createElement("div");
+            resumenPago.className = "border-top pt-3 mt-3 mb-3";
+
+            const detalle = inscripcion.detallePago;
+
+            // Crear párrafos de manera segura
+            function agregarDatoPago(texto, clase = "mb-2") {
+                const parrafo = document.createElement("p");
+                parrafo.className = clase;
+                parrafo.textContent = texto;
+                resumenPago.appendChild(parrafo);
+            }
+
+            // Dar formato a los importes en soles
+            function formatoSoles(valor) {
+                return `S/ ${Number(valor).toFixed(2)}`;
+            }
+
+            if (detalle && typeof detalle.total === "number") {
+
+                const tituloResumen = document.createElement("h4");
+                tituloResumen.className = "h6 fw-bold mb-3";
+                tituloResumen.textContent = "Resumen de la inscripción";
+
+                resumenPago.appendChild(tituloResumen);
+
+                // Precio original del evento
+                agregarDatoPago(
+                    `Precio base: ${formatoSoles(detalle.precioBase)}`
+                );
+
+                // Materiales adicionales seleccionados
+                const extras = Array.isArray(detalle.extras)
+                    ? detalle.extras
+                    : [];
+
+                if (extras.length > 0) {
+
+                    agregarDatoPago("Materiales adicionales:", "fw-semibold mb-1");
+
+                    const lista = document.createElement("ul");
+                    lista.className = "small mb-3";
+
+                    extras.forEach(extra => {
+
+                        const elemento = document.createElement("li");
+
+                        elemento.textContent =
+                            `${extra.nombre}: ${formatoSoles(extra.precio)}`;
+
+                        lista.appendChild(elemento);
+
+                    });
+
+                    resumenPago.appendChild(lista);
+
+                } else {
+                    agregarDatoPago("Materiales adicionales: Ninguno");
+                }
+
+                // Subtotal
+                agregarDatoPago(
+                    `Subtotal: ${formatoSoles(detalle.subtotal)}`
+                );
+
+                // Cupón utilizado
+                if (detalle.cupon) {
+                    agregarDatoPago(
+                        `Cupón aplicado: ${detalle.cupon}`,
+                        "text-success mb-2"
+                    );
+                }
+
+                // Descuento aplicado
+                agregarDatoPago(
+                    `Descuento: - ${formatoSoles(detalle.descuento)}`,
+                    "text-success mb-2"
+                );
+
+                // Total final
+                agregarDatoPago(
+                    `Total por pagar: ${formatoSoles(detalle.total)}`,
+                    "fw-bold text-primary fs-5 mb-2"
+                );
+
+                agregarDatoPago(
+                    "Estado: Pendiente de pago (simulación académica)",
+                    "small text-secondary"
+                );
+
+            } else {
+
+                // Mantener compatibilidad con inscripciones antiguas
+                agregarDatoPago(
+                    "Inscripción anterior: importe no registrado.",
+                    "small text-secondary"
+                );
+
+            }
 
             // Crear el botón para cancelar la inscripción
             const botonCancelar = document.createElement("button");
@@ -313,13 +776,18 @@ document.addEventListener("DOMContentLoaded", () => {
             botonCancelar.dataset.correo = inscripcion.correo;
 
             // Agregar los elementos a la tarjeta
+
+
             cuerpo.append(
                 titulo,
                 participante,
                 correo,
                 fecha,
+                resumenPago,
                 botonCancelar
             );
+
+
 
             tarjeta.appendChild(cuerpo);
             columna.appendChild(tarjeta);
@@ -402,7 +870,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-
         // Buscar el evento seleccionado
         const eventoSeleccionado = eventos.find(
             e => e.id === eventoId
@@ -418,7 +885,66 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        // ========================================
+        // VALIDAR QUE EL CORREO PERTENEZCA
+        // AL MISMO PARTICIPANTE
+        // ========================================
+
+        // Normalizar nombres para evitar diferencias
+        // por mayúsculas, espacios o tildes
+        function normalizarNombre(valor) {
+            return valor
+                .trim()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, " ")
+                .toLowerCase();
+        }
+
+        // Comprobar si otro participante utiliza el correo
+        const correoDeOtroParticipante = inscripciones.some(
+            (inscripcion) => {
+
+                const mismoCorreo =
+                    inscripcion.correo.toLowerCase() === correo;
+
+                const mismoNombre =
+                    normalizarNombre(inscripcion.nombre) ===
+                    normalizarNombre(nombre);
+
+                const mismoApellido =
+                    normalizarNombre(inscripcion.apellido) ===
+                    normalizarNombre(apellido);
+
+                return mismoCorreo && !(mismoNombre && mismoApellido);
+            }
+        );
+
+        // Rechazar un correo asociado a otro participante
+        if (correoDeOtroParticipante) {
+
+            mostrarMensaje(
+                "Este correo electrónico ya está asociado a otro participante.",
+                "danger"
+            );
+
+            return;
+        }
+
+
         try {
+
+            // Obtener el detalle económico antes de registrar
+            const detallePago = obtenerDetallePago();
+
+            if (!detallePago) {
+                mostrarMensaje(
+                    "No se pudo calcular el importe de la inscripción.",
+                    "danger"
+                );
+                return;
+            }
+
 
             // Utilizar el método de la clase Evento
             const registrado = eventoSeleccionado.inscribir(correo);
@@ -434,14 +960,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Guardar los datos del participante
+
+            // Guardar los datos del participante y su importe
             inscripciones.push({
                 eventoId,
                 nombre,
                 apellido,
                 correo,
-                telefono
+                telefono,
+                detallePago
             });
+
 
             // Guardar los cambios
             const guardado = guardarInscripciones();
@@ -517,6 +1046,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Seleccionar automáticamente el evento
             selectorEvento.value = String(evento.id);
+
+            // Mostrar los materiales del evento seleccionado
+            selectorEvento.dispatchEvent(new Event("change"));
 
             // Limpiar mensajes de operaciones anteriores
             mensaje.className = "mt-3";

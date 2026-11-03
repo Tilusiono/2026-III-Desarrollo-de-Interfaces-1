@@ -358,6 +358,70 @@
                                             </select>
                                         </div>
 
+
+
+                                        <!-- MATERIALES ADICIONALES -->
+                                        <div class="col-12" id="bloqueExtras" hidden>
+
+                                            <h3 class="h6 mb-3">
+                                                Materiales adicionales (opcionales)
+                                            </h3>
+
+                                            <p class="text-secondary small">
+                                                Selecciona los materiales que deseas agregar a tu inscripción.
+                                            </p>
+
+                                            <!-- Aquí JavaScript mostrará los materiales -->
+                                            <div id="listaExtrasFormulario" class="d-grid gap-2">
+                                            </div>
+
+                                            <!-- Subtotal de la inscripción -->
+                                            <p id="subtotalInscripcion" class="fw-bold text-primary mt-3"
+                                                aria-live="polite">
+                                            </p>
+
+
+                                            <!-- CUPÓN DE DESCUENTO -->
+                                            <div class="mt-3">
+
+                                                <label for="cuponDescuento" class="form-label">
+                                                    Cupón de descuento (opcional)
+                                                </label>
+
+                                                <div class="input-group">
+
+                                                    <input type="text" class="form-control" id="cuponDescuento"
+                                                        placeholder="Ingresa tu cupón" autocomplete="off"
+                                                        maxlength="30">
+
+                                                    <button type="button" class="btn btn-outline-primary"
+                                                        id="btnAplicarCupon">
+                                                        Aplicar
+                                                    </button>
+
+                                                </div>
+
+                                                <p id="mensajeCupon" class="small mt-2 mb-0" role="status"
+                                                    aria-live="polite">
+                                                </p>
+
+                                            </div>
+
+                                            <!-- RESUMEN DE PRECIOS -->
+                                            <div class="border rounded p-3 mt-3 bg-light">
+
+                                                <p id="descuentoInscripcion" class="mb-2">
+                                                    Descuento: S/ 0.00
+                                                </p>
+
+                                                <p id="totalInscripcion" class="fw-bold fs-5 mb-0">
+                                                    Total por pagar: S/ 0.00
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
                                         <div class="col-12">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="aceptarCondiciones"
