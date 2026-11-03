@@ -1,40 +1,23 @@
-const express = require('express');
-const path = require('node:path');
+import express from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 const app = express();
-const PORT = process.env.PORT || 4000;
+const carpeta = path.dirname(fileURLToPath(import.meta.url));
+const puerto = Number(process.env.PORT || 18181);
 
+app.use("/assets/bootstrap", express.static(
+    path.join(carpeta, "node_modules/bootstrap/dist")
+));
+app.use("/assets/bootstrap-icons", express.static(
+    path.join(carpeta, "node_modules/bootstrap-icons")
+));
+app.use(express.static(path.join(carpeta, "public")));
 
-
-
-app.use('/assets/bootstrap', express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist')));
-app.use('/assets/bootstrap-icons', express.static(path.join(__dirname, 'node_modules', 'bootstrap-icons', 'font')));
-
-const publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+app.get("/ventas", (req, res) => {
+    res.sendFile(path.join(carpeta, "public/index.html"));
 });
 
-app.get('/inicio', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/inicio.html'));
-});
-
-app.get('/tema1', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/tema1.html'));
-});
-app.get('/tema2', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/tema2.html'));
-});
-
-app.get('/formulario', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
-});
-
-app.get('/index 1', (req, res) => {
-  res.sendFile(path.join(publicPath, 'pages/index 1.html'));
-});
-
-app.listen(PORT, ()=>{
-     console.log(`Abre http://localhost:${PORT}`);
+app.listen(puerto, () => {
+    console.log(`Abra http://localhost:${puerto}/ventas`);
 });

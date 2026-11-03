@@ -1,61 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bextor - Registro de Pedidos</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/css/estilos.css">
 </head>
+
 <body>
 
-    <h1>Formulario de registro</h1>
+  <header class="header py-3">
+    <div class="container d-flex align-items-center gap-3">
+      <img src="/img/Isotipo.png" alt="Bextor" class="isologo">
+      <p class="header-titulo mb-0"><span class="marca-header">BEXTOR</span> | Registro de Pedidos</p>
+    </div>
+  </header>
 
-    <form id="formularioRegistro">
+  <main class="container py-5">
+    <section class="pedido-card">
+      <h1 class="pedido-titulo">
+        <i class="bi bi-bag-check"></i>Datos del pedido
+      </h1>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="Manuel">
+      <form id="formularioVenta">
+        <!-- Fila 1 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="cliente" class="form-label"><i class="bi bi-person"></i>Nombre Completo</label>
+            <input id="cliente" name="cliente" type="text" class="form-control" placeholder="Ej. Manuel Alexis Candela Luyo"
+              minlength="3" maxlength="100" required>
+          </div>
 
-        <br><br>
+          <div class="col-md-6">
+            <label for="dni" class="form-label"><i class="bi bi-card-heading"></i>DNI</label>
+            <input id="dni" name="dni" type="text" class="form-control" placeholder="Ej. 62024500" inputmode="numeric"
+              pattern="[0-9]{8}" maxlength="8" title="Ingrese ocho dígitos" required>
+          </div>
+        </div>
 
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="Candela">
+        <!-- Fila 2 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="numeroCelular" class="form-label"><i class="bi bi-phone"></i>N° Celular</label>
+            <input id="numeroCelular" name="numeroCelular" type="tel" class="form-control" placeholder="Ej. 952337612"
+              inputmode="numeric" pattern="[0-9]{9}" maxlength="9" title="Ingrese nueve dígitos" required>
+          </div>
 
-        <br><br>
+          <div class="col-md-6">
+            <label for="metodoPago" class="form-label"><i class="bi bi-credit-card"></i>Método de Pago</label>
+            <select id="metodoPago" name="metodoPago" class="form-select" required>
+              <option value="" selected>Seleccione un método de pago</option>
+              <option value="efectivo">Efectivo</option>
+              <option value="yape-plin">Yape / Plin</option>
+              <option value="tarjeta">Tarjeta de Crédito / Débito</option>
+              <option value="transferencia">Transferencia Bancaria</option>
+            </select>
+          </div>
+        </div>
 
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" value="at62024500@idat.pe">
+        <!-- Fila 3 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label for="categoria" class="form-label"><i class="bi bi-tag"></i>Categoría de producto</label>
+            <select id="categoria" name="categoria" class="form-select" required>
+              <option value="" selected>Seleccione una categoría</option>
+              <option value="perfumeria-arabe">Perfumería Árabe</option>
+              <option value="accesorios-tech">Accesorios Tech</option>
+              <option value="hogar-cocina">Hogar y Cocina</option>
+              <option value="accesorios-mascotas">Accesorios para Mascotas</option>
+            </select>
+          </div>
 
-        <br><br>
+          <div class="col-md-6">
+            <label for="producto" class="form-label"><i class="bi bi-box-seam"></i>Producto</label>
+            <select id="producto" name="producto" class="form-select" disabled required>
+              <option value="" selected>Primero seleccione una categoría</option>
+            </select>
+          </div>
+        </div>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" value="952337612">
+        <!-- Fila 4 -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label for="precioUnitario" class="form-label"><i class="bi bi-cash"></i>Precio Unitario S/</label>
+            <input id="precioUnitario" name="precioUnitario" type="number" class="form-control" placeholder="0.00"
+              min="0.01" max="999999.99" step="0.01" required>
+          </div>
 
-        <br><br>
+          <div class="col-md-6">
+            <label for="cantidad" class="form-label"><i class="bi bi-boxes"></i>Cantidad</label>
+            <input id="cantidad" name="cantidad" type="number" class="form-control" min="1" max="100" step="1" value="1" required>
+          </div>
+        </div>
 
-        <label for="fechaNacimiento">Fecha de nacimiento:</label>
-        <input type="date" id="fechaNacimiento" name="fechaNacimiento" value="2008-12-16">
+        <!-- Campos condicionales: solo Perfumería Árabe -->
+        <fieldset data-categoria="perfumeria-arabe" class="p-3 mb-3" hidden disabled>
+          <legend><i class="bi bi-droplet-half"></i>Perfumería Árabe</legend>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="presentacionPerfumes" class="form-label">Presentación</label>
+              <input id="presentacionPerfumes" name="presentacionPerfumes" type="text" class="form-control"
+                placeholder="Ej. 100ml Full Bottle" minlength="2" maxlength="80" required>
+            </div>
+            <div class="col-md-6">
+              <label for="descuentoPerfumes" class="form-label">Descuento de Campaña (%)</label>
+              <input id="descuentoPerfumes" name="descuentoPerfumes" type="number" class="form-control" min="0"
+                max="100" step="1" value="15" required>
+            </div>
+          </div>
+        </fieldset>
 
-        <br><br>
+        <!-- Campos condicionales: Accesorios Tech -->
+        <fieldset data-categoria="accesorios-tech" class="p-3 mb-3" hidden disabled>
+          <legend><i class="bi bi-phone"></i>Accesorios Tech</legend>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="modeloTech" class="form-label">Modelo</label>
+              <input id="modeloTech" name="modeloTech" type="text" class="form-control" minlength="2"
+                maxlength="80" placeholder="Ej. Versión 2026" required>
+            </div>
+            <div class="col-md-6">
+              <label for="cargoTech" class="form-label">Garantía en meses</label>
+              <input id="cargoTech" name="cargoTech" type="number" class="form-control" min="1" max="36"
+                step="1" placeholder="Ej. 12" required>
+            </div>
+          </div>
+        </fieldset>
 
-        <label for="genero">Género:</label>
-        <select id="genero" name="genero">
-            <option value="">Seleccione una opción</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-        </select>
+        <!-- Campos condicionales: Hogar y Cocina -->
+        <fieldset data-categoria="hogar-cocina" class="p-3 mb-3" hidden disabled>
+          <legend><i class="bi bi-house-door"></i>Hogar y Cocina</legend>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="tipoHogar" class="form-label">Material</label>
+              <input id="tipoHogar" name="tipoHogar" type="text" class="form-control" minlength="2"
+                maxlength="80" placeholder="Ej. Acero inoxidable" required>
+            </div>
+            <div class="col-md-6">
+              <label for="descuentoHogar" class="form-label">Descuento de campaña (%)</label>
+              <input id="descuentoHogar" name="descuentoHogar" type="number" class="form-control" min="0"
+                max="100" step="1" value="0" required>
+            </div>
+          </div>
+        </fieldset>
 
-        <br><br>
+        <!-- Campos condicionales: Accesorios para Mascotas -->
+        <fieldset data-categoria="accesorios-mascotas" class="p-3 mb-3" hidden disabled>
+          <legend><i class="bi bi-heart"></i>Accesorios para Mascotas</legend>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="tipoMascota" class="form-label">Talla</label>
+              <input id="tipoMascota" name="tipoMascota" type="text" class="form-control" minlength="2"
+                maxlength="80" placeholder="Ej. Estándar" required>
+            </div>
+            <div class="col-md-6">
+              <label for="cargoMascotas" class="form-label">Costo de empaque (S/)</label>
+              <input id="cargoMascotas" name="cargoMascotas" type="number" class="form-control" min="0"
+                max="999999.99" step="0.01" value="0" required>
+            </div>
+          </div>
+        </fieldset>
 
-        <label for="mensaje">Mensaje:</label>
-        <br>
-        <textarea id="mensaje" name="mensaje" rows="5" cols="40">Estoy interesado en el servicio</textarea>
+        <p class="nota-pedido mb-4">Descuentos y cargos se aplican una vez por venta.</p>
 
-        <br><br>
+        <div class="d-flex flex-wrap gap-3">
+          <button id="btnCalcular" class="btn btn-calcular" type="submit">
+            Calcular pedido
+          </button>
+          <button class="btn btn-limpiar" type="reset">
+            Limpiar formulario
+          </button>
+        </div>
+      </form>
 
-        <button type="submit" id="btnEnviar">Enviar</button>
-        <button type="reset" id="btnLimpiar">Limpiar</button>
+      <p id="mensaje" class="mt-4" role="status" aria-live="polite"></p>
 
-    </form>
-    <script src="js/clase1.js"></script>
+      <dl class="resumen-pedido mt-2">
+        <div class="resumen-item">
+          <dt>Subtotal</dt>
+          <dd id="subtotal">S/ 0.00</dd>
+        </div>
+        <div class="resumen-item resumen-ajuste">
+          <dt>Ajuste</dt>
+          <dd id="ajuste">S/ 0.00</dd>
+        </div>
+        <div class="resumen-item resumen-total">
+          <dt>Total a pagar</dt>
+          <dd id="total">S/ 0.00</dd>
+        </div>
+      </dl>
+
+      <section class="mt-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <h2 class="h4 mb-0">Pedidos registrados</h2>
+          <p id="resumen" class="mb-0 fw-semibold"></p>
+        </div>
+        <div class="table-responsive tabla-pedidos">
+          <table class="table align-middle mb-0">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">ID</th>
+                <th scope="col" class="text-center">Cliente</th>
+                <th scope="col" class="text-center">DNI</th>
+                <th scope="col" class="text-center">Celular</th>
+                <th scope="col" class="text-center">Pago</th>
+                <th scope="col" class="text-center">Categoría</th>
+                <th scope="col" class="text-center">Producto</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="text-center">Precio unit.</th>
+                <th scope="col" class="text-center">Especificación del producto</th>
+                <th scope="col" class="text-center">Ajuste</th>
+                <th scope="col" class="text-center">Total</th>
+                <th scope="col" class="text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoVentas"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer-pagina py-4 text-center">
+    <span class="footer-separador" aria-hidden="true"></span>
+    <span>Copyright &copy; 2026 Bextor. Todos los derechos reservados.</span>
+  </footer>
+
+  <script type="module" src="/js/view/app.js"></script>
 </body>
+
 </html>
