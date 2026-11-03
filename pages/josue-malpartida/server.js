@@ -13,7 +13,7 @@ const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
+  res.sendFile(path.join(publicPath, 'reservas.html'));
 });
 
 app.get('/inicio', (req, res) => {
@@ -28,5 +28,5 @@ app.get('/tema2', (req, res) => {
 });
 
 app.listen(PORT, ()=>{
-     console.log(`Abre http://localhost:${PORT}`);
+     console.log(`Abre http://localhost:1250`);
 });
