@@ -1,5 +1,5 @@
 //extends nos permite usar HERENCIA
-import { Usuario } from "./Usuario";
+import { Usuario } from "./Usuario.js";
 export class Alumno extends Usuario {
 
     //INJECCION SQL
