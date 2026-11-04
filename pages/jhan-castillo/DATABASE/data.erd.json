@@ -1,0 +1,530 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "originX": 0,
+    "originY": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "lockSettings": 63
+  },
+  "doc": {
+    "tableIds": [
+      "03h6awl97wsyg4aftbadgmc29",
+      "03h6awl982c3xf12omtupkxoc",
+      "03h6awl987pc1ak09rfnd89oy",
+      "03h6awl987pc1ak09s1vtwfn4",
+      "03h6awl98d6bcjcxfmxvjfc87"
+    ],
+    "relationshipIds": [
+      "03h6awl98d6bcjcxfnl0v91j0",
+      "03h6awl98d6bcjcxfnnc8t388",
+      "03h6awl98d6bcjcxfnpsyjt9b",
+      "03h6awl98d6bcjcxfnqvgqg1s",
+      "03h6awl98d6bcjcxfnst9kyfk"
+    ],
+    "indexIds": [
+      "03h6awl98io8dt7i7ud0epvgo"
+    ]
+  },
+  "collections": {
+    "tableEntities": {
+      "03h6awl97wsyg4aftbadgmc29": {
+        "id": "03h6awl97wsyg4aftbadgmc29",
+        "name": "CATEGORIA",
+        "columnIds": [
+          "03h6awl982c3xf12omo2eka3j",
+          "03h6awl982c3xf12omqo970y5",
+          "03h6awl982c3xf12omsckbsni"
+        ],
+        "ui": {
+          "x": 149,
+          "y": 460
+        }
+      },
+      "03h6awl982c3xf12omtupkxoc": {
+        "id": "03h6awl982c3xf12omtupkxoc",
+        "name": "DETALLE_VENTA",
+        "columnIds": [
+          "03h6awl982c3xf12omwkcosxg",
+          "03h6awl987pc1ak09r45r1sbi",
+          "03h6awl987pc1ak09r5626hno",
+          "03h6awl987pc1ak09r7jqbuak",
+          "03h6awl987pc1ak09r99yn95q",
+          "03h6awl987pc1ak09rb3ya9fo",
+          "03h6awl987pc1ak09rcj9lpya"
+        ],
+        "ui": {
+          "x": 1338,
+          "y": 273
+        }
+      },
+      "03h6awl987pc1ak09rfnd89oy": {
+        "id": "03h6awl987pc1ak09rfnd89oy",
+        "name": "PRODUCTO",
+        "columnIds": [
+          "03h6awl987pc1ak09rhyxab3d",
+          "03h6awl987pc1ak09ri85aykk",
+          "03h6awl987pc1ak09rknudftf",
+          "03h6awl987pc1ak09rnx1k53p",
+          "03h6awl987pc1ak09rorl425a",
+          "03h6awl987pc1ak09rrg4f2rk",
+          "03h6awl987pc1ak09rt59hyd8",
+          "03h6awl987pc1ak09ruskknct",
+          "03h6awl987pc1ak09rx7fyjw0",
+          "03h6awl987pc1ak09ry0ruhqs"
+        ],
+        "ui": {
+          "x": 742,
+          "y": 424
+        }
+      },
+      "03h6awl987pc1ak09s1vtwfn4": {
+        "id": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "USUARIO",
+        "columnIds": [
+          "03h6awl987pc1ak09s2marcfm",
+          "03h6awl987pc1ak09s4wssaa3",
+          "03h6awl987pc1ak09s6k0bjk7",
+          "03h6awl987pc1ak09s97ffboo",
+          "03h6awl987pc1ak09sa4v0qf0",
+          "03h6awl987pc1ak09sd1uhfwm",
+          "03h6awl98d6bcjcxfmv6q7ku0"
+        ],
+        "ui": {
+          "x": 50,
+          "y": 182
+        }
+      },
+      "03h6awl98d6bcjcxfmxvjfc87": {
+        "id": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "VENTA",
+        "columnIds": [
+          "03h6awl98d6bcjcxfn0m84p4x",
+          "03h6awl98d6bcjcxfn1hvrc5u",
+          "03h6awl98d6bcjcxfn45629ln",
+          "03h6awl98d6bcjcxfn5hn9w6a",
+          "03h6awl98d6bcjcxfn7gg9f5d",
+          "03h6awl98d6bcjcxfnaf4ekss",
+          "03h6awl98d6bcjcxfnb0eufdi",
+          "03h6awl98d6bcjcxfnenz6td3",
+          "03h6awl98d6bcjcxfnffve2od",
+          "03h6awl98d6bcjcxfnhowgi3t",
+          "03h6awl98d6bcjcxfnkkan5f4"
+        ],
+        "ui": {
+          "x": 727,
+          "y": 50
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "03h6awl982c3xf12omo2eka3j": {
+        "id": "03h6awl982c3xf12omo2eka3j",
+        "tableId": "03h6awl97wsyg4aftbadgmc29",
+        "name": "CAT",
+        "dataType": "INT",
+        "options": 10
+      },
+      "03h6awl982c3xf12omqo970y5": {
+        "id": "03h6awl982c3xf12omqo970y5",
+        "tableId": "03h6awl97wsyg4aftbadgmc29",
+        "name": "DESCRIPCION",
+        "dataType": "VARCHAR(100)",
+        "options": 8
+      },
+      "03h6awl982c3xf12omsckbsni": {
+        "id": "03h6awl982c3xf12omsckbsni",
+        "tableId": "03h6awl97wsyg4aftbadgmc29",
+        "name": "ACTIVO",
+        "dataType": "BOOLEAN",
+        "default": "TRUE",
+        "options": 8
+      },
+      "03h6awl982c3xf12omwkcosxg": {
+        "id": "03h6awl982c3xf12omwkcosxg",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "ID_VENTA",
+        "dataType": "INT",
+        "options": 10
+      },
+      "03h6awl987pc1ak09r45r1sbi": {
+        "id": "03h6awl987pc1ak09r45r1sbi",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "ID_PRO",
+        "dataType": "INT",
+        "options": 10
+      },
+      "03h6awl987pc1ak09r5626hno": {
+        "id": "03h6awl987pc1ak09r5626hno",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "CANTIDAD",
+        "dataType": "INT",
+        "options": 8
+      },
+      "03h6awl987pc1ak09r7jqbuak": {
+        "id": "03h6awl987pc1ak09r7jqbuak",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "PRECIO",
+        "dataType": "DECIMAL(12,2)",
+        "options": 8
+      },
+      "03h6awl987pc1ak09r99yn95q": {
+        "id": "03h6awl987pc1ak09r99yn95q",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "DESCUENTO",
+        "dataType": "DECIMAL(12,2)",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl987pc1ak09rb3ya9fo": {
+        "id": "03h6awl987pc1ak09rb3ya9fo",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "IMPORTE",
+        "dataType": "DECIMAL(12,2)",
+        "options": 0
+      },
+      "03h6awl987pc1ak09rcj9lpya": {
+        "id": "03h6awl987pc1ak09rcj9lpya",
+        "tableId": "03h6awl982c3xf12omtupkxoc",
+        "name": "OBSERVACION",
+        "dataType": "VARCHAR(500)",
+        "options": 0
+      },
+      "03h6awl987pc1ak09rhyxab3d": {
+        "id": "03h6awl987pc1ak09rhyxab3d",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "PK_PRO",
+        "dataType": "INT",
+        "options": 3
+      },
+      "03h6awl987pc1ak09ri85aykk": {
+        "id": "03h6awl987pc1ak09ri85aykk",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "FK_CAT",
+        "dataType": "INT",
+        "options": 8
+      },
+      "03h6awl987pc1ak09rknudftf": {
+        "id": "03h6awl987pc1ak09rknudftf",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "NOM",
+        "dataType": "VARCHAR(100)",
+        "options": 8
+      },
+      "03h6awl987pc1ak09rnx1k53p": {
+        "id": "03h6awl987pc1ak09rnx1k53p",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "PREC",
+        "dataType": "DECIMAL(12,2)",
+        "options": 8
+      },
+      "03h6awl987pc1ak09rorl425a": {
+        "id": "03h6awl987pc1ak09rorl425a",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "DESCRIPCION",
+        "dataType": "VARCHAR(500)",
+        "options": 0
+      },
+      "03h6awl987pc1ak09rrg4f2rk": {
+        "id": "03h6awl987pc1ak09rrg4f2rk",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "STOCK",
+        "dataType": "INT",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl987pc1ak09rt59hyd8": {
+        "id": "03h6awl987pc1ak09rt59hyd8",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "PESO_KG",
+        "dataType": "DOUBLE",
+        "options": 0
+      },
+      "03h6awl987pc1ak09ruskknct": {
+        "id": "03h6awl987pc1ak09ruskknct",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "CALIFICACION",
+        "dataType": "FLOAT",
+        "options": 0
+      },
+      "03h6awl987pc1ak09rx7fyjw0": {
+        "id": "03h6awl987pc1ak09rx7fyjw0",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "ACTIVO",
+        "dataType": "BOOLEAN",
+        "default": "TRUE",
+        "options": 8
+      },
+      "03h6awl987pc1ak09ry0ruhqs": {
+        "id": "03h6awl987pc1ak09ry0ruhqs",
+        "tableId": "03h6awl987pc1ak09rfnd89oy",
+        "name": "FOTO_URL",
+        "dataType": "VARCHAR(500)",
+        "options": 0
+      },
+      "03h6awl987pc1ak09s2marcfm": {
+        "id": "03h6awl987pc1ak09s2marcfm",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "PK_COD_USU",
+        "dataType": "INT",
+        "options": 3
+      },
+      "03h6awl987pc1ak09s4wssaa3": {
+        "id": "03h6awl987pc1ak09s4wssaa3",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "NOM",
+        "dataType": "VARCHAR(100)",
+        "options": 8
+      },
+      "03h6awl987pc1ak09s6k0bjk7": {
+        "id": "03h6awl987pc1ak09s6k0bjk7",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "APE",
+        "dataType": "VARCHAR(100)",
+        "options": 8
+      },
+      "03h6awl987pc1ak09s97ffboo": {
+        "id": "03h6awl987pc1ak09s97ffboo",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "CORREO",
+        "dataType": "VARCHAR(150)",
+        "options": 12
+      },
+      "03h6awl987pc1ak09sa4v0qf0": {
+        "id": "03h6awl987pc1ak09sa4v0qf0",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "FECHA_NACIMIENTO",
+        "dataType": "DATE",
+        "options": 0
+      },
+      "03h6awl987pc1ak09sd1uhfwm": {
+        "id": "03h6awl987pc1ak09sd1uhfwm",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "ACTIVO",
+        "dataType": "BOOLEAN",
+        "default": "TRUE",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfmv6q7ku0": {
+        "id": "03h6awl98d6bcjcxfmv6q7ku0",
+        "tableId": "03h6awl987pc1ak09s1vtwfn4",
+        "name": "FECHA_REGISTRO",
+        "dataType": "DATETIME",
+        "default": "CURRENT_TIMESTAMP",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfn0m84p4x": {
+        "id": "03h6awl98d6bcjcxfn0m84p4x",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "PK_ID_VENTA",
+        "dataType": "INT",
+        "options": 3
+      },
+      "03h6awl98d6bcjcxfn1hvrc5u": {
+        "id": "03h6awl98d6bcjcxfn1hvrc5u",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "FK_COD_CLIENTE",
+        "dataType": "INT",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfn45629ln": {
+        "id": "03h6awl98d6bcjcxfn45629ln",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "FK_COD_CAJERO",
+        "dataType": "INT",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfn5hn9w6a": {
+        "id": "03h6awl98d6bcjcxfn5hn9w6a",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "FECHA",
+        "dataType": "DATE",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfn7gg9f5d": {
+        "id": "03h6awl98d6bcjcxfn7gg9f5d",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "TOTAL",
+        "dataType": "DECIMAL(12,2)",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnaf4ekss": {
+        "id": "03h6awl98d6bcjcxfnaf4ekss",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "HORA",
+        "dataType": "TIME",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnb0eufdi": {
+        "id": "03h6awl98d6bcjcxfnb0eufdi",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "SUBTOTAL",
+        "dataType": "DECIMAL(12,2)",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnenz6td3": {
+        "id": "03h6awl98d6bcjcxfnenz6td3",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "DESCUENTO",
+        "dataType": "DECIMAL(12,2)",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnffve2od": {
+        "id": "03h6awl98d6bcjcxfnffve2od",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "IMPUESTO",
+        "dataType": "DECIMAL(12,2)",
+        "default": "0",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnhowgi3t": {
+        "id": "03h6awl98d6bcjcxfnhowgi3t",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "ESTADO",
+        "dataType": "VARCHAR(20)",
+        "default": "'REGISTRADA'",
+        "options": 8
+      },
+      "03h6awl98d6bcjcxfnkkan5f4": {
+        "id": "03h6awl98d6bcjcxfnkkan5f4",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "name": "OBSERVACION",
+        "dataType": "VARCHAR(500)",
+        "options": 0
+      }
+    },
+    "relationshipEntities": {
+      "03h6awl98d6bcjcxfnl0v91j0": {
+        "id": "03h6awl98d6bcjcxfnl0v91j0",
+        "relationshipType": 4,
+        "onDelete": 32,
+        "onUpdate": 32,
+        "start": {
+          "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+          "columnIds": [
+            "03h6awl98d6bcjcxfn0m84p4x"
+          ]
+        },
+        "end": {
+          "tableId": "03h6awl982c3xf12omtupkxoc",
+          "columnIds": [
+            "03h6awl982c3xf12omwkcosxg"
+          ]
+        }
+      },
+      "03h6awl98d6bcjcxfnnc8t388": {
+        "id": "03h6awl98d6bcjcxfnnc8t388",
+        "relationshipType": 4,
+        "onDelete": 32,
+        "onUpdate": 32,
+        "start": {
+          "tableId": "03h6awl987pc1ak09rfnd89oy",
+          "columnIds": [
+            "03h6awl987pc1ak09rhyxab3d"
+          ]
+        },
+        "end": {
+          "tableId": "03h6awl982c3xf12omtupkxoc",
+          "columnIds": [
+            "03h6awl987pc1ak09r45r1sbi"
+          ]
+        }
+      },
+      "03h6awl98d6bcjcxfnpsyjt9b": {
+        "id": "03h6awl98d6bcjcxfnpsyjt9b",
+        "relationshipType": 4,
+        "onDelete": 1,
+        "onUpdate": 1,
+        "start": {
+          "tableId": "03h6awl97wsyg4aftbadgmc29",
+          "columnIds": [
+            "03h6awl982c3xf12omo2eka3j"
+          ]
+        },
+        "end": {
+          "tableId": "03h6awl987pc1ak09rfnd89oy",
+          "columnIds": [
+            "03h6awl987pc1ak09ri85aykk"
+          ]
+        }
+      },
+      "03h6awl98d6bcjcxfnqvgqg1s": {
+        "id": "03h6awl98d6bcjcxfnqvgqg1s",
+        "relationshipType": 4,
+        "onDelete": 32,
+        "onUpdate": 32,
+        "start": {
+          "tableId": "03h6awl987pc1ak09s1vtwfn4",
+          "columnIds": [
+            "03h6awl987pc1ak09s2marcfm"
+          ]
+        },
+        "end": {
+          "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+          "columnIds": [
+            "03h6awl98d6bcjcxfn1hvrc5u"
+          ]
+        }
+      },
+      "03h6awl98d6bcjcxfnst9kyfk": {
+        "id": "03h6awl98d6bcjcxfnst9kyfk",
+        "relationshipType": 4,
+        "onDelete": 1,
+        "onUpdate": 1,
+        "start": {
+          "tableId": "03h6awl987pc1ak09s1vtwfn4",
+          "columnIds": [
+            "03h6awl987pc1ak09s2marcfm"
+          ]
+        },
+        "end": {
+          "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+          "columnIds": [
+            "03h6awl98d6bcjcxfn45629ln"
+          ]
+        }
+      }
+    },
+    "indexEntities": {
+      "03h6awl98io8dt7i7ud0epvgo": {
+        "id": "03h6awl98io8dt7i7ud0epvgo",
+        "name": "IDX_VENTA_FECHA",
+        "tableId": "03h6awl98d6bcjcxfmxvjfc87",
+        "indexColumnIds": [
+          "03h6awl98io8dt7i7ug1ozv4h"
+        ],
+        "unique": false
+      }
+    },
+    "indexColumnEntities": {
+      "03h6awl98io8dt7i7ug1ozv4h": {
+        "id": "03h6awl98io8dt7i7ug1ozv4h",
+        "indexId": "03h6awl98io8dt7i7ud0epvgo",
+        "columnId": "03h6awl98d6bcjcxfn5hn9w6a",
+        "orderType": 1
+      }
+    }
+  }
+}

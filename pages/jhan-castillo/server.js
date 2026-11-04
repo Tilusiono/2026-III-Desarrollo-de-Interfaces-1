@@ -13,7 +13,7 @@ const publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(publicPath, 'formulario.html'));
+  res.sendFile(path.join(publicPath, 'pages/formulario.html'));
 });
 
 app.get('/inicio', (req, res) => {
@@ -27,6 +27,6 @@ app.get('/tema2', (req, res) => {
   res.sendFile(path.join(publicPath, 'pages/tema2.html'));
 });
 
-app.listen(PORT, ()=>{
-     console.log(`Abre http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Abre http://localhost:${PORT}`);
 });
