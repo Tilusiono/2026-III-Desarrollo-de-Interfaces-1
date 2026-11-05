@@ -8,7 +8,9 @@
     "build": "echo 'Build OK'"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3",
-    "express": "^4.21.2"
+    "@popperjs/core": "file:../../npm/popperjs-core-2.11.8.tgz",
+    "bootstrap": "file:../../npm/bootstrap-5.3.8.tgz",
+    "bootstrap-icons": "file:../../npm/bootstrap-icons-1.13.1.tgz",
+    "express": "file:../../npm/express-5.2.1.tgz"
   }
 }
