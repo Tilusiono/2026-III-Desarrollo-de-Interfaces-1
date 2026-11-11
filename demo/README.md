@@ -20,6 +20,7 @@ También puedes usar Live Server de VS Code o `python3 -m http.server 8000` y ab
 | Alumno | codigoAlumno (privado con getter/setter) | carrera (público) |
 | Maestro | especialidad (privado con getter/setter) | gradoAcademico (público) |
 | PersonalAseo | areaAsignada (privado con getter/setter) | turno (público) |
+| SoporteTI | especialidad (privado con getter/setter) | nivelSoporte (público) |
 
 Al seleccionar un rol se muestra su fieldset y se habilitan sus dos campos. Los fieldsets restantes permanecen ocultos y deshabilitados, para que sus campos obligatorios no bloqueen el envío.
 
@@ -38,7 +39,7 @@ Se mantienen los valores personales de ejemplo proporcionados en el formulario o
 | server/utilidades/servirArchivo.js | Sirve los archivos permitidos con su tipo MIME |
 | js/formularioRegistro.js | Entrada del navegador; importa y conecta dependencias |
 | js/contratos | Clases base que definen contratos en ejecución |
-| js/modelos | Usuario, Alumno, Maestro y PersonalAseo |
+| js/modelos | Usuario, Alumno, Maestro, PersonalAseo y SoporteTI |
 | js/fabricas | Creación del objeto de la subclase seleccionada |
 | js/repositorios | Colección de usuarios en memoria del navegador |
 | js/servicios | Registro del objeto completo |

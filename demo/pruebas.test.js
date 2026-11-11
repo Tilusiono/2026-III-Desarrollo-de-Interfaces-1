@@ -4,26 +4,29 @@ import { Usuario } from './js/modelos/Usuario.js';
 import { Alumno } from './js/modelos/Alumno.js';
 import { Maestro } from './js/modelos/Maestro.js';
 import { PersonalAseo } from './js/modelos/PersonalAseo.js';
+import { SoporteTI } from './js/modelos/SoporteTI.js';
 import { FabricaUsuarios } from './js/fabricas/FabricaUsuarios.js';
 import { RepositorioUsuariosMemoria } from './js/repositorios/RepositorioUsuariosMemoria.js';
 import { RegistroUsuarios } from './js/servicios/RegistroUsuarios.js';
 import { TablaUsuarios } from './js/vistas/TablaUsuarios.js';
 const comunes=['Ana','Pérez','ana@example.com','999999999','1993-08-28','femenino','Mensaje de prueba'];
-const fabrica=new FabricaUsuarios({alumno:Alumno,maestro:Maestro,personalAseo:PersonalAseo});
+const fabrica=new FabricaUsuarios({alumno:Alumno,maestro:Maestro,personalAseo:PersonalAseo,soporteTI:SoporteTI});
 const objetos=()=>[
  fabrica.crear('alumno',...comunes,'ALU-001','Sistemas'),
  fabrica.crear('maestro',...comunes,'Matemáticas','Maestría'),
- fabrica.crear('personalAseo',...comunes,'Pabellón A','Mañana')
+ fabrica.crear('personalAseo',...comunes,'Pabellón A','Mañana'),
+ fabrica.crear('soporteTI',...comunes,'Redes','Nivel 1')
 ];
 test('acumula objetos completos de los tres roles',()=>{
  const servicio=new RegistroUsuarios(new RepositorioUsuariosMemoria());
  objetos().forEach(u=>servicio.registrar(u));
- assert.equal(servicio.listar().length,3);
- assert.deepEqual(servicio.listar().map(u=>u.obtenerRol()),['Alumno','Maestro','Personal de aseo']);
+ assert.equal(servicio.listar().length,4);
+ assert.deepEqual(servicio.listar().map(u=>u.obtenerRol()),['Alumno','Maestro','Personal de aseo','Soporte TI']);
  servicio.listar().forEach(u=>{assert.ok(u instanceof Usuario);assert.equal(u.obtenerDetalles().length,2);});
  assert.match(servicio.listar()[0].obtenerDescripcion(),/Sistemas/);
  assert.match(servicio.listar()[1].obtenerDescripcion(),/Matemáticas/);
  assert.match(servicio.listar()[2].obtenerDescripcion(),/Mañana/);
+ assert.match(servicio.listar()[3].obtenerDescripcion(),/Redes/);
 });
 test('campos privados controlados y campos públicos modificables',()=>{
  const [u]=objetos();
@@ -41,6 +44,7 @@ test('rechaza roles desconocidos y campos propios vacíos',()=>{
  assert.throws(()=>new Maestro(...comunes,'','Maestría'));
  assert.throws(()=>new Alumno(...comunes,'ALU-001',''));
  assert.throws(()=>new PersonalAseo(...comunes,'Área A',''));
+ assert.throws(()=>new SoporteTI(...comunes,'Redes',''));
 });
 test('listar protege la colección interna',()=>{
  const repo=new RepositorioUsuariosMemoria(); repo.guardar(objetos()[0]);
@@ -70,10 +74,10 @@ import { rutasFormulario } from './server/rutas/formulario.routes.js';
 test('cambio de rol activa solo sus dos campos propios',()=>{
  const selector={value:'',addEventListener(evento,fn){this.cambiar=fn;}};
  const panel=(rol,a,b)=>({dataset:{rol},hidden:true,disabled:true,querySelectorAll(){return [{value:a},{value:b}];}});
- const paneles=[panel('alumno','ALU-001','Sistemas'),panel('maestro','Matemáticas','Maestría'),panel('personalAseo','Biblioteca','Noche')];
+ const paneles=[panel('alumno','ALU-001','Sistemas'),panel('maestro','Matemáticas','Maestría'),panel('personalAseo','Biblioteca','Noche'),panel('soporteTI','Redes','Nivel 1')];
  const vista=new CamposRol(selector,paneles); vista.iniciar();
  assert.ok(paneles.every(p=>p.hidden&&p.disabled));
- for(const [i,tipo] of ['alumno','maestro','personalAseo'].entries()){
+ for(const [i,tipo] of ['alumno','maestro','personalAseo','soporteTI'].entries()){
   selector.value=tipo;selector.cambiar();
   assert.equal(paneles.filter(p=>!p.hidden).length,1);
   assert.equal(paneles[i].disabled,false);

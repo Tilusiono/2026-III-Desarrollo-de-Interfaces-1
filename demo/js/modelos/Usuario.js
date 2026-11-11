@@ -1,5 +1,7 @@
 import { RolUsuario } from "../contratos/RolUsuario.js";
 
+//EXTENDS -> HERENCIA POO
+//IMPLEMENTS -> 
 export class Usuario extends RolUsuario {
     #nombre;
     #apellido;

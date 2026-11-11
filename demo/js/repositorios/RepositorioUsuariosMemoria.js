@@ -11,3 +11,4 @@ export class RepositorioUsuariosMemoria extends RepositorioUsuarios {
         return [...this.#usuarios]; // Copia para proteger el arreglo interno.
     }
 }
+

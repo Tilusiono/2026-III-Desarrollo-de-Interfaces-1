@@ -1,6 +1,7 @@
 import { Alumno } from "./modelos/Alumno.js";
 import { Maestro } from "./modelos/Maestro.js";
 import { PersonalAseo } from "./modelos/PersonalAseo.js";
+import { SoporteTI } from "./modelos/SoporteTI.js";
 import { FabricaUsuarios } from "./fabricas/FabricaUsuarios.js";
 import { RepositorioUsuariosMemoria } from "./repositorios/RepositorioUsuariosMemoria.js";
 import { RegistroUsuarios } from "./servicios/RegistroUsuarios.js";
@@ -12,7 +13,8 @@ import { FormularioRegistro } from "./controladores/FormularioRegistro.js";
 const fabrica = new FabricaUsuarios({
     alumno: Alumno,
     maestro: Maestro,
-    personalAseo: PersonalAseo
+    personalAseo: PersonalAseo,
+    soporteTI: SoporteTI
 });
 const repositorio = new RepositorioUsuariosMemoria();
 const servicio = new RegistroUsuarios(repositorio);
